@@ -36,7 +36,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>img/logo.ico</normaloff>img/logo.ico</iconset>
+    <normaloff>img/driver.ico</normaloff>img/driver.ico</iconset>
   </property>
   <widget class="QCalendarWidget" name="calendar">
    <property name="geometry">

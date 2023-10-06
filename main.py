@@ -1,8 +1,17 @@
 import eventos
 from MainWindow import *
 from CalendarWindow import *
+from ExitWindow import *
+from AboutWindow import *
 import sys, var
 from datetime import datetime
+
+
+class About(QtWidgets.QDialog):
+    def __init__(self):
+        super(About, self).__init__()
+        var.aboutWindow = Ui_dlgAbout()
+        var.aboutWindow.setupUi(self)
 
 
 class Calendar(QtWidgets.QDialog):
@@ -16,6 +25,21 @@ class Calendar(QtWidgets.QDialog):
         ano = datetime.now().year
 
 
+class Exit(QtWidgets.QDialog):
+
+    def __init__(self):
+        super(Exit, self).__init__()
+        var.exitWindow = Ui_dlgSalir()
+        var.exitWindow.setupUi(self)
+
+        '''
+            Zona de Eventos de botones de dlgSalir
+        '''
+
+        var.exitWindow.btnSalirSi.clicked.connect(eventos.Eventos.confirmarSalir)
+        var.exitWindow.btnSalirNo.clicked.connect(eventos.Eventos.cancelarSalir)
+
+
 class Main(QtWidgets.QMainWindow):
 
     def __init__(self):
@@ -23,6 +47,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui = Ui_MainWindow()
         var.ui.setupUi(self)  # Método encargado de generar la interfaz
         var.calendar = Calendar()
+        var.exitWindow = Exit()
+        var.aboutWindow = About()
 
         '''
         
@@ -31,14 +57,14 @@ class Main(QtWidgets.QMainWindow):
         '''
 
         var.ui.btnCalendar.clicked.connect(eventos.Eventos.abrirCalendar)
-
         '''
             
             Zona de eventos del menubars
         
         '''
 
-        var.ui.actionSalir.triggered.connect(eventos.Eventos.salir)
+        var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
+        var.ui.actionAcerca_de.triggered.connect(eventos.Eventos.acercade)
 
 
 if __name__ == '__main__':
