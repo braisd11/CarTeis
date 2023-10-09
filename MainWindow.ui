@@ -79,10 +79,10 @@
        <widget class="QFrame" name="frame">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>70</x>
           <y>10</y>
-          <width>733</width>
-          <height>76</height>
+          <width>839</width>
+          <height>128</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -105,54 +105,14 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="8">
-          <widget class="QPushButton" name="btnCalendar">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>img/calendar.ico</normaloff>img/calendar.ico</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="lblApel">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Apellidos:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="7">
-          <widget class="QLineEdit" name="txtFechaAlta">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>80</horstretch>
-             <verstretch>20</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>20</height>
-            </size>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="1">
           <widget class="QLabel" name="lblCodBD">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
              <width>100</width>
@@ -167,6 +127,25 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="lblDNI">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>DNI:</string>
            </property>
           </widget>
          </item>
@@ -186,33 +165,6 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="6" colspan="3">
-          <widget class="QLineEdit" name="txtNombre"/>
-         </item>
-         <item row="0" column="6">
-          <widget class="QLabel" name="lblFechaAlta">
-           <property name="text">
-            <string>Fecha Alta:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="3">
-          <widget class="QLineEdit" name="txtApel">
-           <property name="minimumSize">
-            <size>
-             <width>300</width>
-             <height>20</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QLabel" name="lblNombre">
-           <property name="text">
-            <string>Nombre:</string>
            </property>
           </widget>
          </item>
@@ -250,16 +202,203 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="lblDNI">
+         <item row="0" column="5" colspan="2">
+          <widget class="QLabel" name="lblFechaAlta">
+           <property name="text">
+            <string>Fecha Alta:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7">
+          <widget class="QLineEdit" name="txtFechaAlta">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>80</horstretch>
+             <verstretch>20</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
-             <width>50</width>
+             <width>80</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="8">
+          <widget class="QPushButton" name="btnCalendar">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>img/calendar.ico</normaloff>img/calendar.ico</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lblApel">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
              <height>20</height>
             </size>
            </property>
            <property name="text">
-            <string>DNI:</string>
+            <string>Apellidos:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="3">
+          <widget class="QLineEdit" name="txtApel">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="5">
+          <widget class="QLabel" name="lblNombre">
+           <property name="text">
+            <string>Nombre:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="7" colspan="2">
+          <widget class="QLineEdit" name="txtNombre"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="lblDirDriver">
+           <property name="text">
+            <string>Dirección:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="3">
+          <widget class="QLineEdit" name="txtDirDriver">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5">
+          <widget class="QLabel" name="lblProv">
+           <property name="text">
+            <string>Provincia:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="6" colspan="2">
+          <widget class="QComboBox" name="cmbLocalidad_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>120</horstretch>
+             <verstretch>20</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="8">
+          <widget class="QLabel" name="lblLoc">
+           <property name="text">
+            <string>Localidad:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="9">
+          <widget class="QComboBox" name="cmbLocalidad">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>120</horstretch>
+             <verstretch>20</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="lblMovilDriver">
+           <property name="text">
+            <string>Móvil:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="txtMovilDriver">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="lblSalario">
+           <property name="text">
+            <string>Salario:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="txtSalario">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
