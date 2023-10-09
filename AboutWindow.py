@@ -13,6 +13,13 @@ class Ui_dlgAbout(object):
     def setupUi(self, dlgAbout):
         dlgAbout.setObjectName("dlgAbout")
         dlgAbout.resize(391, 267)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(dlgAbout.sizePolicy().hasHeightForWidth())
+        dlgAbout.setSizePolicy(sizePolicy)
+        dlgAbout.setMinimumSize(QtCore.QSize(391, 267))
+        dlgAbout.setMaximumSize(QtCore.QSize(391, 267))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         dlgAbout.setWindowIcon(icon)

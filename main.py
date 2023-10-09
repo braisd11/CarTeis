@@ -1,3 +1,4 @@
+import drivers
 import eventos
 from MainWindow import *
 from CalendarWindow import *
@@ -5,6 +6,7 @@ from ExitWindow import *
 from AboutWindow import *
 import sys, var
 from datetime import datetime
+
 
 
 class About(QtWidgets.QDialog):
@@ -65,6 +67,14 @@ class Main(QtWidgets.QMainWindow):
 
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionAcerca_de.triggered.connect(eventos.Eventos.acercade)
+
+        '''
+        
+            Zona de eventos de las cajas de texto
+        
+        '''
+
+        var.ui.txtDNI.editingFinished.connect(drivers.Drivers.validarDNI)
 
 
 if __name__ == '__main__':

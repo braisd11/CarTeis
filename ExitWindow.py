@@ -13,6 +13,13 @@ class Ui_dlgSalir(object):
     def setupUi(self, dlgSalir):
         dlgSalir.setObjectName("dlgSalir")
         dlgSalir.resize(400, 111)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(dlgSalir.sizePolicy().hasHeightForWidth())
+        dlgSalir.setSizePolicy(sizePolicy)
+        dlgSalir.setMinimumSize(QtCore.QSize(400, 111))
+        dlgSalir.setMaximumSize(QtCore.QSize(400, 111))
         self.gridLayout = QtWidgets.QGridLayout(dlgSalir)
         self.gridLayout.setObjectName("gridLayout")
         self.btnSalirNo = QtWidgets.QPushButton(parent=dlgSalir)
