@@ -8,7 +8,6 @@ import sys, var
 from datetime import datetime
 
 
-
 class About(QtWidgets.QDialog):
     def __init__(self):
         super(About, self).__init__()
@@ -25,6 +24,8 @@ class Calendar(QtWidgets.QDialog):
         dia = datetime.now().day
         mes = datetime.now().month
         ano = datetime.now().year
+        var.calendar.Calendar.setSelectedDate((QtCore.QDate(ano, mes, dia)))
+        var.calendar.Calendar.clicked.connect(drivers.Drivers.cargarFecha)
 
 
 class Exit(QtWidgets.QDialog):
@@ -75,6 +76,15 @@ class Main(QtWidgets.QMainWindow):
         '''
 
         var.ui.txtDNI.editingFinished.connect(drivers.Drivers.validarDNI)
+
+
+        '''
+            
+            Zona de eventos de la toolbar
+        '''
+
+        var.ui.actionbarSalir.triggered.connect(eventos.Eventos.confirmarSalir)
+        var.ui.actionlimpiarPanel.triggered.connect(eventos.Eventos.limpiarPanel)
 
 
 if __name__ == '__main__':

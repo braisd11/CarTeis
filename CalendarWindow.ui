@@ -36,9 +36,9 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>img/driver.ico</normaloff>img/driver.ico</iconset>
+    <normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
   </property>
-  <widget class="QCalendarWidget" name="calendar">
+  <widget class="QCalendarWidget" name="Calendar">
    <property name="geometry">
     <rect>
      <x>0</x>

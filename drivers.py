@@ -1,7 +1,16 @@
 import var
-
+from datetime import datetime
 
 class Drivers():
+    def cargarFecha(qDate):
+        try:
+            data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
+            var.ui.txtDataDriver.setText(str(data))
+            var.calendar.hide()
+
+        except Exception as error:
+            print("error en cargar fecha", error)
+
     def validarDNI(self=None):
         try:
             dni = var.ui.txtDNI.text()
@@ -22,8 +31,13 @@ class Drivers():
                 else:
                     var.ui.lblValidarDNI.setText('X')
                     var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                    var.ui.txtDNI.clear()
+                    var.ui.txtDNI.setFocus()
             else:
                 var.ui.lblValidarDNI.setText('X')
                 var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                var.ui.txtDNI.clear()
+                var.ui.txtDNI.setFocus()
         except Exception as error:
             print("error en validar dni ", error)
+
