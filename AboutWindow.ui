@@ -33,7 +33,8 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>img/driver.ico</normaloff>img/driver.ico</iconset>
+    <normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normaloff>
+    <normalon>img/driver.ico</normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
   </property>
   <widget class="QLabel" name="lblAutor">
    <property name="geometry">
