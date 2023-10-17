@@ -1,10 +1,14 @@
 import var, sys
+from datetime import datetime
+from PyQt6 import QtWidgets, QtCore
+
 
 class Eventos():
 
     def limpiarPanel(self):
         try:
-            listaWidgets = [var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel, var.ui.txtNombre, var.ui.txtDirDriver, var.ui.txtMovilDriver, var.ui.txtSalario, var.ui.lblValidarDNI]
+            listaWidgets = [var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel, var.ui.txtNombre, var.ui.txtDirDriver,
+                            var.ui.txtMovilDriver, var.ui.txtSalario, var.ui.lblValidarDNI]
             for i in listaWidgets:
                 i.clear()
         except Exception as error:
@@ -54,4 +58,46 @@ class Eventos():
 
             print("error en abrir calendar", error)
 
+    def cargastatusbar(self):
+        try:
+            '''
 
+                Zona de eventos de StatusBar
+            '''
+            fecha = datetime.now().strftime("%A - " + "%d/%m/%Y")
+            self.labelstatus = QtWidgets.QLabel(fecha, self)
+            self.labelstatus.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            var.ui.statusbar.addPermanentWidget(self.labelstatus, 1)
+            self.labelstatusversion = QtWidgets.QLabel("Versión: " + var.version, self)
+            self.labelstatusversion.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
+            var.ui.statusbar.addPermanentWidget(self.labelstatusversion, 0)
+
+        except Exception as error:
+
+            print("error en cargar statusbar", error)
+
+    def cargaprov(self):
+        try:
+            prov = ['A Coruña', 'Lugo', 'Ferrol', 'Vigo', 'Santiago de Compostela', 'Ourense', 'Pontevedra']
+            var.ui.cmbProv.clear()
+            var.ui.cmbProv.addItem("---")
+            for i in prov:
+                var.ui.cmbProv.addItem(str(i))
+
+        except Exception as error:
+
+            print("Error al mostar cmbProv")
+
+    def selEstado(self):
+
+        if var.ui.rbtTodos.isChecked():
+
+            print("Pulsaste Todos")
+
+        if var.ui.rbtAlta.isChecked():
+
+            print("Pulsaste Alta")
+
+        if var.ui.rbtBaja.isChecked():
+
+            print("Pulsaste Baja")

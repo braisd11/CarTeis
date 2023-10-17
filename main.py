@@ -4,6 +4,9 @@ from windowaux import *
 from MainWindow import *
 from AboutWindow import *
 import sys, var
+import locale
+
+locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 
 class Main(QtWidgets.QMainWindow):
@@ -50,17 +53,21 @@ class Main(QtWidgets.QMainWindow):
         var.ui.actionlimpiarPanel.triggered.connect(eventos.Eventos.limpiarPanel)
 
         '''
-            
-            Zona de eventos de StatusBar
+            Zona de ejecución de accionas al iniciar programa
         '''
-        var.ui.statusbar.showMessage(f"{datetime.today()} || version: {var.version}")
+
+        eventos.Eventos.cargastatusbar(self)
+        eventos.Eventos.cargaprov(self)
+        rbtDriver = [var.ui.rbtTodos, var.ui.rbtAlta, var.ui.rbtBaja]
+        for i in rbtDriver:
+            i.toggled.connect(eventos.Eventos.selEstado)
 
     def closeEvent(self, event):
-        #event.ignore()
-        #eventos.Eventos.showSalir(self)
+        # event.ignore()
+        # eventos.Eventos.showSalir(self)
 
         mbox = QtWidgets.QMessageBox.information(self, 'Salir', '¿Estás seguro de que quieres salir?',
-                                                QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+                                                 QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
 
         if mbox == QtWidgets.QMessageBox.StandardButton.Yes:
             app.quit()
@@ -69,11 +76,7 @@ class Main(QtWidgets.QMainWindow):
 
 
 if __name__ == '__main__':
-    var.version = "0.1.1"
     app = QtWidgets.QApplication([])
     window = Main()
     window.show()
     sys.exit(app.exec())
-
-
-

@@ -3,4 +3,4 @@ global calendar
 global exitWindow
 global aboutWindow
 global driver
-global version
+version = "0.1.3"
