@@ -26,6 +26,7 @@ class Main(QtWidgets.QMainWindow):
         '''
 
         var.ui.btnCalendar.clicked.connect(eventos.Eventos.abrirCalendar)
+        var.ui.btnAltaDriver.clicked.connect(drivers.Drivers.altaDriver)
 
         '''
             
@@ -49,8 +50,8 @@ class Main(QtWidgets.QMainWindow):
             Zona de eventos de la toolbar
         '''
 
-        var.ui.actionbarSalir.triggered.connect(eventos.Eventos.showSalir)
-        var.ui.actionlimpiarPanel.triggered.connect(eventos.Eventos.limpiarPanel)
+        var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
+        var.ui.actionlimpiarPanel.triggered.connect(drivers.Drivers.limpiarPanel)
 
         '''
             Zona de ejecución de accionas al iniciar programa
@@ -60,7 +61,14 @@ class Main(QtWidgets.QMainWindow):
         eventos.Eventos.cargaprov(self)
         rbtDriver = [var.ui.rbtTodos, var.ui.rbtAlta, var.ui.rbtBaja]
         for i in rbtDriver:
-            i.toggled.connect(eventos.Eventos.selEstado)
+            i.clicked.connect(eventos.Eventos.selEstado)
+
+
+        '''
+        
+            Eventos de Tablas
+        '''
+
 
     def closeEvent(self, event):
         # event.ignore()
