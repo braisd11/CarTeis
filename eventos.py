@@ -1,7 +1,9 @@
 import var, sys
 from datetime import datetime
 from PyQt6 import QtWidgets, QtCore
+import locale
 
+locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
 
 class Eventos():
 
@@ -94,3 +96,23 @@ class Eventos():
         if var.ui.rbtBaja.isChecked():
 
             print("Pulsaste Baja")
+
+    def resizeTabdrivers(self):
+        try:
+            header = var.ui.tabDrivers.horizontalHeader()
+            for i in range(var.ui.tabDrivers.columnCount()):
+                if i == 0 or i == 4 or i == 3:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+                elif i == 1 or i == 2:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        except Exception as error:
+            print("error con resizeTabdrivers", error)
+
+    def letraCapital(self = None):
+        try:
+            var.ui.txtApel.setText(var.ui.txtApel.text().title())
+            var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
+            var.ui.txtSalario.setText(str(locale.currency(float(var.ui.txtSalario.text()))))
+
+        except Exception as error:
+            print("error con letra capital", error)

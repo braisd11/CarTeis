@@ -7,6 +7,7 @@ import sys, var
 import locale
 
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
 
 
 class Main(QtWidgets.QMainWindow):
@@ -44,6 +45,9 @@ class Main(QtWidgets.QMainWindow):
         '''
 
         var.ui.txtDNI.editingFinished.connect(drivers.Drivers.validarDNI)
+        var.ui.txtApel.editingFinished.connect(eventos.Eventos.letraCapital)
+        var.ui.txtNombre.editingFinished.connect(eventos.Eventos.letraCapital)
+        var.ui.txtSalario.editingFinished.connect(eventos.Eventos.letraCapital)
 
         '''
             
@@ -68,7 +72,7 @@ class Main(QtWidgets.QMainWindow):
         
             Eventos de Tablas
         '''
-
+        eventos.Eventos.resizeTabdrivers(self)
 
     def closeEvent(self, event):
         # event.ignore()
