@@ -1,3 +1,4 @@
+import conexion
 import drivers
 import eventos
 from windowaux import *
@@ -19,6 +20,8 @@ class Main(QtWidgets.QMainWindow):
         var.calendar = Calendar()
         var.exitWindow = Exit()
         var.aboutWindow = About()
+        conexion.Conexion.conexion()
+        conexion.Conexion.cargaprov()
 
         '''
         
@@ -28,6 +31,7 @@ class Main(QtWidgets.QMainWindow):
 
         var.ui.btnCalendar.clicked.connect(eventos.Eventos.abrirCalendar)
         var.ui.btnAltaDriver.clicked.connect(drivers.Drivers.altaDriver)
+        var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
 
         '''
             
@@ -47,7 +51,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.txtDNI.editingFinished.connect(drivers.Drivers.validarDNI)
         var.ui.txtApel.editingFinished.connect(eventos.Eventos.letraCapital)
         var.ui.txtNombre.editingFinished.connect(eventos.Eventos.letraCapital)
-        var.ui.txtSalario.editingFinished.connect(eventos.Eventos.letraCapital)
+        var.ui.txtSalario.editingFinished.connect(eventos.Eventos.compruebaFormatoSalario)
+        var.ui.txtMovilDriver.editingFinished.connect(eventos.Eventos.compruebaMovil)
 
         '''
             
@@ -62,7 +67,6 @@ class Main(QtWidgets.QMainWindow):
         '''
 
         eventos.Eventos.cargastatusbar(self)
-        eventos.Eventos.cargaprov(self)
         rbtDriver = [var.ui.rbtTodos, var.ui.rbtAlta, var.ui.rbtBaja]
         for i in rbtDriver:
             i.clicked.connect(eventos.Eventos.selEstado)

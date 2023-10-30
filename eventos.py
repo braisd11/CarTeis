@@ -112,7 +112,54 @@ class Eventos():
         try:
             var.ui.txtApel.setText(var.ui.txtApel.text().title())
             var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
-            var.ui.txtSalario.setText(str(locale.currency(float(var.ui.txtSalario.text()))))
 
         except Exception as error:
             print("error con letra capital", error)
+
+
+    def compruebaFormatoSalario(self = None):
+        try:
+
+            salario = var.ui.txtSalario.text()
+            var.ui.txtSalario.setText(salario)
+
+            salarioNum = float(salario)
+
+            if salarioNum >= 0.00:
+                var.ui.txtSalario.setText(str(locale.currency(float(var.ui.txtSalario.text()))))
+            else:
+                raise Exception()
+
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            msg.setText('Valor de Salario Incorrecto (00000.00)')
+            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.exec()
+            var.ui.txtSalario.setText("")
+            var.ui.txtSalario.setFocus()
+
+    def compruebaMovil(self = None):
+        try:
+            movil = var.ui.txtMovilDriver.text()
+            var.ui.txtMovilDriver.setText(movil)
+
+            if len(movil) == 9 or movil.isdigit():
+                pass
+            else:
+                raise Exception()
+
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            msg.setText('Valor de Móvil Incorrecto (9 dígitos)')
+            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.exec()
+            var.ui.txtMovilDriver.setText("")
+            var.ui.txtMovilDriver.setFocus()
