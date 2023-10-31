@@ -1,4 +1,6 @@
 from PyQt6 import QtWidgets, QtSql, QtCore
+
+import drivers
 import var
 
 class Conexion():
@@ -92,6 +94,7 @@ class Conexion():
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
                 mbox.setText("Error al guardar el driver")
                 mbox.exec()
+            #drivers.Drivers.cargartabla(datosdri)
 
         except Exception as error:
             print("Error al guardar el driver", error)
