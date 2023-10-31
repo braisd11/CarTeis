@@ -65,13 +65,12 @@ class Drivers():
         try:
             driver = [var.ui.txtDNI,
                       var.ui.txtDataDriver,
-                      var.ui.txtApel,
                       var.ui.txtNombre,
+                      var.ui.txtApel,
                       var.ui.txtDirDriver,
                       var.ui.txtMovilDriver,
                       var.ui.txtSalario]
             newdriver=[]
-            newdriver.append(1)
             for i in driver:
                 newdriver.append(i.text().title())
 
@@ -86,11 +85,13 @@ class Drivers():
                 if i.isChecked():
                     licencias.append(i.text())
             newdriver.append('/'.join(licencias))
-            #conexion.Conexion.guardarcli()
-            print(newdriver)
-            index = 0
+
+            conexion.Conexion.guardardri(newdriver)
 
             '''
+            index = 0
+
+            
             var.ui.tabDrivers.setRowCount(index+1)  # Crea una fila
             
             # Debajo hay una opción sin for para cuando utilicemos BBDD
@@ -98,7 +99,7 @@ class Drivers():
                 var.ui.tabDrivers.setItem(index, i, QtWidgets.QTableWidgetItem(str(newdriver[i])))
                 if i == 3 or i == 4:
                     var.ui.tabDrivers.Item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-            '''
+            
 
             # OPCIÓN SIN FOR
                 
@@ -109,7 +110,8 @@ class Drivers():
             var.ui.tabDrivers.setItem(index, 2, QtWidgets.QTableWidgetItem(str(newdriver[2])))
             var.ui.tabDrivers.setItem(index, 3, QtWidgets.QTableWidgetItem(str(newdriver[3])))
             var.ui.tabDrivers.setItem(index, 4, QtWidgets.QTableWidgetItem(str(newdriver[4])))
-            var.ui.tabDrivers.Item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-
+            #var.ui.tabDrivers.Item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            
+            '''
         except Exception as error:
             print("Error con alta driver", error)

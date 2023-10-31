@@ -60,3 +60,38 @@ class Conexion():
 
         except Exception as error:
             print("Error seleccion municipios", error)
+
+    @staticmethod
+    def guardardri(newdriver):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('insert into drivers (dnidri, altadri, nombredri, apeldri, '
+                          'direcciondri, provdri, munidri, movildri, salario, carnet) VALUES (:dni, :alta, :nombre, '
+                          ':apel, :direccion, :prov, :muni, :movil, :salario, :carnet)')
+            query.bindValue(':dni', str(newdriver[0]))
+            query.bindValue(':alta', str(newdriver[1]))
+            query.bindValue(':nombre', str(newdriver[2]))
+            query.bindValue(':apel', str(newdriver[3]))
+            query.bindValue(':direccion', str(newdriver[4]))
+            query.bindValue(':prov', str(newdriver[5]))
+            query.bindValue(':muni', str(newdriver[6]))
+            query.bindValue(':movil', str(newdriver[7]))
+            query.bindValue(':salario', str(newdriver[8]))
+            query.bindValue(':carnet', str(newdriver[9]))
+
+            if query.exec():
+                print(newdriver)
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Empleado dado de alta")
+                mbox.exec()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Error al guardar el driver")
+                mbox.exec()
+
+        except Exception as error:
+            print("Error al guardar el driver", error)
