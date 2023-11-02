@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normalon>img/driver.ico</normalon>
+    <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>
    </iconset>
   </property>
   <widget class="QPushButton" name="btnSalirNo">
@@ -134,7 +134,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>img/driver.ico</pixmap>
+    <pixmap>../img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

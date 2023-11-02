@@ -34,7 +34,7 @@
   <property name="windowIcon">
    <iconset>
     <normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normaloff>
-    <normalon>img/driver.ico</normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
+    <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
   </property>
   <widget class="QLabel" name="lblAutor">
    <property name="geometry">
@@ -117,7 +117,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>img/driver.ico</pixmap>
+    <pixmap>../img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

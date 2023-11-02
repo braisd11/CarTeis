@@ -32,12 +32,11 @@ class Drivers():
                     var.ui.lblValidarDNI.setText('X')
                     var.ui.lblValidarDNI.setStyleSheet('color:red;')
                     var.ui.txtDNI.clear()
-                    var.ui.txtDNI.setFocus()
             else:
                 var.ui.lblValidarDNI.setText('X')
                 var.ui.lblValidarDNI.setStyleSheet('color:red;')
                 var.ui.txtDNI.clear()
-                var.ui.txtDNI.setFocus()
+
         except Exception as error:
             print("error en validar dni ", error)
 
@@ -63,6 +62,8 @@ class Drivers():
 
     def altaDriver(self):
         try:
+
+
             driver = [var.ui.txtDNI,
                       var.ui.txtDataDriver,
                       var.ui.txtNombre,
@@ -115,3 +116,21 @@ class Drivers():
             '''
         except Exception as error:
             print("Error con alta driver", error)
+
+    def cargartabladri(registros):
+        try:
+            index = 0
+            for registro in registros:
+                var.ui.tabDrivers.setRowCount(index + 1)
+                var.ui.tabDrivers.setItem(index, 0, QtWidgets.QTableWidgetItem(str(registro[0])))
+                var.ui.tabDrivers.setItem(index, 1, QtWidgets.QTableWidgetItem(str(registro[1])))
+                var.ui.tabDrivers.setItem(index, 2, QtWidgets.QTableWidgetItem(str(registro[2])))
+                var.ui.tabDrivers.setItem(index, 3, QtWidgets.QTableWidgetItem(str(registro[3])))
+                var.ui.tabDrivers.setItem(index, 4, QtWidgets.QTableWidgetItem(str(registro[4])))
+                var.ui.tabDrivers.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabDrivers.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabDrivers.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                index += 1
+
+        except Exception as error:
+            print('error en alta cliente', error)

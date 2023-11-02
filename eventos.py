@@ -1,6 +1,6 @@
 import var, sys
 from datetime import datetime
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets, QtCore, QtGui
 import locale
 
 locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
@@ -138,6 +138,7 @@ class Eventos():
             msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
             msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
             msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
             msg.exec()
             var.ui.txtSalario.setText("")
             var.ui.txtSalario.setFocus()
@@ -147,7 +148,7 @@ class Eventos():
             movil = var.ui.txtMovilDriver.text()
             var.ui.txtMovilDriver.setText(movil)
 
-            if len(movil) == 9 or movil.isdigit():
+            if len(movil) == 9 or (movil.isdigit() and len(movil) == 9):
                 pass
             else:
                 raise Exception()
@@ -160,6 +161,7 @@ class Eventos():
             msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
             msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
             msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
             msg.exec()
             var.ui.txtMovilDriver.setText("")
             var.ui.txtMovilDriver.setFocus()

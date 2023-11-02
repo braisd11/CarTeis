@@ -65,7 +65,7 @@ class Main(QtWidgets.QMainWindow):
         '''
             Zona de ejecución de accionas al iniciar programa
         '''
-
+        conexion.Conexion.mostrardrivers()
         eventos.Eventos.cargastatusbar(self)
         rbtDriver = [var.ui.rbtTodos, var.ui.rbtAlta, var.ui.rbtBaja]
         for i in rbtDriver:
