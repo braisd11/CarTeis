@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'ExitWindow.ui'
+# Form implementation generated from reading ui file '.\templates\ExitWindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.2
 #
@@ -21,7 +21,7 @@ class Ui_dlgSalir(object):
         dlgSalir.setMinimumSize(QtCore.QSize(350, 250))
         dlgSalir.setMaximumSize(QtCore.QSize(350, 250))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         dlgSalir.setWindowIcon(icon)
         self.btnSalirNo = QtWidgets.QPushButton(parent=dlgSalir)
         self.btnSalirNo.setGeometry(QtCore.QRect(230, 190, 75, 23))
@@ -65,7 +65,7 @@ class Ui_dlgSalir(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap(".\\templates\\../img/driver.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 

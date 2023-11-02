@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'AboutWindow.ui'
+# Form implementation generated from reading ui file '.\templates\AboutWindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.2
 #
@@ -22,7 +22,7 @@ class Ui_dlgAbout(object):
         dlgAbout.setMaximumSize(QtCore.QSize(391, 267))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        icon.addPixmap(QtGui.QPixmap("img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         dlgAbout.setWindowIcon(icon)
         self.lblAutor = QtWidgets.QLabel(parent=dlgAbout)
         self.lblAutor.setGeometry(QtCore.QRect(30, 240, 111, 16))
@@ -48,7 +48,7 @@ class Ui_dlgAbout(object):
         self.lblIcon = QtWidgets.QLabel(parent=dlgAbout)
         self.lblIcon.setGeometry(QtCore.QRect(20, 10, 121, 121))
         self.lblIcon.setText("")
-        self.lblIcon.setPixmap(QtGui.QPixmap("img/driver.ico"))
+        self.lblIcon.setPixmap(QtGui.QPixmap(".\\templates\\../img/driver.ico"))
         self.lblIcon.setScaledContents(True)
         self.lblIcon.setObjectName("lblIcon")
         self.lblDescrip = QtWidgets.QLabel(parent=dlgAbout)
