@@ -89,31 +89,7 @@ class Drivers():
 
             conexion.Conexion.guardardri(newdriver)
 
-            '''
-            index = 0
 
-            
-            var.ui.tabDrivers.setRowCount(index+1)  # Crea una fila
-            
-            # Debajo hay una opción sin for para cuando utilicemos BBDD
-            for i in range(var.ui.tabDrivers.columnCount()-1):
-                var.ui.tabDrivers.setItem(index, i, QtWidgets.QTableWidgetItem(str(newdriver[i])))
-                if i == 3 or i == 4:
-                    var.ui.tabDrivers.Item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-            
-
-            # OPCIÓN SIN FOR
-                
-                
-            var.ui.tabDrivers.setRowCount(index + 1)  # Crea una fila
-            var.ui.tabDrivers.setItem(index, 0, QtWidgets.QTableWidgetItem(str(newdriver[0])))
-            var.ui.tabDrivers.setItem(index, 1, QtWidgets.QTableWidgetItem(str(newdriver[1])))
-            var.ui.tabDrivers.setItem(index, 2, QtWidgets.QTableWidgetItem(str(newdriver[2])))
-            var.ui.tabDrivers.setItem(index, 3, QtWidgets.QTableWidgetItem(str(newdriver[3])))
-            var.ui.tabDrivers.setItem(index, 4, QtWidgets.QTableWidgetItem(str(newdriver[4])))
-            #var.ui.tabDrivers.Item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-            
-            '''
         except Exception as error:
             print("Error con alta driver", error)
 
@@ -134,3 +110,28 @@ class Drivers():
 
         except Exception as error:
             print('error en alta cliente', error)
+
+    def cargardrivers(self):
+        try:
+            Drivers.limpiarPanel(self)
+
+            row = var.ui.tabDrivers.selectedItems()
+
+            fila = [dato.text() for dato in row]
+            registro = conexion.Conexion.onedriver(fila[0])
+
+            datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel,
+                     var.ui.txtNombre, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
+                     var.ui.txtMovilDriver, var.ui.txtSalario]
+            j = 0
+            for i in datos:
+                i.setText(str(registro[j]))
+                if j == 6:
+                    i.setCurrentText(str(registro[j]))
+
+                j = j + 1
+
+
+
+        except Exception as error:
+            print('error al cargar driver', error)

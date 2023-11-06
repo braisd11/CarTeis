@@ -331,6 +331,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addLayout(self.horizontalLayout_10, 5, 1, 1, 2)
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
         self.tabDrivers = QtWidgets.QTableWidget(parent=self.panelDrivers)
+        self.tabDrivers.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tabDrivers.setAlternatingRowColors(True)
         self.tabDrivers.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
         self.tabDrivers.setObjectName("tabDrivers")

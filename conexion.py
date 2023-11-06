@@ -120,9 +120,26 @@ class Conexion():
                 while query.next():
                     row = [query.value(i) for i in range(query.record().count())]
                     registro.append(row)
-            print(registro)
             drivers.Drivers.cargartabladri(registro)
 
 
         except Exception as error:
             print("error al cargar la tabla", error)
+
+
+    def onedriver(id):
+        try:
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select * from drivers where codigo = :id')
+
+            query.bindValue(':id', int(id))
+            if query.exec():
+                while query.next():
+                    for i in range(12):
+                        registro.append(str(query.value(i)))
+            return registro
+
+
+        except Exception as error:
+            print('error en fichero conexion dato de 1 driver', error)

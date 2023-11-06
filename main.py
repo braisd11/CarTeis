@@ -77,6 +77,7 @@ class Main(QtWidgets.QMainWindow):
             Eventos de Tablas
         '''
         eventos.Eventos.resizeTabdrivers(self)
+        var.ui.tabDrivers.clicked.connect(drivers.Drivers.cargardrivers)
 
     def closeEvent(self, event):
         # event.ignore()
