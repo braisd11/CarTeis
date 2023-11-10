@@ -141,6 +141,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../img/imagenesExit.qrc"/>
+ </resources>
  <connections/>
 </ui>

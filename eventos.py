@@ -112,6 +112,7 @@ class Eventos():
         try:
             var.ui.txtApel.setText(var.ui.txtApel.text().title())
             var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
+            var.ui.txtDNI.setText(var.ui.txtDNI.text().title())
 
         except Exception as error:
             print("error con letra capital", error)

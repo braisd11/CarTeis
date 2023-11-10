@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="imagenes">
+    <file>calendar.ico</file>
+    <file>driver.ico</file>
+    <file>exit.ico</file>
+    <file>imagenes.qrc</file>
+    <file>imagenesAcercaDe.qrc</file>
+    <file>logo.ico</file>
+    <file>lupa.ico</file>
+    <file>reload.ico</file>
+  </qresource>
+</RCC>

@@ -106,7 +106,7 @@
             <rect>
              <x>11</x>
              <y>11</y>
-             <width>801</width>
+             <width>860</width>
              <height>174</height>
             </rect>
            </property>
@@ -241,6 +241,35 @@
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="btnBuscar">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>28</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>28</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../img/lupa.ico</normaloff>../img/lupa.ico</iconset>
+                </property>
+               </widget>
+              </item>
              </layout>
             </item>
             <item row="0" column="2">
@@ -293,8 +322,7 @@
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>C:/Users/a22braisdr/.designer/img/calendar.ico</normaloff>
-                  <normalon>C:/Users/a22braisdr/.designer/img/calendar.ico</normalon>C:/Users/a22braisdr/.designer/img/calendar.ico</iconset>
+                  <normaloff>../img/calendar.ico</normaloff>../img/calendar.ico</iconset>
                 </property>
                </widget>
               </item>
@@ -694,6 +722,11 @@
         </item>
         <item row="1" column="0">
          <widget class="QTableWidget" name="tabDrivers">
+          <property name="styleSheet">
+           <string notr="true">QTableWidget::item:selected {
+    background-color: rgb(100,100,100);
+}</string>
+          </property>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
           </property>
@@ -840,7 +873,9 @@ background-color:rgb(100,100,100);
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../img/imagenes.qrc"/>
+ </resources>
  <connections/>
  <buttongroups>
   <buttongroup name="buttonGroup"/>

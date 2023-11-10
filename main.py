@@ -32,6 +32,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnCalendar.clicked.connect(eventos.Eventos.abrirCalendar)
         var.ui.btnAltaDriver.clicked.connect(drivers.Drivers.altaDriver)
         var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
+        var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
+        var.ui.btnModifDriver.clicked.connect(drivers.Drivers.modifDri)
 
         '''
             
@@ -47,8 +49,7 @@ class Main(QtWidgets.QMainWindow):
             Zona de eventos de las cajas de texto
         
         '''
-
-        var.ui.txtDNI.editingFinished.connect(drivers.Drivers.validarDNI)
+        var.ui.txtDNI.editingFinished.connect(eventos.Eventos.letraCapital)
         var.ui.txtApel.editingFinished.connect(eventos.Eventos.letraCapital)
         var.ui.txtNombre.editingFinished.connect(eventos.Eventos.letraCapital)
         var.ui.txtSalario.editingFinished.connect(eventos.Eventos.compruebaFormatoSalario)

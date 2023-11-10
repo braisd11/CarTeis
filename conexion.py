@@ -143,3 +143,60 @@ class Conexion():
 
         except Exception as error:
             print('error en fichero conexion dato de 1 driver', error)
+
+    def codDri(dni):
+        try:
+            registro = None
+            query = QtSql.QSqlQuery()
+            query.prepare('select codigo from drivers where dniDri = :dni')
+            query.bindValue(':dni', str(dni))
+            if query.exec():
+                while query.next():
+                    codigo = query.value(0)
+            try:
+                registro = Conexion.onedriver(codigo)
+            except Exception as error:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("No existe nadie con ese DNI")
+                mbox.exec()
+            return registro
+
+        except Exception as error:
+            print('error al buscar el dni', error)
+
+    def modifDriver(modifdriver):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('update drivers set dnidri = :dni, altadri = :alta ,nombredri = :nombre, apeldri = :apel, '
+                          'direcciondri = :direccion, provdri = :provincia, munidri = :municipio,'
+                          'movildri = :movil, salario = :salario, carnet = :carnet where codigo = :codigo')
+
+            query.bindValue(':codigo', int(modifdriver[0]))
+            query.bindValue(':dni', str(modifdriver[1]))
+            query.bindValue(':alta', str(modifdriver[2]))
+            query.bindValue(':apel', str(modifdriver[3]))
+            query.bindValue(':nombre', str(modifdriver[4]))
+            query.bindValue(':direccion', str(modifdriver[5]))
+            query.bindValue(':provincia', str(modifdriver[6]))
+            query.bindValue(':municipio', str(modifdriver[7]))
+            query.bindValue(':movil', str(modifdriver[8]))
+            query.bindValue(':salario', str(modifdriver[9]))
+            query.bindValue(':carnet', str(modifdriver[10]))
+
+            if query.exec():
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Datos conductor modificados")
+                mbox.exec()
+                Conexion.mostrardrivers()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Error al modificar los datos del conductor")
+                mbox.exec()
+        except Exception as error:
+            print("error en modificar driver conexion", error)

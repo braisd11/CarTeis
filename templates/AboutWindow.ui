@@ -140,6 +140,9 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../img/imagenesAcercaDe.qrc"/>
+  <include location="C:/Users/a22braisdr/.designer/img/imagenesExit.qrc"/>
+ </resources>
  <connections/>
 </ui>
