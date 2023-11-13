@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../img/driver.ico</normaloff>../img/driver.ico</iconset>
+    <normaloff>C:/Users/a22braisdr/.designer/img/driver.ico</normaloff>C:/Users/a22braisdr/.designer/img/driver.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QHeaderView::section:horizontal
@@ -852,7 +852,7 @@ background-color:rgb(100,100,100);
   <action name="actionlimpiarPanel">
    <property name="icon">
     <iconset>
-     <normaloff>../img/reload.ico</normaloff>../img/reload.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</iconset>
    </property>
    <property name="text">
     <string>limpiarPanel</string>
@@ -866,7 +866,7 @@ background-color:rgb(100,100,100);
   <action name="actionSalir">
    <property name="icon">
     <iconset>
-     <normaloff>../img/exit.ico</normaloff>../img/exit.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</iconset>
    </property>
    <property name="text">
     <string>Salir</string>
