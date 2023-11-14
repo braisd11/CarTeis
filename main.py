@@ -34,6 +34,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
         var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
         var.ui.btnModifDriver.clicked.connect(drivers.Drivers.modifDri)
+        var.ui.btnBajaDriver.clicked.connect(drivers.Drivers.borrarDriv)
 
         '''
             
@@ -62,6 +63,7 @@ class Main(QtWidgets.QMainWindow):
 
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionlimpiarPanel.triggered.connect(drivers.Drivers.limpiarPanel)
+        var.ui.actionlimpiarPanel.triggered.connect(conexion.Conexion.mostrardrivers)
 
         '''
             Zona de ejecución de accionas al iniciar programa

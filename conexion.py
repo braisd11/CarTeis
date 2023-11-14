@@ -2,6 +2,7 @@ from PyQt6 import QtWidgets, QtSql, QtCore
 
 import drivers
 import var
+import datetime
 
 class Conexion():
     def conexion(self=None):
@@ -150,10 +151,12 @@ class Conexion():
             query = QtSql.QSqlQuery()
             query.prepare('select codigo from drivers where dniDri = :dni')
             query.bindValue(':dni', str(dni))
+
             if query.exec():
                 while query.next():
                     codigo = query.value(0)
             try:
+
                 registro = Conexion.onedriver(codigo)
             except Exception as error:
                 mbox = QtWidgets.QMessageBox()
@@ -200,3 +203,40 @@ class Conexion():
                 mbox.exec()
         except Exception as error:
             print("error en modificar driver conexion", error)
+
+    def borraDriv(dni):
+        try:
+            query1 = QtSql.QSqlQuery()
+            query1.prepare('select bajadri from drivers where '
+                           'dnidri = :dni')
+            query1.bindValue(':dni', str(dni))
+            if query1.exec():
+                while query1.next():
+                    valor = query1.value(0)
+
+            if str(valor) == '':
+                fecha = datetime.date.today()
+                fecha = fecha.strftime('%d.%m.%Y')
+                query = QtSql.QSqlQuery()
+                query.prepare('update drivers set bajadri = :fechabaja where '
+                              'dnidri = :dni')
+                query.bindValue(':fechabaja', str(fecha))
+                query.bindValue(':dni', str(dni))
+
+                if query.exec():
+                    mbox = QtWidgets.QMessageBox()
+                    mbox.setWindowTitle('Aviso')
+                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                    mbox.setText("Conductor dado de baja")
+                    mbox.exec()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Error al dar de baja el conductor")
+                mbox.exec()
+
+
+            pass
+        except Exception as error:
+            print("error en borradriv en conexion", error)

@@ -112,13 +112,15 @@ class Drivers():
                 var.ui.tabDrivers.setItem(index, 2, QtWidgets.QTableWidgetItem(str(registro[2])))
                 var.ui.tabDrivers.setItem(index, 3, QtWidgets.QTableWidgetItem(str(registro[3])))
                 var.ui.tabDrivers.setItem(index, 4, QtWidgets.QTableWidgetItem(str(registro[4])))
+                var.ui.tabDrivers.setItem(index, 5, QtWidgets.QTableWidgetItem(str(registro[5])))
                 var.ui.tabDrivers.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabDrivers.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabDrivers.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabDrivers.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 index += 1
 
         except Exception as error:
-            print('error en alta cliente', error)
+            print('error cargar dato en tabla', error)
 
     def cargardrivers(self):
         try:
@@ -230,3 +232,19 @@ class Drivers():
 
         except Exception as error:
             print("Error al buscar driver en la tabla", error)
+
+
+
+    def borrarDriv(self):
+        try:
+            dni = var.ui.txtDNI.text()
+            conexion.Conexion.borraDriv(dni)
+            conexion.Conexion.mostrardrivers()
+
+
+        except Exception as error:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle('Aviso')
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("El conductor no existe o no se puede borrar")
+            mbox.exec()
