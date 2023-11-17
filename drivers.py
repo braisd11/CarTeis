@@ -239,7 +239,7 @@ class Drivers():
         try:
             dni = var.ui.txtDNI.text()
             conexion.Conexion.borraDriv(dni)
-            conexion.Conexion.mostrardrivers()
+            conexion.Conexion.mostrardriversalta()
 
 
         except Exception as error:

@@ -266,7 +266,7 @@
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../img/lupa.ico</normaloff>../img/lupa.ico</iconset>
+                  <normaloff>C:/Users/a22braisdr/.designer/img/lupa.ico</normaloff>C:/Users/a22braisdr/.designer/img/lupa.ico</iconset>
                 </property>
                </widget>
               </item>
@@ -322,7 +322,7 @@
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../img/calendar.ico</normaloff>../img/calendar.ico</iconset>
+                  <normaloff>C:/Users/a22braisdr/.designer/img/calendar.ico</normaloff>C:/Users/a22braisdr/.designer/img/calendar.ico</iconset>
                 </property>
                </widget>
               </item>
@@ -560,10 +560,10 @@
                  <string>Todos</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
+                 <string notr="true">btnGroupEstado</string>
                 </attribute>
                </widget>
               </item>
@@ -585,10 +585,10 @@
                  <string>Alta</string>
                 </property>
                 <property name="checked">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
+                 <string notr="true">btnGroupEstado</string>
                 </attribute>
                </widget>
               </item>
@@ -610,7 +610,7 @@
                  <string>Baja</string>
                 </property>
                 <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
+                 <string notr="true">btnGroupEstado</string>
                 </attribute>
                </widget>
               </item>
@@ -878,6 +878,6 @@ background-color:rgb(100,100,100);
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="btnGroupEstado"/>
  </buttongroups>
 </ui>

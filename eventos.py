@@ -1,3 +1,4 @@
+import conexion
 import var, sys
 from datetime import datetime
 from PyQt6 import QtWidgets, QtCore, QtGui
@@ -86,16 +87,13 @@ class Eventos():
     def selEstado(self):
 
         if var.ui.rbtTodos.isChecked():
-
-            print("Pulsaste Todos")
+            conexion.Conexion.mostrardrivers()
 
         if var.ui.rbtAlta.isChecked():
-
-            print("Pulsaste Alta")
+            conexion.Conexion.mostrardriversalta()
 
         if var.ui.rbtBaja.isChecked():
-
-            print("Pulsaste Baja")
+            conexion.Conexion.mostrardriversbaja()
 
     def resizeTabdrivers(self):
         try:
@@ -166,3 +164,5 @@ class Eventos():
             msg.exec()
             var.ui.txtMovilDriver.setText("")
             var.ui.txtMovilDriver.setFocus()
+
+

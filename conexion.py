@@ -240,3 +240,35 @@ class Conexion():
             pass
         except Exception as error:
             print("error en borradriv en conexion", error)
+
+    def mostrardriversalta(self = None):
+        try:
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers '
+                          'where bajadri is null')
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    registro.append(row)
+            drivers.Drivers.cargartabladri(registro)
+
+        except Exception as error:
+            print("error al cargar la tabla", error)
+
+    def mostrardriversbaja(self = None):
+        try:
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers '
+                          'where bajadri is not null')
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    registro.append(row)
+            drivers.Drivers.cargartabladri(registro)
+
+        except Exception as error:
+            print("error al cargar la tabla", error)
