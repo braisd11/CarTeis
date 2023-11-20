@@ -20,6 +20,7 @@ class Main(QtWidgets.QMainWindow):
         var.calendar = Calendar()
         var.exitWindow = Exit()
         var.aboutWindow = About()
+        var.dlgabrir = FileDialogAbrir()
         conexion.Conexion.conexion()
         conexion.Conexion.cargaprov()
 
@@ -44,6 +45,8 @@ class Main(QtWidgets.QMainWindow):
 
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionAcerca_de.triggered.connect(eventos.Eventos.acercade)
+        var.ui.actionCrear_Copia_de_Seguridad.triggered.connect(eventos.Eventos.crearbackup)
+        var.ui.actionCrear_Copia_de_Seguridad.triggered.connect(eventos.Eventos.restaurarbackup)
 
         '''
         

@@ -822,7 +822,15 @@
     </property>
     <addaction name="actionAcerca_de"/>
    </widget>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="actionCrear_Copia_de_Seguridad"/>
+    <addaction name="actionRestaurar_Copia_Seguridad"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuHerramientas"/>
    <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -848,11 +856,14 @@ background-color:rgb(100,100,100);
    <addaction name="actionlimpiarPanel"/>
    <addaction name="separator"/>
    <addaction name="actionSalir"/>
+   <addaction name="separator"/>
+   <addaction name="actionCrear_Copia_de_Seguridad"/>
+   <addaction name="actionRestaurar_Copia_Seguridad"/>
   </widget>
   <action name="actionlimpiarPanel">
    <property name="icon">
     <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</iconset>
+     <normaloff>../img/reload.ico</normaloff>../img/reload.ico</iconset>
    </property>
    <property name="text">
     <string>limpiarPanel</string>
@@ -866,10 +877,34 @@ background-color:rgb(100,100,100);
   <action name="actionSalir">
    <property name="icon">
     <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</iconset>
+     <normaloff>../img/exit.ico</normaloff>../img/exit.ico</iconset>
    </property>
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionCrear_Copia_de_Seguridad">
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/icon_upload.ico</normaloff>../img/icon_upload.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Crear Copia de Seguridad</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionRestaurar_Copia_Seguridad">
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/icon_download.ico</normaloff>../img/icon_download.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Restaurar Copia Seguridad</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+R</string>
    </property>
   </action>
  </widget>

@@ -1,7 +1,11 @@
+import os
+import shutil
+
 import conexion
 import var, sys
 from datetime import datetime
 from PyQt6 import QtWidgets, QtCore, QtGui
+import zipfile
 import locale
 
 locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
@@ -166,3 +170,50 @@ class Eventos():
             var.ui.txtMovilDriver.setFocus()
 
 
+    def crearbackup(self):
+        try:
+            fecha = datetime.today()
+
+            fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
+            copia = str(fecha) + '_backup.zip'
+
+            directorio, filename = var.dlgabrir.getSaveFileName(None, 'Guardar Copia Seguridad', copia, '.zip')
+
+            if var.dlgabrir.accept and filename != '':
+                fichzip = zipfile.ZipFile(copia, 'w')
+                fichzip.write(var.bbdd, os.path.basename(var.bbdd), zipfile.ZIP_DEFLATED)
+                fichzip.close()
+                shutil.move(str(copia), str(directorio))
+
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Copia de Seguridad creada.')
+                msg.exec()
+
+        except Exception as error:
+
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setText('Error en Copia de Seguridad')
+            msg.exec()
+            print("error al crear backup", error)
+
+
+
+
+
+    def restaurarbackup(self):
+        try:
+
+            pass
+
+        except Exception as error:
+
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setText('Error al Restaurar de Seguridad')
+            msg.exec()
+            print("error al crear backup", error)

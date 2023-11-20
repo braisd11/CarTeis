@@ -6,8 +6,9 @@ import datetime
 
 class Conexion():
     def conexion(self=None):
+        var.bbdd = 'bbdd.sqlite'
         db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
-        db.setDatabaseName('bbdd.sqlite')
+        db.setDatabaseName(var.bbdd)
 
         if not db.open():
 

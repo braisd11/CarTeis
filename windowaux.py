@@ -42,3 +42,9 @@ class Exit(QtWidgets.QDialog):
 
         var.exitWindow.btnSalirSi.clicked.connect(eventos.Eventos.confirmarSalir)
         var.exitWindow.btnSalirNo.clicked.connect(eventos.Eventos.cancelarSalir)
+
+
+class FileDialogAbrir(QtWidgets.QFileDialog):
+
+    def __init__(self):
+        super(FileDialogAbrir, self).__init__()
