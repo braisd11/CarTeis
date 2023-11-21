@@ -4,6 +4,7 @@ import drivers
 import var
 import datetime
 
+
 class Conexion():
     def conexion(self=None):
         var.bbdd = 'bbdd.sqlite'
@@ -111,23 +112,14 @@ class Conexion():
         except Exception as error:
             print("Error al guardar el driver", error)
 
-
     def mostrardrivers(self = None):
         try:
-            registro = []
-            query = QtSql.QSqlQuery()
-            query.prepare('select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers')
-
-            if query.exec():
-                while query.next():
-                    row = [query.value(i) for i in range(query.record().count())]
-                    registro.append(row)
-            drivers.Drivers.cargartabladri(registro)
+            estado = 1
+            Conexion.selectDrivers(estado)
 
 
         except Exception as error:
             print("error al cargar la tabla", error)
-
 
     def onedriver(id):
         try:
@@ -237,17 +229,26 @@ class Conexion():
                 mbox.setText("Error al dar de baja el conductor")
                 mbox.exec()
 
-
             pass
         except Exception as error:
             print("error en borradriv en conexion", error)
 
-    def mostrardriversalta(self = None):
+    def selectDrivers(estado):
         try:
             registro = []
+
+            consulta = "select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers"
+
+            if int(estado) == 1:
+
+                consulta = consulta + " where bajadri is null"
+
+            elif int(estado) == 2:
+
+                consulta = consulta + " where bajadri is not null"
+
             query = QtSql.QSqlQuery()
-            query.prepare('select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers '
-                          'where bajadri is null')
+            query.prepare(consulta)
 
             if query.exec():
                 while query.next():
@@ -256,20 +257,4 @@ class Conexion():
             drivers.Drivers.cargartabladri(registro)
 
         except Exception as error:
-            print("error al cargar la tabla", error)
-
-    def mostrardriversbaja(self = None):
-        try:
-            registro = []
-            query = QtSql.QSqlQuery()
-            query.prepare('select codigo, apeldri, nombredri, movildri, carnet, bajadri from drivers '
-                          'where bajadri is not null')
-
-            if query.exec():
-                while query.next():
-                    row = [query.value(i) for i in range(query.record().count())]
-                    registro.append(row)
-            drivers.Drivers.cargartabladri(registro)
-
-        except Exception as error:
-            print("error al cargar la tabla", error)
+            print('error al seleccionar driver', error)

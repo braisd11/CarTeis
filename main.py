@@ -46,7 +46,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionAcerca_de.triggered.connect(eventos.Eventos.acercade)
         var.ui.actionCrear_Copia_de_Seguridad.triggered.connect(eventos.Eventos.crearbackup)
-        var.ui.actionCrear_Copia_de_Seguridad.triggered.connect(eventos.Eventos.restaurarbackup)
+        var.ui.actionRestaurar_Copia_Seguridad.triggered.connect(eventos.Eventos.restaurarbackup)
 
         '''
         
@@ -71,9 +71,9 @@ class Main(QtWidgets.QMainWindow):
         '''
             Zona de ejecución de accionas al iniciar programa
         '''
-        conexion.Conexion.mostrardriversalta()
+        conexion.Conexion.mostrardrivers()
         eventos.Eventos.cargastatusbar(self)
-        var.ui.btnGroupEstado.buttonClicked.connect(eventos.Eventos.selEstado)
+        var.ui.btnGroupEstado.buttonClicked.connect(drivers.Drivers.selEstado)
 
 
 

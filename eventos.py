@@ -88,16 +88,7 @@ class Eventos():
 
             print("Error al mostar cmbProv")
 
-    def selEstado(self):
 
-        if var.ui.rbtTodos.isChecked():
-            conexion.Conexion.mostrardrivers()
-
-        if var.ui.rbtAlta.isChecked():
-            conexion.Conexion.mostrardriversalta()
-
-        if var.ui.rbtBaja.isChecked():
-            conexion.Conexion.mostrardriversbaja()
 
     def resizeTabdrivers(self):
         try:
@@ -179,7 +170,7 @@ class Eventos():
 
             directorio, filename = var.dlgabrir.getSaveFileName(None, 'Guardar Copia Seguridad', copia, '.zip')
 
-            if var.dlgabrir.accept and filename != '':
+            if var.dlgabrir.accept and filename:
                 fichzip = zipfile.ZipFile(copia, 'w')
                 fichzip.write(var.bbdd, os.path.basename(var.bbdd), zipfile.ZIP_DEFLATED)
                 fichzip.close()
@@ -200,20 +191,33 @@ class Eventos():
             msg.exec()
             print("error al crear backup", error)
 
-
-
-
-
     def restaurarbackup(self):
         try:
 
-            pass
+            filename = var.dlgabrir.getOpenFileName(None, 'Restaurar Copia de Seguridad',
+                                                    '', '*.zip;;All Files(*)')
+
+            file = filename[0]
+
+            if var.dlgabrir.accept and file:
+
+                with zipfile.ZipFile(str(file), 'r') as bbdd:
+                    bbdd.extractall(pwd=None)
+                bbdd.close()
+
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Copia de Seguridad restaurada')
+                msg.exec()
+
+                conexion.Conexion.mostrardrivers()
 
         except Exception as error:
 
             msg = QtWidgets.QMessageBox()
             msg.setWindowTitle('Aviso')
             msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error al Restaurar de Seguridad')
+            msg.setText('Error al Restaurar Copia de Seguridad')
             msg.exec()
             print("error al crear backup", error)
