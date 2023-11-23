@@ -1,10 +1,10 @@
 import os
 import shutil
-
+import xlrd, xlwt
 import conexion
 import var, sys
 from datetime import datetime
-from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6 import QtWidgets, QtCore, QtGui, QtSql
 import zipfile
 import locale
 
@@ -218,6 +218,55 @@ class Eventos():
             msg = QtWidgets.QMessageBox()
             msg.setWindowTitle('Aviso')
             msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error al Restaurar Copia de Seguridad')
+            msg.setText('Error al Restaurar Copia de Seguridad', error)
             msg.exec()
-            print("error al crear backup", error)
+
+
+    def exportardatosxls(self):
+        try:
+            fecha = datetime.today()
+
+            fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
+            file = str(fecha) + '_Datos.xls'
+
+            directorio, filename = var.dlgabrir.getSaveFileName(None, 'Exportar Datos en xls', file, '.xls')
+
+            if var.dlgabrir.accept and filename:
+                wb = xlwt.Workbook()
+                sheet1 = wb.add_sheet('Conductores')
+                sheet1.write(0, 0, 'ID')
+                sheet1.write(0, 1, 'DNI')
+                sheet1.write(0, 2, 'Fecha Alta')
+                sheet1.write(0, 3, 'Nombre')
+                sheet1.write(0, 4, 'Apellidos')
+                sheet1.write(0, 5, 'Dirección')
+                sheet1.write(0, 6, 'Provincia')
+                sheet1.write(0, 7, 'Municipio')
+                sheet1.write(0, 8, 'Móvil')
+                sheet1.write(0, 9, 'Salario')
+                sheet1.write(0, 10, 'Carnet')
+                sheet1.write(0, 11, 'Fecha Baja')
+
+                registros = conexion.Conexion.selectdriverstodos()
+
+                for fila, registro in enumerate(registros, 1):
+
+                    for i, valor in enumerate(registro):
+
+                        sheet1.write(fila, i, str(valor))
+
+                wb.save(directorio)
+
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Datos xls exportados!')
+                msg.exec()
+
+
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setText('Error al Exportar datos', error)
+            msg.exec()

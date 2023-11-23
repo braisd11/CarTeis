@@ -828,6 +828,8 @@
     </property>
     <addaction name="actionCrear_Copia_de_Seguridad"/>
     <addaction name="actionRestaurar_Copia_Seguridad"/>
+    <addaction name="separator"/>
+    <addaction name="actionExportar_Datos_Excel"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuHerramientas"/>
@@ -863,7 +865,7 @@ background-color:rgb(100,100,100);
   <action name="actionlimpiarPanel">
    <property name="icon">
     <iconset>
-     <normaloff>../img/reload.ico</normaloff>../img/reload.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</iconset>
    </property>
    <property name="text">
     <string>limpiarPanel</string>
@@ -877,7 +879,7 @@ background-color:rgb(100,100,100);
   <action name="actionSalir">
    <property name="icon">
     <iconset>
-     <normaloff>../img/exit.ico</normaloff>../img/exit.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</iconset>
    </property>
    <property name="text">
     <string>Salir</string>
@@ -886,7 +888,7 @@ background-color:rgb(100,100,100);
   <action name="actionCrear_Copia_de_Seguridad">
    <property name="icon">
     <iconset>
-     <normaloff>../img/icon_upload.ico</normaloff>../img/icon_upload.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/icon_upload.ico</normaloff>C:/Users/a22braisdr/.designer/img/icon_upload.ico</iconset>
    </property>
    <property name="text">
     <string>Crear Copia de Seguridad</string>
@@ -898,13 +900,18 @@ background-color:rgb(100,100,100);
   <action name="actionRestaurar_Copia_Seguridad">
    <property name="icon">
     <iconset>
-     <normaloff>../img/icon_download.ico</normaloff>../img/icon_download.ico</iconset>
+     <normaloff>C:/Users/a22braisdr/.designer/img/icon_download.ico</normaloff>C:/Users/a22braisdr/.designer/img/icon_download.ico</iconset>
    </property>
    <property name="text">
     <string>Restaurar Copia Seguridad</string>
    </property>
    <property name="shortcut">
     <string>Alt+R</string>
+   </property>
+  </action>
+  <action name="actionExportar_Datos_Excel">
+   <property name="text">
+    <string>Exportar Datos Excel</string>
    </property>
   </action>
  </widget>
