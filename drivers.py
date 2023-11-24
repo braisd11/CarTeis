@@ -1,5 +1,5 @@
 import var, eventos, conexion
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets, QtCore, QtSql
 
 
 def validarDNI():
@@ -35,11 +35,23 @@ def validarDNI():
 
 
 class Drivers():
+
     def cargarFecha(qDate):
         try:
             data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
             var.ui.txtDataDriver.setText(str(data))
             var.calendar.hide()
+
+        except Exception as error:
+            print("error en cargar fecha", error)
+
+    def cargarFechaBaja(qDate):
+        try:
+            data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
+            codigo = var.ui.lblCodBD.text()
+            Drivers.modificarfechabaja(codigo, data)
+            var.dlgCalendarbaja.hide()
+            var.dlgModificarBajaWindow.hide()
 
         except Exception as error:
             print("error en cargar fecha", error)
@@ -63,48 +75,56 @@ class Drivers():
         except Exception as error:
             print("error al limpiar panel", error)
 
-    def altaDriver(self):
+    @staticmethod
+    def altaDriver():
         try:
-            if validarDNI():
-                driver = [var.ui.txtDNI,
-                          var.ui.txtDataDriver,
-                          var.ui.txtNombre,
-                          var.ui.txtApel,
-                          var.ui.txtDirDriver,
-                          var.ui.txtMovilDriver,
-                          var.ui.txtSalario]
-                newdriver = []
-                for i in driver:
-                    newdriver.append(i.text().title())
+            codigo = var.ui.lblCodBD.text()
+            if Drivers.comprobarfechabaja(codigo):
+                conexion.Conexion.borrarfechabaja(codigo)
+                Drivers.selEstado()
 
-                prov = var.ui.cmbProv.currentText()
-                newdriver.insert(5, prov)
-                muni = var.ui.cmbMuni.currentText()
-                newdriver.insert(6, muni)
-
-                licencias = []
-                chklicencia = [var.ui.chkA, var.ui.chkB, var.ui.chkC, var.ui.chkD]
-                for i in chklicencia:
-                    if i.isChecked():
-                        licencias.append(i.text())
-                newdriver.append('/'.join(licencias))
-
-                conexion.Conexion.guardardri(newdriver)
             else:
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle('Aviso')
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("DNI no válido")
-                mbox.exec()
-                var.ui.lblValidarDNI.setText('X')
-                var.ui.lblValidarDNI.setStyleSheet('color:red;')
-                var.ui.txtDNI.clear()
-                var.ui.txtDNI.setFocus()
+                if validarDNI():
+                    driver = [var.ui.txtDNI,
+                              var.ui.txtDataDriver,
+                              var.ui.txtNombre,
+                              var.ui.txtApel,
+                              var.ui.txtDirDriver,
+                              var.ui.txtMovilDriver,
+                              var.ui.txtSalario]
+                    newdriver = []
+                    for i in driver:
+                        newdriver.append(i.text().title())
+
+                    prov = var.ui.cmbProv.currentText()
+                    newdriver.insert(5, prov)
+                    muni = var.ui.cmbMuni.currentText()
+                    newdriver.insert(6, muni)
+
+                    licencias = []
+                    chklicencia = [var.ui.chkA, var.ui.chkB, var.ui.chkC, var.ui.chkD]
+                    for i in chklicencia:
+                        if i.isChecked():
+                            licencias.append(i.text())
+                    newdriver.append('/'.join(licencias))
+
+                    conexion.Conexion.guardardri(newdriver)
+                else:
+                    mbox = QtWidgets.QMessageBox()
+                    mbox.setWindowTitle('Aviso')
+                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    mbox.setText("DNI no válido")
+                    mbox.exec()
+                    var.ui.lblValidarDNI.setText('X')
+                    var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                    var.ui.txtDNI.clear()
+                    var.ui.txtDNI.setFocus()
 
         except Exception as error:
             print("Error con alta driver", error)
 
-    def selEstado(self):
+    @staticmethod
+    def selEstado():
 
         if var.ui.rbtTodos.isChecked():
             estado = 0
@@ -210,30 +230,44 @@ class Drivers():
 
     def modifDri(self):
         try:
-            driver = [var.ui.lblCodBD,
-                      var.ui.txtDNI,
-                      var.ui.txtDataDriver,
-                      var.ui.txtApel,
-                      var.ui.txtNombre,
-                      var.ui.txtDirDriver,
-                      var.ui.txtMovilDriver,
-                      var.ui.txtSalario]
-            modifdriver = []
-            for i in driver:
-                modifdriver.append(i.text().title())
+            if validarDNI():
+                driver = [var.ui.lblCodBD,
+                          var.ui.txtDNI,
+                          var.ui.txtDataDriver,
+                          var.ui.txtApel,
+                          var.ui.txtNombre,
+                          var.ui.txtDirDriver,
+                          var.ui.txtMovilDriver,
+                          var.ui.txtSalario]
+                modifdriver = []
+                for i in driver:
+                    modifdriver.append(i.text().title())
 
-            prov = var.ui.cmbProv.currentText()
-            modifdriver.insert(6, prov)
-            muni = var.ui.cmbMuni.currentText()
-            modifdriver.insert(7, muni)
+                prov = var.ui.cmbProv.currentText()
+                modifdriver.insert(6, prov)
+                muni = var.ui.cmbMuni.currentText()
+                modifdriver.insert(7, muni)
 
-            licencias = []
-            chklicencia = [var.ui.chkA, var.ui.chkB, var.ui.chkC, var.ui.chkD]
-            for i in chklicencia:
-                if i.isChecked():
-                    licencias.append(i.text())
-            modifdriver.append('/'.join(licencias))
-            conexion.Conexion.modifDriver(modifdriver)
+                licencias = []
+                chklicencia = [var.ui.chkA, var.ui.chkB, var.ui.chkC, var.ui.chkD]
+                for i in chklicencia:
+                    if i.isChecked():
+                        licencias.append(i.text())
+                modifdriver.append('/'.join(licencias))
+
+                conexion.Conexion.modifDriver(modifdriver)
+
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("DNI no válido")
+                mbox.exec()
+                var.ui.lblValidarDNI.setText('X')
+                var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                var.ui.txtDNI.clear()
+                var.ui.txtDNI.setFocus()
+
 
         except Exception as error:
             print("error en modif driver en Drivers", error)
@@ -255,7 +289,7 @@ class Drivers():
         try:
             dni = var.ui.txtDNI.text()
             conexion.Conexion.borraDriv(dni)
-            conexion.Conexion.mostrardriversalta()
+            Drivers.selEstado()
 
 
         except Exception as error:
@@ -264,3 +298,40 @@ class Drivers():
             mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
             mbox.setText("El conductor no existe o no se puede borrar")
             mbox.exec()
+
+    def comprobarfechabaja(codigo):
+        try:
+            baja = True
+            query = QtSql.QSqlQuery()
+            query.prepare("select bajadri from drivers where codigo = :codigo")
+            query.bindValue(':codigo', int(codigo))
+            if query.exec():
+                while query.next():
+                    fecha = query.value(0)
+                    if fecha == "":
+                        baja = False
+            return baja
+
+        except Exception as error:
+            print('error al comprobar fecha baja', error)
+
+    def modificarfechabaja(codigo, fecha):
+        try:
+
+            query = QtSql.QSqlQuery()
+            query.prepare("update drivers set bajadri = :fecha where codigo = :codigo")
+
+            query.bindValue(':codigo', int(codigo))
+            query.bindValue(':fecha', str(fecha))
+
+            if query.exec():
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Datos modificados")
+                mbox.exec()
+
+                Drivers.selEstado()
+
+        except Exception as error:
+            print('error al borrar fecha baja', error)

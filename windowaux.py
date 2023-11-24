@@ -1,8 +1,10 @@
 import drivers
 import eventos
 from CalendarWindow import *
+from CalendarBajaWindow import *
 from ExitWindow import *
 from AboutWindow import *
+from ModificarBajaWindow import *
 import sys,var
 from datetime import datetime
 
@@ -16,6 +18,17 @@ class About(QtWidgets.QDialog):
         var.aboutWindow.lblVersion.setText(f"Versión: {var.version}")
 
 
+class Baja(QtWidgets.QDialog):
+    def __init__(self):
+        super(Baja, self).__init__()
+        var.dlgModificarBajaWindow = Ui_dlgModificarBajaWindow()
+        var.dlgModificarBajaWindow.setupUi(self)
+
+        var.dlgModificarBajaWindow.btnModificarFechaSi.clicked.connect(eventos.Eventos.confirmarModificar)
+        var.dlgModificarBajaWindow.btnModificarFechaNo.clicked.connect(eventos.Eventos.cancelarModificar)
+
+
+
 class Calendar(QtWidgets.QDialog):
 
     def __init__(self):
@@ -27,6 +40,20 @@ class Calendar(QtWidgets.QDialog):
         ano = datetime.now().year
         var.calendar.Calendar.setSelectedDate((QtCore.QDate(ano, mes, dia)))
         var.calendar.Calendar.clicked.connect(drivers.Drivers.cargarFecha)
+
+
+class CalendarBaja(QtWidgets.QDialog):
+
+    def __init__(self):
+        super(CalendarBaja, self).__init__()
+        var.dlgCalendarbaja = Ui_dlgCalendarBaja()
+        var.dlgCalendarbaja.setupUi(self)
+        dia = datetime.now().day
+        mes = datetime.now().month
+        ano = datetime.now().year
+        var.dlgCalendarbaja.calendarBaja.setSelectedDate((QtCore.QDate(ano, mes, dia)))
+        var.dlgCalendarbaja.calendarBaja.clicked.connect(drivers.Drivers.cargarFechaBaja)
+
 
 
 class Exit(QtWidgets.QDialog):

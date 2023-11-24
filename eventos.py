@@ -22,6 +22,7 @@ class Eventos():
         except Exception as error:
             print("error en modulo eventos", error)
 
+
     def confirmarSalir(self):
         try:
 
@@ -38,7 +39,36 @@ class Eventos():
         except Exception as error:
             print("error en modulo eventos", error)
 
-    def acercade(self):
+    @staticmethod
+    def showModificarBaja():
+        try:
+
+            var.dlgModificarBajaWindow.show()
+
+        except Exception as error:
+            print("error en modulo eventos", error)
+
+    @staticmethod
+    def confirmarModificar():
+        try:
+
+            var.dlgCalendarbaja.show()
+
+        except Exception as error:
+            print("error en confirmarModificar", error)
+
+    @staticmethod
+    def cancelarModificar():
+        try:
+
+            var.dlgModificarBajaWindow.hide()
+
+
+        except Exception as error:
+            print("error en cancelarModificar", error)
+
+    @staticmethod
+    def acercade():
 
         try:
 
@@ -53,6 +83,16 @@ class Eventos():
         try:
 
             var.calendar.show()
+
+        except Exception as error:
+
+            print("error en abrir calendar", error)
+
+    def abrirCalendarBaja(self):
+
+        try:
+
+            var.calendarbaja.show()
 
         except Exception as error:
 
@@ -245,13 +285,12 @@ class Eventos():
                 sheet1.write(0, 8, 'Móvil')
                 sheet1.write(0, 9, 'Salario')
                 sheet1.write(0, 10, 'Carnet')
-                sheet1.write(0, 11, 'Fecha Baja')
 
                 registros = conexion.Conexion.selectdriverstodos()
 
                 for fila, registro in enumerate(registros, 1):
 
-                    for i, valor in enumerate(registro):
+                    for i, valor in enumerate(registro[:-1]):
 
                         sheet1.write(fila, i, str(valor))
 

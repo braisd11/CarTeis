@@ -20,6 +20,8 @@ class Main(QtWidgets.QMainWindow):
         var.calendar = Calendar()
         var.exitWindow = Exit()
         var.aboutWindow = About()
+        var.dlgModificarBajaWindow = Baja()
+        var.dlgCalendarbaja = CalendarBaja()
         var.dlgabrir = FileDialogAbrir()
         conexion.Conexion.conexion()
         conexion.Conexion.cargaprov()
@@ -75,8 +77,6 @@ class Main(QtWidgets.QMainWindow):
         conexion.Conexion.mostrardrivers()
         eventos.Eventos.cargastatusbar(self)
         var.ui.btnGroupEstado.buttonClicked.connect(drivers.Drivers.selEstado)
-
-
 
         '''
         
