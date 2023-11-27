@@ -61,6 +61,11 @@ class Eventos():
     def cancelarModificar():
         try:
 
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle('Aviso')
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            mbox.setText("Datos conductor modificados")
+            mbox.exec()
             var.dlgModificarBajaWindow.hide()
 
 
@@ -78,7 +83,8 @@ class Eventos():
 
             print("error abrir ventana acerca de ", error)
 
-    def abrirCalendar(self):
+    @staticmethod
+    def abrirCalendar():
 
         try:
 
@@ -88,7 +94,8 @@ class Eventos():
 
             print("error en abrir calendar", error)
 
-    def abrirCalendarBaja(self):
+    @staticmethod
+    def abrirCalendarBaja():
 
         try:
 
@@ -116,7 +123,8 @@ class Eventos():
 
             print("error en cargar statusbar", error)
 
-    def cargaprov(self):
+    @staticmethod
+    def cargaprov():
         try:
             prov = ['A Coruña', 'Lugo', 'Ferrol', 'Vigo', 'Santiago de Compostela', 'Ourense', 'Pontevedra']
             var.ui.cmbProv.clear()
@@ -128,9 +136,8 @@ class Eventos():
 
             print("Error al mostar cmbProv")
 
-
-
-    def resizeTabdrivers(self):
+    @staticmethod
+    def resizeTabdrivers():
         try:
             header = var.ui.tabDrivers.horizontalHeader()
             for i in range(var.ui.tabDrivers.columnCount()):
@@ -141,7 +148,8 @@ class Eventos():
         except Exception as error:
             print("error con resizeTabdrivers", error)
 
-    def letraCapital(self = None):
+    @staticmethod
+    def letraCapital():
         try:
             var.ui.txtApel.setText(var.ui.txtApel.text().title())
             var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
@@ -150,8 +158,8 @@ class Eventos():
         except Exception as error:
             print("error con letra capital", error)
 
-
-    def compruebaFormatoSalario(self = None):
+    @staticmethod
+    def compruebaFormatoSalario():
         try:
 
             salario = var.ui.txtSalario.text()
@@ -177,7 +185,8 @@ class Eventos():
             var.ui.txtSalario.setText("")
             var.ui.txtSalario.setFocus()
 
-    def compruebaMovil(self = None):
+    @staticmethod
+    def compruebaMovil():
         try:
             movil = var.ui.txtMovilDriver.text()
             var.ui.txtMovilDriver.setText(movil)
@@ -200,8 +209,8 @@ class Eventos():
             var.ui.txtMovilDriver.setText("")
             var.ui.txtMovilDriver.setFocus()
 
-
-    def crearbackup(self):
+    @staticmethod
+    def crearbackup():
         try:
             fecha = datetime.today()
 
@@ -231,7 +240,8 @@ class Eventos():
             msg.exec()
             print("error al crear backup", error)
 
-    def restaurarbackup(self):
+    @staticmethod
+    def restaurarbackup():
         try:
 
             filename = var.dlgabrir.getOpenFileName(None, 'Restaurar Copia de Seguridad',
@@ -261,8 +271,8 @@ class Eventos():
             msg.setText('Error al Restaurar Copia de Seguridad', error)
             msg.exec()
 
-
-    def exportardatosxls(self):
+    @staticmethod
+    def exportardatosxls():
         try:
             fecha = datetime.today()
 
@@ -301,7 +311,6 @@ class Eventos():
                 msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 msg.setText('Datos xls exportados!')
                 msg.exec()
-
 
         except Exception as error:
             msg = QtWidgets.QMessageBox()

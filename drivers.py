@@ -34,7 +34,7 @@ def validarDNI():
         print("error en validar dni ", error)
 
 
-class Drivers():
+class Drivers:
 
     def cargarFecha(qDate):
         try:
@@ -56,7 +56,8 @@ class Drivers():
         except Exception as error:
             print("error en cargar fecha", error)
 
-    def limpiarPanel(self):
+    @staticmethod
+    def limpiarPanel():
         try:
             listaWidgets = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel, var.ui.txtNombre,
                             var.ui.txtDirDriver,
@@ -160,7 +161,7 @@ class Drivers():
 
     def cargardrivers(self):
         try:
-            Drivers.limpiarPanel(self)
+            Drivers.limpiarPanel()
 
             row = var.ui.tabDrivers.selectedItems()
 
@@ -191,7 +192,8 @@ class Drivers():
         except Exception as error:
             print('error al cargar driver', error)
 
-    def buscadriver(self):
+    @staticmethod
+    def buscadriver():
         try:
             dni = var.ui.txtDNI.text()
             registro = conexion.Conexion.codDri(dni)
@@ -227,8 +229,8 @@ class Drivers():
         except Exception as error:
             print("error al cargar datos del driver", error)
 
-
-    def modifDri(self):
+    @staticmethod
+    def modifDri():
         try:
             if validarDNI():
                 driver = [var.ui.lblCodBD,
@@ -255,7 +257,7 @@ class Drivers():
                         licencias.append(i.text())
                 modifdriver.append('/'.join(licencias))
 
-                conexion.Conexion.modifDriver(modifdriver)
+                conexion.Conexion.comprobarModifDriver(modifdriver)
 
             else:
                 mbox = QtWidgets.QMessageBox()
@@ -267,7 +269,6 @@ class Drivers():
                 var.ui.lblValidarDNI.setStyleSheet('color:red;')
                 var.ui.txtDNI.clear()
                 var.ui.txtDNI.setFocus()
-
 
         except Exception as error:
             print("error en modif driver en Drivers", error)
@@ -283,14 +284,12 @@ class Drivers():
         except Exception as error:
             print("Error al buscar driver en la tabla", error)
 
-
-
-    def borrarDriv(self):
+    @staticmethod
+    def borrarDriv():
         try:
             dni = var.ui.txtDNI.text()
             conexion.Conexion.borraDriv(dni)
             Drivers.selEstado()
-
 
         except Exception as error:
             mbox = QtWidgets.QMessageBox()

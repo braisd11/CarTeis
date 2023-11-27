@@ -28,7 +28,6 @@ class Baja(QtWidgets.QDialog):
         var.dlgModificarBajaWindow.btnModificarFechaNo.clicked.connect(eventos.Eventos.cancelarModificar)
 
 
-
 class Calendar(QtWidgets.QDialog):
 
     def __init__(self):
@@ -53,7 +52,6 @@ class CalendarBaja(QtWidgets.QDialog):
         ano = datetime.now().year
         var.dlgCalendarbaja.calendarBaja.setSelectedDate((QtCore.QDate(ano, mes, dia)))
         var.dlgCalendarbaja.calendarBaja.clicked.connect(drivers.Drivers.cargarFechaBaja)
-
 
 
 class Exit(QtWidgets.QDialog):

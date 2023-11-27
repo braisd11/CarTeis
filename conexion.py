@@ -113,7 +113,8 @@ class Conexion():
         except Exception as error:
             print("Error al guardar el driver", error)
 
-    def mostrardrivers(self = None):
+    @staticmethod
+    def mostrardrivers():
         try:
             estado = 1
             Conexion.selectDrivers(estado)
@@ -163,81 +164,59 @@ class Conexion():
         except Exception as error:
             print('error al buscar el dni', error)
 
-    def modifDriver(modifdriver):
+    def comprobarModifDriver(modifdriver):
         try:
             codigo = var.ui.lblCodBD.text()
 
             if drivers.Drivers.comprobarfechabaja(codigo):
                 eventos.Eventos.showModificarBaja()
-
-                query = QtSql.QSqlQuery()
-                query.prepare('update drivers set dnidri = :dni, altadri = :alta ,nombredri = :nombre, apeldri = :apel, '
-                              'direcciondri = :direccion, provdri = :provincia, munidri = :municipio,'
-                              'movildri = :movil, salario = :salario, carnet = :carnet where codigo = :codigo')
-
-                query.bindValue(':codigo', int(modifdriver[0]))
-                query.bindValue(':dni', str(modifdriver[1]))
-                query.bindValue(':alta', str(modifdriver[2]))
-                query.bindValue(':apel', str(modifdriver[3]))
-                query.bindValue(':nombre', str(modifdriver[4]))
-                query.bindValue(':direccion', str(modifdriver[5]))
-                query.bindValue(':provincia', str(modifdriver[6]))
-                query.bindValue(':municipio', str(modifdriver[7]))
-                query.bindValue(':movil', str(modifdriver[8]))
-                query.bindValue(':salario', str(modifdriver[9]))
-                query.bindValue(':carnet', str(modifdriver[10]))
-
-                if query.exec():
-
-                    drivers.Drivers.selEstado()
-
-                else:
-                    mbox = QtWidgets.QMessageBox()
-                    mbox.setWindowTitle('Aviso')
-                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    mbox.setText("Error al modificar los datos del conductor")
-                    mbox.exec()
+                Conexion.modifDriver(modifdriver)
 
             else:
 
-                query = QtSql.QSqlQuery()
-                query.prepare(
-                    'update drivers set dnidri = :dni, altadri = :alta ,nombredri = :nombre, apeldri = :apel, '
-                    'direcciondri = :direccion, provdri = :provincia, munidri = :municipio,'
-                    'movildri = :movil, salario = :salario, carnet = :carnet where codigo = :codigo')
-
-                query.bindValue(':codigo', int(modifdriver[0]))
-                query.bindValue(':dni', str(modifdriver[1]))
-                query.bindValue(':alta', str(modifdriver[2]))
-                query.bindValue(':apel', str(modifdriver[3]))
-                query.bindValue(':nombre', str(modifdriver[4]))
-                query.bindValue(':direccion', str(modifdriver[5]))
-                query.bindValue(':provincia', str(modifdriver[6]))
-                query.bindValue(':municipio', str(modifdriver[7]))
-                query.bindValue(':movil', str(modifdriver[8]))
-                query.bindValue(':salario', str(modifdriver[9]))
-                query.bindValue(':carnet', str(modifdriver[10]))
-
-                if query.exec():
-
-                    mbox = QtWidgets.QMessageBox()
-                    mbox.setWindowTitle('Aviso')
-                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                    mbox.setText("Datos conductor modificados")
-                    mbox.exec()
-
-                    drivers.Drivers.selEstado()
-
-                else:
-
-                    mbox = QtWidgets.QMessageBox()
-                    mbox.setWindowTitle('Aviso')
-                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    mbox.setText("Error al modificar los datos del conductor")
-                    mbox.exec()
+                Conexion.modifDriver(modifdriver)
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Datos conductor modificados")
+                mbox.exec()
 
         except Exception as error:
-            print("error en modificar driver conexion", error)
+            print("error en comprobarmodifdriver conexion", error)
+
+    @staticmethod
+    def modifDriver(modifdriver):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('update drivers set dnidri = :dni, altadri = :alta ,nombredri = :nombre, apeldri = :apel, '
+                          'direcciondri = :direccion, provdri = :provincia, munidri = :municipio,'
+                          'movildri = :movil, salario = :salario, carnet = :carnet where codigo = :codigo')
+
+            query.bindValue(':codigo', int(modifdriver[0]))
+            query.bindValue(':dni', str(modifdriver[1]))
+            query.bindValue(':alta', str(modifdriver[2]))
+            query.bindValue(':apel', str(modifdriver[3]))
+            query.bindValue(':nombre', str(modifdriver[4]))
+            query.bindValue(':direccion', str(modifdriver[5]))
+            query.bindValue(':provincia', str(modifdriver[6]))
+            query.bindValue(':municipio', str(modifdriver[7]))
+            query.bindValue(':movil', str(modifdriver[8]))
+            query.bindValue(':salario', str(modifdriver[9]))
+            query.bindValue(':carnet', str(modifdriver[10]))
+
+            if query.exec():
+
+                drivers.Drivers.selEstado()
+
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Error al modificar los datos del conductor")
+                mbox.exec()
+
+        except Exception as error:
+            print('error en modifdriver', error)
 
     def borraDriv(dni):
         try:
@@ -251,7 +230,7 @@ class Conexion():
 
             if str(valor) == '':
                 fecha = datetime.date.today()
-                fecha = fecha.strftime('%d.%m.%Y')
+                fecha = fecha.strftime('%d/%m/%Y')
                 query = QtSql.QSqlQuery()
                 query.prepare('update drivers set bajadri = :fechabaja where '
                               'dnidri = :dni')

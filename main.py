@@ -69,7 +69,6 @@ class Main(QtWidgets.QMainWindow):
 
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionlimpiarPanel.triggered.connect(drivers.Drivers.limpiarPanel)
-        var.ui.actionlimpiarPanel.triggered.connect(conexion.Conexion.mostrardrivers)
 
         '''
             Zona de ejecución de accionas al iniciar programa
@@ -82,7 +81,7 @@ class Main(QtWidgets.QMainWindow):
         
             Eventos de Tablas
         '''
-        eventos.Eventos.resizeTabdrivers(self)
+        eventos.Eventos.resizeTabdrivers()
         var.ui.tabDrivers.clicked.connect(drivers.Drivers.cargardrivers)
 
     def closeEvent(self, event):
