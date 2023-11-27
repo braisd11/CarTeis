@@ -1,12 +1,13 @@
+from datetime import datetime
+
 import drivers
 import eventos
-from CalendarWindow import *
-from CalendarBajaWindow import *
-from ExitWindow import *
+import var
 from AboutWindow import *
+from CalendarBajaWindow import *
+from CalendarWindow import *
+from ExitWindow import *
 from ModificarBajaWindow import *
-import sys,var
-from datetime import datetime
 
 
 class About(QtWidgets.QDialog):

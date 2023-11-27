@@ -1,5 +1,7 @@
-import var, eventos, conexion
 from PyQt6 import QtWidgets, QtCore, QtSql
+
+import conexion
+import var
 
 
 def validarDNI():

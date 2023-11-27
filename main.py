@@ -1,11 +1,11 @@
-import conexion
-import drivers
-import eventos
-from windowaux import *
-from MainWindow import *
-from AboutWindow import *
-import sys, var
 import locale
+import sys
+import var
+
+import conexion
+from AboutWindow import *
+from MainWindow import *
+from windowaux import *
 
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
