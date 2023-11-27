@@ -280,7 +280,8 @@ class Conexion():
         except Exception as error:
             print('error al seleccionar driver', error)
 
-    def selectdriverstodos(self = None):
+    @staticmethod
+    def selectdriverstodos():
         try:
             registros = []
 

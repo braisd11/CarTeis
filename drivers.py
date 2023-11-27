@@ -73,8 +73,6 @@ class Drivers:
             var.ui.cmbProv.setCurrentText('')
             var.ui.cmbMuni.setCurrentText('')
 
-
-
         except Exception as error:
             print("error al limpiar panel", error)
 
@@ -161,7 +159,8 @@ class Drivers:
         except Exception as error:
             print('error cargar dato en tabla', error)
 
-    def cargardrivers(self):
+    @staticmethod
+    def cargardrivers():
         try:
             Drivers.limpiarPanel()
 
@@ -188,8 +187,6 @@ class Drivers:
                 var.ui.chkC.setChecked(True)
             if 'D' in registro[10]:
                 var.ui.chkD.setChecked(True)
-
-
 
         except Exception as error:
             print('error al cargar driver', error)
