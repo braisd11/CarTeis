@@ -36,6 +36,11 @@
     <normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normaloff>
     <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color: #F8F9EF;
+}</string>
+  </property>
   <widget class="QLabel" name="lblAutor">
    <property name="geometry">
     <rect>
@@ -117,7 +122,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../img/driver.ico</pixmap>
+    <pixmap>C:/Users/a22braisdr/.designer/img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

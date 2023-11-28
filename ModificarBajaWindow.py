@@ -20,6 +20,9 @@ class Ui_dlgModificarBajaWindow(object):
         dlgModificarBajaWindow.setSizePolicy(sizePolicy)
         dlgModificarBajaWindow.setMinimumSize(QtCore.QSize(400, 300))
         dlgModificarBajaWindow.setMaximumSize(QtCore.QSize(400, 300))
+        dlgModificarBajaWindow.setStyleSheet("QDialog{\n"
+"background-color: #F8F9EF;\n"
+"}")
         self.btnModificarFechaSi = QtWidgets.QPushButton(parent=dlgModificarBajaWindow)
         self.btnModificarFechaSi.setGeometry(QtCore.QRect(90, 210, 75, 23))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -38,7 +41,7 @@ class Ui_dlgModificarBajaWindow(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(".\\templates\\../img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/img/driver.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.lblModificarFecha = QtWidgets.QLabel(parent=dlgModificarBajaWindow)

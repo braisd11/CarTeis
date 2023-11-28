@@ -36,6 +36,11 @@
     <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>
    </iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color: #F8F9EF;
+}</string>
+  </property>
   <widget class="QPushButton" name="btnSalirNo">
    <property name="geometry">
     <rect>
@@ -134,7 +139,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../img/driver.ico</pixmap>
+    <pixmap>C:/Users/a22braisdr/.designer/img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

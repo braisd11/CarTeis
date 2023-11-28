@@ -23,6 +23,9 @@ class Ui_dlgSalir(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         dlgSalir.setWindowIcon(icon)
+        dlgSalir.setStyleSheet("QDialog{\n"
+"background-color: #F8F9EF;\n"
+"}")
         self.btnSalirNo = QtWidgets.QPushButton(parent=dlgSalir)
         self.btnSalirNo.setGeometry(QtCore.QRect(230, 190, 75, 23))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -65,7 +68,7 @@ class Ui_dlgSalir(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(".\\templates\\../img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/img/driver.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 

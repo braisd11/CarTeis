@@ -22,7 +22,7 @@
   <property name="minimumSize">
    <size>
     <width>1024</width>
-    <height>950</height>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -122,9 +122,7 @@ background-color: #E6E6E6}
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">
-
-</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::Box</enum>
@@ -137,8 +135,8 @@ background-color: #E6E6E6}
             <rect>
              <x>20</x>
              <y>10</y>
-             <width>221</width>
-             <height>221</height>
+             <width>451</width>
+             <height>161</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -179,9 +177,9 @@ background-color: #E6E6E6}
            <widget class="QLineEdit" name="txtApel">
             <property name="geometry">
              <rect>
-              <x>11</x>
-              <y>187</y>
-              <width>150</width>
+              <x>140</x>
+              <y>120</y>
+              <width>211</width>
               <height>20</height>
              </rect>
             </property>
@@ -207,8 +205,8 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblApel">
             <property name="geometry">
              <rect>
-              <x>11</x>
-              <y>161</y>
+              <x>140</x>
+              <y>94</y>
               <width>60</width>
               <height>20</height>
              </rect>
@@ -226,8 +224,8 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblCodBD">
             <property name="geometry">
              <rect>
-              <x>67</x>
-              <y>30</y>
+              <x>10</x>
+              <y>60</y>
               <width>100</width>
               <height>20</height>
              </rect>
@@ -282,8 +280,8 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblDNI">
             <property name="geometry">
              <rect>
-              <x>11</x>
-              <y>56</y>
+              <x>140</x>
+              <y>26</y>
               <width>50</width>
               <height>20</height>
              </rect>
@@ -313,8 +311,8 @@ background-color: #E6E6E6}
            <widget class="QLineEdit" name="txtDNI">
             <property name="geometry">
              <rect>
-              <x>11</x>
-              <y>82</y>
+              <x>141</x>
+              <y>56</y>
               <width>110</width>
               <height>20</height>
              </rect>
@@ -344,8 +342,8 @@ background-color: #E6E6E6}
            <widget class="QPushButton" name="btnBuscar">
             <property name="geometry">
              <rect>
-              <x>127</x>
-              <y>82</y>
+              <x>323</x>
+              <y>52</y>
               <width>28</width>
               <height>28</height>
              </rect>
@@ -380,7 +378,7 @@ background-color: #E6E6E6}
             <property name="geometry">
              <rect>
               <x>11</x>
-              <y>135</y>
+              <y>117</y>
               <width>110</width>
               <height>20</height>
              </rect>
@@ -402,13 +400,59 @@ background-color: #E6E6E6}
             <property name="geometry">
              <rect>
               <x>11</x>
-              <y>116</y>
-              <width>41</width>
+              <y>91</y>
+              <width>50</width>
               <height>16</height>
              </rect>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>Nombre:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblValidarDNI">
+            <property name="geometry">
+             <rect>
+              <x>257</x>
+              <y>51</y>
+              <width>60</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>60</horstretch>
+              <verstretch>30</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MV Boli</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
            </widget>
           </widget>
@@ -416,9 +460,9 @@ background-color: #E6E6E6}
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>240</y>
-             <width>384</width>
-             <height>215</height>
+             <y>190</y>
+             <width>371</width>
+             <height>181</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -439,9 +483,15 @@ background-color: #E6E6E6}
              <rect>
               <x>12</x>
               <y>12</y>
-              <width>120</width>
+              <width>130</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>130</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="font">
              <font>
@@ -458,9 +508,15 @@ background-color: #E6E6E6}
              <rect>
               <x>12</x>
               <y>31</y>
-              <width>47</width>
+              <width>60</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Dirección:</string>
@@ -491,11 +547,17 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblProv">
             <property name="geometry">
              <rect>
-              <x>12</x>
+              <x>11</x>
               <y>121</y>
-              <width>47</width>
+              <width>60</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Provincia:</string>
@@ -504,11 +566,17 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblLoc">
             <property name="geometry">
              <rect>
-              <x>12</x>
-              <y>166</y>
-              <width>48</width>
+              <x>157</x>
+              <y>121</y>
+              <width>60</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Localidad:</string>
@@ -517,7 +585,7 @@ background-color: #E6E6E6}
            <widget class="QComboBox" name="cmbProv">
             <property name="geometry">
              <rect>
-              <x>12</x>
+              <x>11</x>
               <y>140</y>
               <width>140</width>
               <height>20</height>
@@ -541,12 +609,17 @@ background-color: #E6E6E6}
               <height>20</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox{
+	background-color: None;
+}</string>
+            </property>
            </widget>
            <widget class="QComboBox" name="cmbMuni">
             <property name="geometry">
              <rect>
-              <x>12</x>
-              <y>185</y>
+              <x>157</x>
+              <y>140</y>
               <width>140</width>
               <height>20</height>
              </rect>
@@ -569,15 +642,26 @@ background-color: #E6E6E6}
               <height>20</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox{
+	background-color: None;
+}</string>
+            </property>
            </widget>
            <widget class="QLabel" name="lblMovilDriver">
             <property name="geometry">
              <rect>
               <x>12</x>
               <y>76</y>
-              <width>28</width>
+              <width>50</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Móvil:</string>
@@ -613,9 +697,9 @@ background-color: #E6E6E6}
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>460</y>
+             <y>400</y>
              <width>351</width>
-             <height>311</height>
+             <height>221</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -636,9 +720,15 @@ background-color: #E6E6E6}
              <rect>
               <x>19</x>
               <y>11</y>
-              <width>86</width>
+              <width>90</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="font">
              <font>
@@ -653,8 +743,8 @@ background-color: #E6E6E6}
            <widget class="QPushButton" name="btnAltaDriver">
             <property name="geometry">
              <rect>
-              <x>18</x>
-              <y>270</y>
+              <x>8</x>
+              <y>180</y>
               <width>75</width>
               <height>20</height>
              </rect>
@@ -678,8 +768,8 @@ background-color: #E6E6E6}
            <widget class="QPushButton" name="btnModifDriver">
             <property name="geometry">
              <rect>
-              <x>99</x>
-              <y>270</y>
+              <x>89</x>
+              <y>180</y>
               <width>75</width>
               <height>20</height>
              </rect>
@@ -703,8 +793,8 @@ background-color: #E6E6E6}
            <widget class="QPushButton" name="btnBajaDriver">
             <property name="geometry">
              <rect>
-              <x>180</x>
-              <y>270</y>
+              <x>170</x>
+              <y>180</y>
               <width>75</width>
               <height>20</height>
              </rect>
@@ -728,11 +818,17 @@ background-color: #E6E6E6}
            <widget class="QLabel" name="lblHistorico">
             <property name="geometry">
              <rect>
-              <x>23</x>
-              <y>206</y>
-              <width>45</width>
+              <x>10</x>
+              <y>121</y>
+              <width>50</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Histórico:</string>
@@ -741,8 +837,8 @@ background-color: #E6E6E6}
            <widget class="QRadioButton" name="rbtTodos">
             <property name="geometry">
              <rect>
-              <x>23</x>
-              <y>235</y>
+              <x>10</x>
+              <y>150</y>
               <width>50</width>
               <height>20</height>
              </rect>
@@ -778,8 +874,8 @@ QRadioButton{
            <widget class="QRadioButton" name="rbtAlta">
             <property name="geometry">
              <rect>
-              <x>84</x>
-              <y>235</y>
+              <x>71</x>
+              <y>150</y>
               <width>50</width>
               <height>20</height>
              </rect>
@@ -814,8 +910,8 @@ QRadioButton{
            <widget class="QRadioButton" name="rbtBaja">
             <property name="geometry">
              <rect>
-              <x>145</x>
-              <y>235</y>
+              <x>132</x>
+              <y>150</y>
               <width>50</width>
               <height>20</height>
              </rect>
@@ -847,8 +943,8 @@ QRadioButton{
            <widget class="QLineEdit" name="txtSalario">
             <property name="geometry">
              <rect>
-              <x>18</x>
-              <y>169</y>
+              <x>14</x>
+              <y>90</y>
               <width>110</width>
               <height>20</height>
              </rect>
@@ -878,11 +974,17 @@ QRadioButton{
            <widget class="QLabel" name="lblSalario">
             <property name="geometry">
              <rect>
-              <x>18</x>
-              <y>150</y>
-              <width>36</width>
+              <x>14</x>
+              <y>71</y>
+              <width>50</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Salario:</string>
@@ -891,8 +993,8 @@ QRadioButton{
            <widget class="QLabel" name="labelFormato">
             <property name="geometry">
              <rect>
-              <x>134</x>
-              <y>169</y>
+              <x>130</x>
+              <y>90</y>
               <width>54</width>
               <height>16</height>
              </rect>
@@ -904,11 +1006,17 @@ QRadioButton{
            <widget class="QLabel" name="labeltipocarnet">
             <property name="geometry">
              <rect>
-              <x>18</x>
-              <y>100</y>
-              <width>73</width>
+              <x>162</x>
+              <y>30</y>
+              <width>80</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Tipo de carnet:</string>
@@ -919,9 +1027,15 @@ QRadioButton{
              <rect>
               <x>18</x>
               <y>30</y>
-              <width>55</width>
+              <width>60</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>Fecha Alta:</string>
@@ -930,8 +1044,8 @@ QRadioButton{
            <widget class="QLineEdit" name="txtDataDriver">
             <property name="geometry">
              <rect>
-              <x>18</x>
-              <y>69</y>
+              <x>14</x>
+              <y>50</y>
               <width>80</width>
               <height>20</height>
              </rect>
@@ -958,8 +1072,8 @@ QRadioButton{
            <widget class="QPushButton" name="btnCalendar">
             <property name="geometry">
              <rect>
-              <x>104</x>
-              <y>69</y>
+              <x>100</x>
+              <y>50</y>
               <width>40</width>
               <height>16</height>
              </rect>
@@ -987,8 +1101,8 @@ QRadioButton{
            <widget class="QCheckBox" name="chkA">
             <property name="geometry">
              <rect>
-              <x>19</x>
-              <y>120</y>
+              <x>163</x>
+              <y>50</y>
               <width>30</width>
               <height>17</height>
              </rect>
@@ -1005,8 +1119,8 @@ QRadioButton{
            <widget class="QCheckBox" name="chkB">
             <property name="geometry">
              <rect>
-              <x>55</x>
-              <y>120</y>
+              <x>199</x>
+              <y>50</y>
               <width>29</width>
               <height>17</height>
              </rect>
@@ -1023,8 +1137,8 @@ QRadioButton{
            <widget class="QCheckBox" name="chkD">
             <property name="geometry">
              <rect>
-              <x>126</x>
-              <y>120</y>
+              <x>270</x>
+              <y>50</y>
               <width>30</width>
               <height>17</height>
              </rect>
@@ -1041,8 +1155,8 @@ QRadioButton{
            <widget class="QCheckBox" name="chkC">
             <property name="geometry">
              <rect>
-              <x>90</x>
-              <y>120</y>
+              <x>234</x>
+              <y>50</y>
               <width>30</width>
               <height>17</height>
              </rect>
@@ -1056,46 +1170,6 @@ QRadioButton{
              <string>C</string>
             </property>
            </widget>
-          </widget>
-          <widget class="QLabel" name="lblValidarDNI">
-           <property name="geometry">
-            <rect>
-             <x>408</x>
-             <y>13</y>
-             <width>60</width>
-             <height>30</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>60</horstretch>
-             <verstretch>30</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>MV Boli</family>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
           </widget>
          </widget>
         </item>
