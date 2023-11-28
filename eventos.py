@@ -295,12 +295,13 @@ class Eventos():
                 sheet1.write(0, 8, 'Móvil')
                 sheet1.write(0, 9, 'Salario')
                 sheet1.write(0, 10, 'Carnet')
+                sheet1.write(0, 11, 'Fecha Baja')
 
                 registros = conexion.Conexion.selectdriverstodos()
 
                 for fila, registro in enumerate(registros, 1):
 
-                    for i, valor in enumerate(registro[:-1]):
+                    for i, valor in enumerate(registro):
 
                         sheet1.write(fila, i, str(valor))
 
@@ -318,3 +319,46 @@ class Eventos():
             msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
             msg.setText('Error al Exportar datos', error)
             msg.exec()
+
+    @staticmethod
+    def importardatosxls():
+        try:
+            Eventos.truncateTable()
+            filename = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
+            if var.dlgabrir.accept and filename != "":
+                file = filename[0]
+                documento = xlrd.open_workbook(file)
+                datos = documento.sheet_by_index(0)
+                filas = datos.nrows
+                columnas = datos.ncols
+                for i in range(filas):
+                    if i != 0:  # no coje la fila de los titulos
+                        new = []
+                        for j in range(columnas):
+                            new.append(str(datos.cell_value(i, j)))
+                        conexion.Conexion.guardarimport(new)
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Datos importados')
+                msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+                msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+                msg.exec()
+                conexion.Conexion.mostrardrivers()
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
+            msg.setText('Error al importarDatos' + str(error))
+            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+            msg.exec()
+
+    @staticmethod
+    def truncateTable():
+        try:
+
+            pass
+        except Exception as error:
+            print('error al borrar la tabla', error)

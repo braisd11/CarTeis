@@ -142,7 +142,7 @@
  </widget>
  <resources>
   <include location="../img/imagenesAcercaDe.qrc"/>
-  <include location="C:/Users/a22braisdr/.designer/img/imagenesExit.qrc"/>
+  <include location="../img/imagenes.qrc"/>
  </resources>
  <connections/>
 </ui>

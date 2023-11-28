@@ -119,7 +119,6 @@ class Conexion():
             estado = 1
             Conexion.selectDrivers(estado)
 
-
         except Exception as error:
             print("error al cargar la tabla", error)
 
@@ -313,3 +312,46 @@ class Conexion():
 
         except Exception as error:
             print('error al borrar fecha baja', error)
+
+    @staticmethod
+    def guardarimport(new):
+        try:
+            query = QtSql.QSqlQuery()
+
+            if str(new[11]) == '':
+                query.prepare('insert into drivers values(:codigo, :dni, :alta, :nombre, :apel, :direccion, :prov, :muni, '
+                              ':movil, :salario, :carnet, null)')
+                query.bindValue(':codigo', int(new[0]))
+                query.bindValue(':dni', str(new[1]))
+                query.bindValue(':alta', str(new[2]))
+                query.bindValue(':nombre', str(new[3]))
+                query.bindValue(':apel', str(new[4]))
+                query.bindValue(':direccion', str(new[5]))
+                query.bindValue(':prov', str(new[6]))
+                query.bindValue(':muni', str(new[7]))
+                query.bindValue(':movil', str(new[8]))
+                query.bindValue(':salario', str(new[9]))
+                query.bindValue(':carnet', str(new[10]))
+            else:
+                query.prepare(
+                    'insert into drivers values(:codigo, :dni, :alta, :nombre, :apel, :direccion, :prov, :muni, '
+                    ':movil, :salario, :carnet, :baja)')
+                query.bindValue(':codigo', int(new[0]))
+                query.bindValue(':dni', str(new[1]))
+                query.bindValue(':alta', str(new[2]))
+                query.bindValue(':nombre', str(new[3]))
+                query.bindValue(':apel', str(new[4]))
+                query.bindValue(':direccion', str(new[5]))
+                query.bindValue(':prov', str(new[6]))
+                query.bindValue(':muni', str(new[7]))
+                query.bindValue(':movil', str(new[8]))
+                query.bindValue(':salario', str(new[9]))
+                query.bindValue(':carnet', str(new[10]))
+                query.bindValue(':baja', str(new[11]))
+
+            if query.exec():
+                pass
+            else:
+                print(query.lastError().text())
+        except Exception as error:
+            print('error en guardarimport', error)

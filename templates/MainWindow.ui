@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>795</height>
+    <height>950</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +22,7 @@
   <property name="minimumSize">
    <size>
     <width>1024</width>
-    <height>768</height>
+    <height>950</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -43,7 +46,30 @@
 	font: 11pt &quot;Arial&quot;;
 	background-color:rgb(100,100,100);
 }
+
+QWidget{
+background-color: #F8F9EF;
+}
+
+QLabel {
+    color: rgb(0,0,0);
+}
+
+QPushButton {
+    border-style: solid;
+	border-color:#F9F0EF;
+	background-color: #D3D1D1;
+	color: rgb(0, 0, 0);
+	border-radius: 5px;
+
+}
+
+QLineEdit {border-radius: 5px;
+background-color: #E6E6E6}
 </string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -86,14 +112,19 @@
        <attribute name="title">
         <string>Conductores</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QFrame" name="frame">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QFrame" name="frameInfo">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+
+</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::Box</enum>
@@ -101,660 +132,981 @@
           <property name="frameShadow">
            <enum>QFrame::Sunken</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="0" column="1">
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="0" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_9">
-               <item>
-                <widget class="QLabel" name="lblCodigo">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Código:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblCodBD">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>100</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(247, 255, 158);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblDNI">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>DNI:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtDNI">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>110</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblValidarDNI">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>60</horstretch>
-                   <verstretch>30</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MV Boli</family>
-                   <pointsize>14</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnBuscar">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>28</width>
-                   <height>28</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>28</width>
-                   <height>28</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>C:/Users/a22braisdr/.designer/img/lupa.ico</normaloff>C:/Users/a22braisdr/.designer/img/lupa.ico</iconset>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="0" column="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <widget class="QLabel" name="lblFechaAlta">
-                 <property name="text">
-                  <string>Fecha Alta:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtDataDriver">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>80</horstretch>
-                   <verstretch>20</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>80</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnCalendar">
-                 <property name="minimumSize">
-                  <size>
-                   <width>40</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>40</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>C:/Users/a22braisdr/.designer/img/calendar.ico</normaloff>C:/Users/a22braisdr/.designer/img/calendar.ico</iconset>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="1" column="0" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
-               <item>
-                <widget class="QLabel" name="lblApel">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Apellidos:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtApel">
-                 <property name="minimumSize">
-                  <size>
-                   <width>350</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>350</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="1" column="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <widget class="QLabel" name="lblNombre">
-                 <property name="text">
-                  <string>Nombre:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtNombre"/>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <widget class="QLabel" name="lblDirDriver">
-                 <property name="text">
-                  <string>Dirección:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtDirDriver">
-                 <property name="minimumSize">
-                  <size>
-                   <width>350</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>350</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <item>
-                <widget class="QLabel" name="lblProv">
-                 <property name="text">
-                  <string>Provincia:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cmbProv">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>120</horstretch>
-                   <verstretch>20</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblLoc">
-                 <property name="text">
-                  <string>Localidad:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cmbMuni">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>120</horstretch>
-                   <verstretch>20</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>120</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="3" column="0" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <widget class="QLabel" name="lblMovilDriver">
-                 <property name="text">
-                  <string>Móvil:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtMovilDriver">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblSalario">
-                 <property name="text">
-                  <string>Salario:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="txtSalario">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>110</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="labelFormato">
-                 <property name="text">
-                  <string>(00000.00)</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="3" column="2">
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QLabel" name="lblHistorico">
-                 <property name="text">
-                  <string>Histórico:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="rbtTodos">
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Todos</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">btnGroupEstado</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="rbtAlta">
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Alta</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">btnGroupEstado</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="rbtBaja">
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Baja</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">btnGroupEstado</string>
-                 </attribute>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="4" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <item>
-                <widget class="QLabel" name="labeltipocarnet">
-                 <property name="text">
-                  <string>Tipo de carnet:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="chkA">
-                 <property name="text">
-                  <string>A</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="chkB">
-                 <property name="text">
-                  <string>B</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="chkC">
-                 <property name="text">
-                  <string>C</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="chkD">
-                 <property name="text">
-                  <string>D</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="5" column="1" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_10">
-               <item>
-                <widget class="QPushButton" name="btnAltaDriver">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>75</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Alta</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnBajaDriver">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>75</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Baja</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnModifDriver">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>75</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Modificar</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="2">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>64</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="0">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="1">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+          <widget class="QFrame" name="frame_2">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>10</y>
+             <width>221</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(255, 208, 181);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="lineWidth">
+            <number>1</number>
+           </property>
+           <widget class="QLabel" name="label">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>121</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>INFORMACIÓN:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtApel">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>187</y>
+              <width>150</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblApel">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>161</y>
+              <width>60</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Apellidos:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblCodBD">
+            <property name="geometry">
+             <rect>
+              <x>67</x>
+              <y>30</y>
+              <width>100</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(247, 255, 158);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblCodigo">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>30</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Código:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblDNI">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>56</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>DNI:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtDNI">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>82</y>
+              <width>110</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnBuscar">
+            <property name="geometry">
+             <rect>
+              <x>127</x>
+              <y>82</y>
+              <width>28</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="iconos.qrc">
+              <normaloff>:/iconos/img/lupa.ico</normaloff>:/iconos/img/lupa.ico</iconset>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtNombre">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>135</y>
+              <width>110</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblNombre">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>116</y>
+              <width>41</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Nombre:</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_3">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>240</y>
+             <width>384</width>
+             <height>215</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(255, 208, 181);
+
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>120</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>DATOS DE CONTACTO:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblDirDriver">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>31</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Dirección:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtDirDriver">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>50</y>
+              <width>350</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>350</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblProv">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>121</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Provincia:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblLoc">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>166</y>
+              <width>48</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Localidad:</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="cmbProv">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>140</y>
+              <width>140</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>120</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="cmbMuni">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>185</y>
+              <width>140</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>120</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblMovilDriver">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>76</y>
+              <width>28</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Móvil:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtMovilDriver">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>95</y>
+              <width>120</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_4">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>460</y>
+             <width>351</width>
+             <height>311</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(255, 208, 181);
+
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_4">
+            <property name="geometry">
+             <rect>
+              <x>19</x>
+              <y>11</y>
+              <width>86</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>DATOS DRIVER:</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnAltaDriver">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>270</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Alta</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnModifDriver">
+            <property name="geometry">
+             <rect>
+              <x>99</x>
+              <y>270</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Modificar</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnBajaDriver">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>270</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Baja</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblHistorico">
+            <property name="geometry">
+             <rect>
+              <x>23</x>
+              <y>206</y>
+              <width>45</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Histórico:</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="rbtTodos">
+            <property name="geometry">
+             <rect>
+              <x>23</x>
+              <y>235</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QRadioButton{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>Todos</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">btnGroupEstado</string>
+            </attribute>
+           </widget>
+           <widget class="QRadioButton" name="rbtAlta">
+            <property name="geometry">
+             <rect>
+              <x>84</x>
+              <y>235</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>Alta</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">btnGroupEstado</string>
+            </attribute>
+           </widget>
+           <widget class="QRadioButton" name="rbtBaja">
+            <property name="geometry">
+             <rect>
+              <x>145</x>
+              <y>235</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>Baja</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">btnGroupEstado</string>
+            </attribute>
+           </widget>
+           <widget class="QLineEdit" name="txtSalario">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>169</y>
+              <width>110</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblSalario">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>150</y>
+              <width>36</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Salario:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="labelFormato">
+            <property name="geometry">
+             <rect>
+              <x>134</x>
+              <y>169</y>
+              <width>54</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>(00000.00)</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="labeltipocarnet">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>100</y>
+              <width>73</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Tipo de carnet:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblFechaAlta">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>30</y>
+              <width>55</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Fecha Alta:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtDataDriver">
+            <property name="geometry">
+             <rect>
+              <x>18</x>
+              <y>69</y>
+              <width>80</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>80</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnCalendar">
+            <property name="geometry">
+             <rect>
+              <x>104</x>
+              <y>69</y>
+              <width>40</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="iconos.qrc">
+              <normaloff>:/iconos/img/calendar.ico</normaloff>:/iconos/img/calendar.ico</iconset>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="chkA">
+            <property name="geometry">
+             <rect>
+              <x>19</x>
+              <y>120</y>
+              <width>30</width>
+              <height>17</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="chkB">
+            <property name="geometry">
+             <rect>
+              <x>55</x>
+              <y>120</y>
+              <width>29</width>
+              <height>17</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="chkD">
+            <property name="geometry">
+             <rect>
+              <x>126</x>
+              <y>120</y>
+              <width>30</width>
+              <height>17</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>D</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="chkC">
+            <property name="geometry">
+             <rect>
+              <x>90</x>
+              <y>120</y>
+              <width>30</width>
+              <height>17</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+	background-color: rgb(255, 208, 181);
+}</string>
+            </property>
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="lblValidarDNI">
+           <property name="geometry">
+            <rect>
+             <x>408</x>
+             <y>13</y>
+             <width>60</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>60</horstretch>
+             <verstretch>30</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>MV Boli</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item>
          <widget class="QTableWidget" name="tabDrivers">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string notr="true">QTableWidget::item:selected {
     background-color: rgb(100,100,100);
@@ -863,6 +1215,7 @@
     <addaction name="actionRestaurar_Copia_Seguridad"/>
     <addaction name="separator"/>
     <addaction name="actionExportar_Datos_Excel"/>
+    <addaction name="actionImportar_Datos_Excel"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuHerramientas"/>
@@ -897,8 +1250,8 @@ background-color:rgb(100,100,100);
   </widget>
   <action name="actionlimpiarPanel">
    <property name="icon">
-    <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</normaloff>C:/Users/a22braisdr/.designer/img/reload.ico</iconset>
+    <iconset resource="iconos.qrc">
+     <normaloff>:/iconos/img/reload.ico</normaloff>:/iconos/img/reload.ico</iconset>
    </property>
    <property name="text">
     <string>limpiarPanel</string>
@@ -911,8 +1264,8 @@ background-color:rgb(100,100,100);
   </action>
   <action name="actionSalir">
    <property name="icon">
-    <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</normaloff>C:/Users/a22braisdr/.designer/img/exit.ico</iconset>
+    <iconset resource="iconos.qrc">
+     <normaloff>:/iconos/img/exit.ico</normaloff>:/iconos/img/exit.ico</iconset>
    </property>
    <property name="text">
     <string>Salir</string>
@@ -920,8 +1273,8 @@ background-color:rgb(100,100,100);
   </action>
   <action name="actionCrear_Copia_de_Seguridad">
    <property name="icon">
-    <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/icon_upload.ico</normaloff>C:/Users/a22braisdr/.designer/img/icon_upload.ico</iconset>
+    <iconset resource="iconos.qrc">
+     <normaloff>:/iconos/img/icon_download.ico</normaloff>:/iconos/img/icon_download.ico</iconset>
    </property>
    <property name="text">
     <string>Crear Copia de Seguridad</string>
@@ -932,8 +1285,8 @@ background-color:rgb(100,100,100);
   </action>
   <action name="actionRestaurar_Copia_Seguridad">
    <property name="icon">
-    <iconset>
-     <normaloff>C:/Users/a22braisdr/.designer/img/icon_download.ico</normaloff>C:/Users/a22braisdr/.designer/img/icon_download.ico</iconset>
+    <iconset resource="iconos.qrc">
+     <normaloff>:/iconos/img/icon_upload.ico</normaloff>:/iconos/img/icon_upload.ico</iconset>
    </property>
    <property name="text">
     <string>Restaurar Copia Seguridad</string>
@@ -947,9 +1300,15 @@ background-color:rgb(100,100,100);
     <string>Exportar Datos Excel</string>
    </property>
   </action>
+  <action name="actionImportar_Datos_Excel">
+   <property name="text">
+    <string>Importar Datos Excel</string>
+   </property>
+  </action>
  </widget>
  <resources>
-  <include location="../img/imagenes.qrc"/>
+  <include location="iconos.qrc"/>
+  <include location="preuba.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
