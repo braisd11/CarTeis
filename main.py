@@ -91,8 +91,12 @@ class Main(QtWidgets.QMainWindow):
         # event.ignore()
         # eventos.Eventos.showSalir(self)
 
+        btnSi = QtWidgets.QMessageBox.StandardButton.Yes
+
+        btnNo = QtWidgets.QMessageBox.StandardButton.No
+
         mbox = QtWidgets.QMessageBox.information(self, 'Salir', '¿Estás seguro de que quieres salir?',
-                                                 QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+                                                 btnSi | btnNo)
 
         if mbox == QtWidgets.QMessageBox.StandardButton.Yes:
             app.quit()

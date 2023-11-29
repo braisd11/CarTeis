@@ -4,39 +4,40 @@ import conexion
 import var
 
 
-def validarDNI():
-    try:
-        correcto = True
-        dni = var.ui.txtDNI.text()
-        dni = dni.upper()
-        var.ui.txtDNI.setText(dni)
-        tabla = "TRWAGMYFPDXBNJSZQVHCLKE"
-        dig_ext = "XYZ"
-        reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
-        numeros = "1234567890"
-        if len(dni) == 9:  # Comprueba que son 9 caracteres
-            dig_control = dni[8]  # Tomo la letra del DNI
-            dni = dni[:8]  # Tomo los números del DNI
-            if dni[0] in dig_ext:
-                dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
-            if len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni) % 23 == dig_control]:
-                var.ui.lblValidarDNI.setText('V')
-                var.ui.lblValidarDNI.setStyleSheet('color:green;')
-                return correcto
-
-            else:
-                correcto = False
-                return correcto
-
-        else:
-            correcto = False
-            return correcto
-
-    except Exception as error:
-        print("error en validar dni ", error)
-
-
 class Drivers:
+    def validarDNI(self=None):
+        try:
+            dni = var.ui.txtDNI.text()
+            dni = dni.upper()
+            var.ui.txtDNI.setText(dni)
+            tabla = "TRWAGMYFPDXBNJCSQVHLCKE"
+            dig_ext = "XYZ"
+            reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
+            numeros = "1234567890"
+
+            if len(dni) == 9:  # compruebo que son 9
+                dig_control = dni[8]  # tomo la letra del dni
+                dni = dni[:8]  # tomo los numeros del dni
+                if dni[0] in dig_ext:
+                    dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
+                if len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni) % 23] == dig_control:
+                    var.ui.lblValidarDNI.setStyleSheet('color:green;')
+                    var.ui.lblValidarDNI.setText('V')
+                    return True
+                else:
+                    var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                    var.ui.lblValidarDNI.setText('X')
+                    var.ui.txtDNI.clear()
+                    return False
+            else:
+                var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                var.ui.lblValidarDNI.setText('X')
+                var.ui.txtDNI.clear()
+                return False
+
+        except Exception as error:
+            print("error en validar dni ", error)
+    
 
     def cargarFecha(qDate):
         try:
@@ -79,13 +80,24 @@ class Drivers:
     @staticmethod
     def altaDriver():
         try:
-            codigo = var.ui.lblCodBD.text()
-            if Drivers.comprobarfechabaja(codigo):
-                conexion.Conexion.borrarfechabaja(codigo)
-                Drivers.selEstado()
-
+            if var.ui.lblCodBD.text() != "":
+                codigo = var.ui.lblCodBD.text()
+                if Drivers.comprobarfechabaja(codigo):
+                    if Drivers.validarDNI():
+                        conexion.Conexion.borrarfechabaja(codigo)
+                        Drivers.selEstado()
+                    else:
+                        mbox = QtWidgets.QMessageBox()
+                        mbox.setWindowTitle('Aviso')
+                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                        mbox.setText("DNI no válido")
+                        mbox.exec()
+                        var.ui.lblValidarDNI.setText('X')
+                        var.ui.lblValidarDNI.setStyleSheet('color:red;')
+                        var.ui.txtDNI.clear()
+                        var.ui.txtDNI.setFocus()
             else:
-                if validarDNI():
+                if Drivers.validarDNI():
                     driver = [var.ui.txtDNI,
                               var.ui.txtDataDriver,
                               var.ui.txtNombre,
@@ -169,8 +181,8 @@ class Drivers:
             fila = [dato.text() for dato in row]
             registro = conexion.Conexion.onedriver(fila[0])
 
-            datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel,
-                     var.ui.txtNombre, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
+            datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtNombre,
+                     var.ui.txtApel, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
                      var.ui.txtMovilDriver, var.ui.txtSalario]
 
             for i, dato in enumerate(datos):
@@ -231,7 +243,7 @@ class Drivers:
     @staticmethod
     def modifDri():
         try:
-            if validarDNI():
+            if Drivers.validarDNI():
                 driver = [var.ui.lblCodBD,
                           var.ui.txtDNI,
                           var.ui.txtDataDriver,

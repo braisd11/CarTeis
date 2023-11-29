@@ -21,11 +21,25 @@ class Ui_dlgSalir(object):
         dlgSalir.setMinimumSize(QtCore.QSize(350, 250))
         dlgSalir.setMaximumSize(QtCore.QSize(350, 250))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         dlgSalir.setWindowIcon(icon)
         dlgSalir.setStyleSheet("QDialog{\n"
-"background-color: #F8F9EF;\n"
-"}")
+"background-color: rgb(86,86,86);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    border-style: solid;\n"
+"    border-color:#F9F0EF;\n"
+"    background-color: #D3D1D1;\n"
+"    color: rgb(0, 0, 0);\n"
+"    border-radius: 5px;\n"
+"\n"
+"}\n"
+"")
         self.btnSalirNo = QtWidgets.QPushButton(parent=dlgSalir)
         self.btnSalirNo.setGeometry(QtCore.QRect(230, 190, 75, 23))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -60,7 +74,7 @@ class Ui_dlgSalir(object):
         self.lblSalir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lblSalir.setObjectName("lblSalir")
         self.label = QtWidgets.QLabel(parent=dlgSalir)
-        self.label.setGeometry(QtCore.QRect(140, 20, 81, 81))
+        self.label.setGeometry(QtCore.QRect(130, 30, 81, 81))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -68,7 +82,7 @@ class Ui_dlgSalir(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 
@@ -77,7 +91,7 @@ class Ui_dlgSalir(object):
 
     def retranslateUi(self, dlgSalir):
         _translate = QtCore.QCoreApplication.translate
-        dlgSalir.setWindowTitle(_translate("dlgSalir", "Dialog"))
+        dlgSalir.setWindowTitle(_translate("dlgSalir", "Salir"))
         self.btnSalirNo.setText(_translate("dlgSalir", "CANCELAR"))
         self.btnSalirSi.setText(_translate("dlgSalir", "ACEPTAR"))
         self.lblSalir.setText(_translate("dlgSalir", "¿DESEAS SALIR?"))

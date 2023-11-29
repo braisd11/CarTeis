@@ -29,16 +29,19 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>CarTeis</string>
+   <string>CarTeis Acerca De</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normaloff>
-    <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</iconset>
+   <iconset resource="iconos.qrc">
+    <normaloff>:/iconos/img/driver.ico</normaloff>:/iconos/img/driver.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-background-color: #F8F9EF;
+	background-color: rgb(86, 86, 86);
+}
+
+QLabel {
+	color: rgb(255, 255, 255);
 }</string>
   </property>
   <widget class="QLabel" name="lblAutor">
@@ -72,6 +75,9 @@ background-color: #F8F9EF;
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -122,7 +128,7 @@ background-color: #F8F9EF;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/a22braisdr/.designer/img/driver.ico</pixmap>
+    <pixmap resource="iconos.qrc">:/iconos/img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -137,6 +143,9 @@ background-color: #F8F9EF;
      <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
     <string>Aplicación dedicada al alquiler de coches por parte de ususarios.</string>
    </property>
@@ -146,8 +155,7 @@ background-color: #F8F9EF;
   </widget>
  </widget>
  <resources>
-  <include location="../img/imagenesAcercaDe.qrc"/>
-  <include location="../img/imagenes.qrc"/>
+  <include location="iconos.qrc"/>
  </resources>
  <connections/>
 </ui>

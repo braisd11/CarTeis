@@ -20,8 +20,24 @@ class Ui_dlgModificarBajaWindow(object):
         dlgModificarBajaWindow.setSizePolicy(sizePolicy)
         dlgModificarBajaWindow.setMinimumSize(QtCore.QSize(400, 300))
         dlgModificarBajaWindow.setMaximumSize(QtCore.QSize(400, 300))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        dlgModificarBajaWindow.setWindowIcon(icon)
         dlgModificarBajaWindow.setStyleSheet("QDialog{\n"
-"background-color: #F8F9EF;\n"
+"background-color: rgb(86,86,86);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    border-style: solid;\n"
+"    border-color:#F9F0EF;\n"
+"    background-color: #D3D1D1;\n"
+"    color: rgb(0, 0, 0);\n"
+"    border-radius: 5px;\n"
+"\n"
 "}")
         self.btnModificarFechaSi = QtWidgets.QPushButton(parent=dlgModificarBajaWindow)
         self.btnModificarFechaSi.setGeometry(QtCore.QRect(90, 210, 75, 23))
@@ -33,7 +49,7 @@ class Ui_dlgModificarBajaWindow(object):
         self.btnModificarFechaSi.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.btnModificarFechaSi.setObjectName("btnModificarFechaSi")
         self.label = QtWidgets.QLabel(parent=dlgModificarBajaWindow)
-        self.label.setGeometry(QtCore.QRect(160, 40, 81, 81))
+        self.label.setGeometry(QtCore.QRect(150, 20, 101, 101))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -41,20 +57,20 @@ class Ui_dlgModificarBajaWindow(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.lblModificarFecha = QtWidgets.QLabel(parent=dlgModificarBajaWindow)
-        self.lblModificarFecha.setGeometry(QtCore.QRect(90, 140, 221, 31))
+        self.lblModificarFecha.setGeometry(QtCore.QRect(70, 140, 281, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lblModificarFecha.sizePolicy().hasHeightForWidth())
         self.lblModificarFecha.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
         self.lblModificarFecha.setFont(font)
         self.lblModificarFecha.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.lblModificarFecha.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -74,7 +90,7 @@ class Ui_dlgModificarBajaWindow(object):
 
     def retranslateUi(self, dlgModificarBajaWindow):
         _translate = QtCore.QCoreApplication.translate
-        dlgModificarBajaWindow.setWindowTitle(_translate("dlgModificarBajaWindow", "Dialog"))
+        dlgModificarBajaWindow.setWindowTitle(_translate("dlgModificarBajaWindow", "CarTeis"))
         self.btnModificarFechaSi.setText(_translate("dlgModificarBajaWindow", "SI"))
         self.lblModificarFecha.setText(_translate("dlgModificarBajaWindow", "¿DESEAS MODIFICAR LA FECHA DE BAJA?"))
         self.btnModificarFechaNo.setText(_translate("dlgModificarBajaWindow", "NO"))

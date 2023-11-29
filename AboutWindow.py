@@ -21,11 +21,14 @@ class Ui_dlgAbout(object):
         dlgAbout.setMinimumSize(QtCore.QSize(391, 267))
         dlgAbout.setMaximumSize(QtCore.QSize(391, 267))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        icon.addPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/backup/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         dlgAbout.setWindowIcon(icon)
         dlgAbout.setStyleSheet("QDialog{\n"
-"background-color: #F8F9EF;\n"
+"    background-color: rgb(86, 86, 86);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
 "}")
         self.lblAutor = QtWidgets.QLabel(parent=dlgAbout)
         self.lblAutor.setGeometry(QtCore.QRect(30, 240, 111, 16))
@@ -38,6 +41,7 @@ class Ui_dlgAbout(object):
         font.setBold(True)
         font.setWeight(75)
         self.frame.setFont(font)
+        self.frame.setStyleSheet("")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
@@ -51,11 +55,12 @@ class Ui_dlgAbout(object):
         self.lblIcon = QtWidgets.QLabel(parent=dlgAbout)
         self.lblIcon.setGeometry(QtCore.QRect(20, 10, 121, 121))
         self.lblIcon.setText("")
-        self.lblIcon.setPixmap(QtGui.QPixmap("C:/Users/a22braisdr/.designer/img/driver.ico"))
+        self.lblIcon.setPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"))
         self.lblIcon.setScaledContents(True)
         self.lblIcon.setObjectName("lblIcon")
         self.lblDescrip = QtWidgets.QLabel(parent=dlgAbout)
         self.lblDescrip.setGeometry(QtCore.QRect(30, 150, 251, 51))
+        self.lblDescrip.setStyleSheet("")
         self.lblDescrip.setWordWrap(True)
         self.lblDescrip.setObjectName("lblDescrip")
 
@@ -64,7 +69,7 @@ class Ui_dlgAbout(object):
 
     def retranslateUi(self, dlgAbout):
         _translate = QtCore.QCoreApplication.translate
-        dlgAbout.setWindowTitle(_translate("dlgAbout", "CarTeis"))
+        dlgAbout.setWindowTitle(_translate("dlgAbout", "CarTeis Acerca De"))
         self.lblAutor.setText(_translate("dlgAbout", "Brais Díaz Rodríguez"))
         self.lblVersion.setText(_translate("dlgAbout", "Versión 0.1"))
         self.lblNomApp.setText(_translate("dlgAbout", "CarTeis"))

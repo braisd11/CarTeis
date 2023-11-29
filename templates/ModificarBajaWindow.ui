@@ -29,11 +29,28 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>CarTeis</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="iconos.qrc">
+    <normaloff>:/iconos/img/driver.ico</normaloff>:/iconos/img/driver.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-background-color: #F8F9EF;
+background-color: rgb(86,86,86);
+}
+
+QLabel {
+	color: rgb(255, 255, 255);
+}
+
+QPushButton {
+    border-style: solid;
+	border-color:#F9F0EF;
+	background-color: #D3D1D1;
+	color: rgb(0, 0, 0);
+	border-radius: 5px;
+
 }</string>
   </property>
   <widget class="QPushButton" name="btnModificarFechaSi">
@@ -61,10 +78,10 @@ background-color: #F8F9EF;
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>40</y>
-     <width>81</width>
-     <height>81</height>
+     <x>150</x>
+     <y>20</y>
+     <width>101</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -80,7 +97,7 @@ background-color: #F8F9EF;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/a22braisdr/.designer/img/driver.ico</pixmap>
+    <pixmap resource="iconos.qrc">:/iconos/img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -89,9 +106,9 @@ background-color: #F8F9EF;
   <widget class="QLabel" name="lblModificarFecha">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>70</x>
      <y>140</y>
-     <width>221</width>
+     <width>281</width>
      <height>31</height>
     </rect>
    </property>
@@ -103,9 +120,9 @@ background-color: #F8F9EF;
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="layoutDirection">
@@ -141,6 +158,8 @@ background-color: #F8F9EF;
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="iconos.qrc"/>
+ </resources>
  <connections/>
 </ui>

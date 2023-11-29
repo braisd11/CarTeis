@@ -29,17 +29,30 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Salir</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normalon>C:/Users/a22braisdr/.designer/backup/img/driver.ico</normalon>
-   </iconset>
+   <iconset resource="iconos.qrc">
+    <normaloff>:/iconos/img/driver.ico</normaloff>:/iconos/img/driver.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-background-color: #F8F9EF;
-}</string>
+background-color: rgb(86,86,86);
+}
+
+QLabel {
+	color: rgb(255, 255, 255);
+}
+
+QPushButton {
+    border-style: solid;
+	border-color:#F9F0EF;
+	background-color: #D3D1D1;
+	color: rgb(0, 0, 0);
+	border-radius: 5px;
+
+}
+</string>
   </property>
   <widget class="QPushButton" name="btnSalirNo">
    <property name="geometry">
@@ -120,8 +133,8 @@ background-color: #F8F9EF;
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>20</y>
+     <x>130</x>
+     <y>30</y>
      <width>81</width>
      <height>81</height>
     </rect>
@@ -139,7 +152,7 @@ background-color: #F8F9EF;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/a22braisdr/.designer/img/driver.ico</pixmap>
+    <pixmap resource="iconos.qrc">:/iconos/img/driver.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -147,7 +160,7 @@ background-color: #F8F9EF;
   </widget>
  </widget>
  <resources>
-  <include location="../img/imagenesExit.qrc"/>
+  <include location="iconos.qrc"/>
  </resources>
  <connections/>
 </ui>
