@@ -326,9 +326,8 @@ class Eventos():
             filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
 
             if var.dlgabrir.accept and filename != "":
-                file = filename[0]
 
-                documento = xlrd.open_workbook(file)
+                documento = xlrd.open_workbook(filename)
                 datos = documento.sheet_by_index(0)
                 filas = datos.nrows
                 columnas = datos.ncols
