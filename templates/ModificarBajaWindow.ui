@@ -68,6 +68,9 @@ QPushButton {
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -150,6 +153,9 @@ QPushButton {
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -160,6 +166,7 @@ QPushButton {
  </widget>
  <resources>
   <include location="iconos.qrc"/>
+  <include location="C:/Users/a22braisdr/.designer/backup/iconos.qrc"/>
  </resources>
  <connections/>
 </ui>

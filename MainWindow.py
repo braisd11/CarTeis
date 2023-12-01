@@ -21,6 +21,7 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(1024, 800))
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
@@ -71,7 +72,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.panelPrincipal.setFont(font)
-        self.panelPrincipal.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.panelPrincipal.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.panelPrincipal.setTabShape(QtWidgets.QTabWidget.TabShape.Triangular)
         self.panelPrincipal.setObjectName("panelPrincipal")
         self.panelDrivers = QtWidgets.QWidget()
@@ -198,6 +199,7 @@ class Ui_MainWindow(object):
         self.btnBuscar.setSizePolicy(sizePolicy)
         self.btnBuscar.setMinimumSize(QtCore.QSize(28, 28))
         self.btnBuscar.setMaximumSize(QtCore.QSize(28, 28))
+        self.btnBuscar.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnBuscar.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/iconos/img/lupa.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -276,6 +278,7 @@ class Ui_MainWindow(object):
         self.cmbProv.setSizePolicy(sizePolicy)
         self.cmbProv.setMinimumSize(QtCore.QSize(140, 20))
         self.cmbProv.setMaximumSize(QtCore.QSize(140, 20))
+        self.cmbProv.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.cmbProv.setStyleSheet("QComboBox{\n"
 "    background-color: None;\n"
 "}")
@@ -289,6 +292,7 @@ class Ui_MainWindow(object):
         self.cmbMuni.setSizePolicy(sizePolicy)
         self.cmbMuni.setMinimumSize(QtCore.QSize(140, 20))
         self.cmbMuni.setMaximumSize(QtCore.QSize(120, 20))
+        self.cmbMuni.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.cmbMuni.setStyleSheet("QComboBox{\n"
 "    background-color: None;\n"
 "}")
@@ -334,6 +338,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.btnAltaDriver.sizePolicy().hasHeightForWidth())
         self.btnAltaDriver.setSizePolicy(sizePolicy)
         self.btnAltaDriver.setMinimumSize(QtCore.QSize(75, 20))
+        self.btnAltaDriver.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnAltaDriver.setObjectName("btnAltaDriver")
         self.btnModifDriver = QtWidgets.QPushButton(parent=self.frame_4)
         self.btnModifDriver.setGeometry(QtCore.QRect(89, 180, 75, 20))
@@ -343,6 +348,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.btnModifDriver.sizePolicy().hasHeightForWidth())
         self.btnModifDriver.setSizePolicy(sizePolicy)
         self.btnModifDriver.setMinimumSize(QtCore.QSize(75, 20))
+        self.btnModifDriver.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnModifDriver.setObjectName("btnModifDriver")
         self.btnBajaDriver = QtWidgets.QPushButton(parent=self.frame_4)
         self.btnBajaDriver.setGeometry(QtCore.QRect(170, 180, 75, 20))
@@ -352,6 +358,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.btnBajaDriver.sizePolicy().hasHeightForWidth())
         self.btnBajaDriver.setSizePolicy(sizePolicy)
         self.btnBajaDriver.setMinimumSize(QtCore.QSize(75, 20))
+        self.btnBajaDriver.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnBajaDriver.setObjectName("btnBajaDriver")
         self.lblHistorico = QtWidgets.QLabel(parent=self.frame_4)
         self.lblHistorico.setGeometry(QtCore.QRect(10, 121, 50, 16))
@@ -361,6 +368,7 @@ class Ui_MainWindow(object):
         self.rbtTodos.setGeometry(QtCore.QRect(10, 150, 50, 20))
         self.rbtTodos.setMinimumSize(QtCore.QSize(50, 20))
         self.rbtTodos.setMaximumSize(QtCore.QSize(50, 20))
+        self.rbtTodos.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtTodos.setStyleSheet("\n"
 "QRadioButton{\n"
 "    background-color: rgb(150, 150, 150);\n"
@@ -374,6 +382,7 @@ class Ui_MainWindow(object):
         self.rbtAlta.setGeometry(QtCore.QRect(71, 150, 50, 20))
         self.rbtAlta.setMinimumSize(QtCore.QSize(50, 20))
         self.rbtAlta.setMaximumSize(QtCore.QSize(50, 20))
+        self.rbtAlta.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtAlta.setStyleSheet("QRadioButton{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")
@@ -384,6 +393,7 @@ class Ui_MainWindow(object):
         self.rbtBaja.setGeometry(QtCore.QRect(132, 150, 50, 20))
         self.rbtBaja.setMinimumSize(QtCore.QSize(50, 20))
         self.rbtBaja.setMaximumSize(QtCore.QSize(50, 20))
+        self.rbtBaja.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtBaja.setStyleSheet("QRadioButton{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")
@@ -429,6 +439,7 @@ class Ui_MainWindow(object):
         self.btnCalendar.setGeometry(QtCore.QRect(100, 50, 40, 16))
         self.btnCalendar.setMinimumSize(QtCore.QSize(40, 0))
         self.btnCalendar.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.btnCalendar.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnCalendar.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/iconos/img/calendar.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -436,24 +447,28 @@ class Ui_MainWindow(object):
         self.btnCalendar.setObjectName("btnCalendar")
         self.chkA = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkA.setGeometry(QtCore.QRect(163, 50, 30, 17))
+        self.chkA.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkA.setStyleSheet("QCheckBox{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")
         self.chkA.setObjectName("chkA")
         self.chkB = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkB.setGeometry(QtCore.QRect(199, 50, 29, 17))
+        self.chkB.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkB.setStyleSheet("QCheckBox{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")
         self.chkB.setObjectName("chkB")
         self.chkD = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkD.setGeometry(QtCore.QRect(270, 50, 30, 17))
+        self.chkD.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkD.setStyleSheet("QCheckBox{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")
         self.chkD.setObjectName("chkD")
         self.chkC = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkC.setGeometry(QtCore.QRect(234, 50, 30, 17))
+        self.chkC.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkC.setStyleSheet("QCheckBox{\n"
 "    background-color: rgb(150, 150, 150);\n"
 "}")

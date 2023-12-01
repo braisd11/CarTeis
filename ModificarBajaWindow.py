@@ -46,6 +46,7 @@ class Ui_dlgModificarBajaWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnModificarFechaSi.sizePolicy().hasHeightForWidth())
         self.btnModificarFechaSi.setSizePolicy(sizePolicy)
+        self.btnModificarFechaSi.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnModificarFechaSi.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.btnModificarFechaSi.setObjectName("btnModificarFechaSi")
         self.label = QtWidgets.QLabel(parent=dlgModificarBajaWindow)
@@ -82,6 +83,7 @@ class Ui_dlgModificarBajaWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnModificarFechaNo.sizePolicy().hasHeightForWidth())
         self.btnModificarFechaNo.setSizePolicy(sizePolicy)
+        self.btnModificarFechaNo.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnModificarFechaNo.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.btnModificarFechaNo.setObjectName("btnModificarFechaNo")
 

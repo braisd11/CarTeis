@@ -345,6 +345,7 @@ class Eventos():
                 msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
                 msg.exec()
                 var.ui.txtDNI.clear()
+                var.ui.lblValidarDNI.clear()
                 conexion.Conexion.mostrardrivers()
         except Exception as error:
             msg = QtWidgets.QMessageBox()
