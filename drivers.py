@@ -5,9 +5,9 @@ import var
 
 
 class Drivers:
-    def validarDNI(self=None):
+    @staticmethod
+    def validarDNI(dni):
         try:
-            dni = var.ui.txtDNI.text()
             dni = dni.upper()
             var.ui.txtDNI.setText(dni)
             tabla = "TRWAGMYFPDXBNJCSQVHLCKE"
@@ -37,7 +37,6 @@ class Drivers:
 
         except Exception as error:
             print("error en validar dni ", error)
-    
 
     def cargarFecha(qDate):
         try:
@@ -80,10 +79,13 @@ class Drivers:
     @staticmethod
     def altaDriver():
         try:
-            if var.ui.lblCodBD.text() != "":
-                codigo = var.ui.lblCodBD.text()
+            dni = var.ui.txtDNI.text()
+            codigo = var.ui.lblCodBD.text()
+
+            if codigo != "":
+
                 if Drivers.comprobarfechabaja(codigo):
-                    if Drivers.validarDNI():
+                    if Drivers.validarDNI(dni):
                         conexion.Conexion.borrarfechabaja(codigo)
                         Drivers.selEstado()
                     else:
@@ -92,12 +94,14 @@ class Drivers:
                         mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
                         mbox.setText("DNI no válido")
                         mbox.exec()
-                        var.ui.lblValidarDNI.setText('X')
-                        var.ui.lblValidarDNI.setStyleSheet('color:red;')
-                        var.ui.txtDNI.clear()
-                        var.ui.txtDNI.setFocus()
+                else:
+                    mbox = QtWidgets.QMessageBox()
+                    mbox.setWindowTitle('Aviso')
+                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    mbox.setText("No puedes dar de alta a un empleado dado de alta")
+                    mbox.exec()
             else:
-                if Drivers.validarDNI():
+                if Drivers.validarDNI(dni):
                     driver = [var.ui.txtDNI,
                               var.ui.txtDataDriver,
                               var.ui.txtNombre,
@@ -243,7 +247,9 @@ class Drivers:
     @staticmethod
     def modifDri():
         try:
-            if Drivers.validarDNI():
+            dni = var.ui.txtDNI.text()
+
+            if Drivers.validarDNI(dni):
                 driver = [var.ui.lblCodBD,
                           var.ui.txtDNI,
                           var.ui.txtDataDriver,

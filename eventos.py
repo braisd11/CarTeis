@@ -323,16 +323,17 @@ class Eventos():
     @staticmethod
     def importardatosxls():
         try:
-            Eventos.truncateTable()
-            filename = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
+            filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
+
             if var.dlgabrir.accept and filename != "":
                 file = filename[0]
+
                 documento = xlrd.open_workbook(file)
                 datos = documento.sheet_by_index(0)
                 filas = datos.nrows
                 columnas = datos.ncols
                 for i in range(filas):
-                    if i != 0:  # no coje la fila de los titulos
+                    if i != 0:  # no coge la fila de los títulos
                         new = []
                         for j in range(columnas):
                             new.append(str(datos.cell_value(i, j)))
@@ -355,10 +356,3 @@ class Eventos():
             msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
             msg.exec()
 
-    @staticmethod
-    def truncateTable():
-        try:
-
-            pass
-        except Exception as error:
-            print('error al borrar la tabla', error)
