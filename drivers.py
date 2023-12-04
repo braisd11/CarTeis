@@ -223,8 +223,8 @@ class Drivers:
 
     def cargardatos(registro):
         try:
-            datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel,
-                     var.ui.txtNombre, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
+            datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtNombre,
+                     var.ui.txtApel, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
                      var.ui.txtMovilDriver, var.ui.txtSalario]
 
             for i, dato in enumerate(datos):

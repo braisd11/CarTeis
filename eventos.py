@@ -191,9 +191,8 @@ class Eventos():
             movil = var.ui.txtMovilDriver.text()
             var.ui.txtMovilDriver.setText(movil)
 
-            if len(movil) == 9 or (movil.isdigit() and len(movil) == 9):
-                pass
-            else:
+            if not (len(movil) == 9 and movil.isdigit()):
+
                 raise Exception()
 
         except Exception as error:
