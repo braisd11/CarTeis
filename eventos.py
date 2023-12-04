@@ -331,12 +331,14 @@ class Eventos():
                 datos = documento.sheet_by_index(0)
                 filas = datos.nrows
                 columnas = datos.ncols
+
                 for i in range(filas):
                     if i != 0:  # no coge la fila de los títulos
                         new = []
                         for j in range(columnas):
                             new.append(str(datos.cell_value(i, j)))
                         conexion.Conexion.guardarimport(new)
+
                 msg = QtWidgets.QMessageBox()
                 msg.setWindowTitle('Aviso')
                 msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
