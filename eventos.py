@@ -149,11 +149,25 @@ class Eventos():
             print("error con resizeTabdrivers", error)
 
     @staticmethod
+    def resizeTabclientes():
+        try:
+            header = var.ui.tabClientes.horizontalHeader()
+            for i in range(var.ui.tabClientes.columnCount()):
+                if i == 0 or i == 4 or i == 3:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+                elif i == 1 or i == 2:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        except Exception as error:
+            print("error con resize tabClientes", error)
+
+    @staticmethod
     def letraCapital():
         try:
             var.ui.txtApel.setText(var.ui.txtApel.text().title())
             var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
+            var.ui.txtNombrecli.setText(var.ui.txtNombrecli.text().title())
             var.ui.txtDNI.setText(var.ui.txtDNI.text().title())
+            var.ui.txtDNIcli.setText(var.ui.txtDNIcli.text().title())
 
         except Exception as error:
             print("error con letra capital", error)
@@ -191,6 +205,7 @@ class Eventos():
             movil = var.ui.txtMovilDriver.text()
             var.ui.txtMovilDriver.setText(movil)
 
+
             if not (len(movil) == 9 and movil.isdigit()):
 
                 raise Exception()
@@ -207,6 +222,28 @@ class Eventos():
             msg.exec()
             var.ui.txtMovilDriver.setText("")
             var.ui.txtMovilDriver.setFocus()
+
+    @staticmethod
+    def compruebaMovilcli():
+        try:
+            movil = var.ui.txtMovilcli.text()
+            var.ui.txtMovilcli.setText(movil)
+
+            if not movil.isdigit():
+                raise Exception()
+
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            msg.setText('Valor de Móvil Incorrecto (9 dígitos)')
+            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
+            msg.exec()
+            var.ui.txtMovilcli.setText("")
+            var.ui.txtMovilcli.setFocus()
 
     @staticmethod
     def crearbackup():
@@ -271,7 +308,7 @@ class Eventos():
             msg.exec()
 
     @staticmethod
-    def exportardatosxls():
+    def exportardatosxlsdriv():
         try:
             fecha = datetime.today()
 
@@ -320,7 +357,7 @@ class Eventos():
             msg.exec()
 
     @staticmethod
-    def importardatosxls():
+    def importardatosxlsdriv():
         try:
             filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
 
@@ -348,6 +385,89 @@ class Eventos():
                 var.ui.txtDNI.clear()
                 var.ui.lblValidarDNI.clear()
                 conexion.Conexion.mostrardrivers()
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
+            msg.setText('Error al importarDatos' + str(error))
+            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+            msg.exec()
+
+    @staticmethod
+    def exportardatosxlscli():
+        try:
+            fecha = datetime.today()
+
+            fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
+            file = str(fecha) + '_Datos.xls'
+
+            directorio, filename = var.dlgabrir.getSaveFileName(None, 'Exportar Datos en xls', file, '.xls')
+
+            if var.dlgabrir.accept and filename:
+                wb = xlwt.Workbook()
+                sheet1 = wb.add_sheet('Clientes')
+                sheet1.write(0, 0, 'ID')
+                sheet1.write(0, 1, 'DNI')
+                sheet1.write(0, 2, 'Razón Social')
+                sheet1.write(0, 3, 'Dirección')
+                sheet1.write(0, 4, 'Teléfono')
+                sheet1.write(0, 5, 'Provincia')
+                sheet1.write(0, 6, 'Municipio')
+                sheet1.write(0, 7, 'Fecha Baja')
+
+                registros = conexion.Conexion.selectclientestodos()
+
+                for fila, registro in enumerate(registros, 1):
+
+                    for i, valor in enumerate(registro):
+                        sheet1.write(fila, i, str(valor))
+
+                wb.save(directorio)
+
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Datos xls exportados!')
+                msg.exec()
+
+        except Exception as error:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Aviso')
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            msg.setText('Error al Exportar datos', error)
+            msg.exec()
+
+    @staticmethod
+    def importardatosxlscli():
+        try:
+            filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
+
+            if var.dlgabrir.accept and filename != "":
+
+                documento = xlrd.open_workbook(filename)
+                datos = documento.sheet_by_index(0)
+                filas = datos.nrows
+                columnas = datos.ncols
+
+                for i in range(filas):
+                    if i != 0:  # no coge la fila de los títulos
+                        new = []
+                        for j in range(columnas):
+                            new.append(str(datos.cell_value(i, j)))
+                        conexion.Conexion.guardarimportcli(new)
+
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                msg.setText('Datos importados')
+                msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+                msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
+                msg.exec()
+                var.ui.txtDNIcli.clear()
+                var.ui.lblValidarDNIcli.clear()
+                conexion.Conexion.mostrarclientes()
         except Exception as error:
             msg = QtWidgets.QMessageBox()
             msg.setWindowTitle('Aviso')

@@ -75,7 +75,8 @@ QPushButton {
 
 QLineEdit {
 border-radius: 5px;
-background-color: #E6E6E6
+background-color: #E6E6E6;
+color: rgb(0,0,0);
 }
 </string>
   </property>
@@ -123,7 +124,7 @@ background-color: #E6E6E6
        <attribute name="title">
         <string>Conductores</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QFrame" name="frameInfo">
           <property name="sizePolicy">
@@ -491,8 +492,8 @@ QComboBox{
           <widget class="QFrame" name="frame_3">
            <property name="geometry">
             <rect>
-             <x>20</x>
-             <y>190</y>
+             <x>520</x>
+             <y>10</y>
              <width>371</width>
              <height>181</height>
             </rect>
@@ -735,7 +736,7 @@ QComboBox{
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>400</y>
+             <y>180</y>
              <width>351</width>
              <height>221</height>
             </rect>
@@ -1562,29 +1563,1003 @@ QTableWidget {
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="panelClientes">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Clientes</string>
        </attribute>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>250</y>
-          <width>191</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Label super cutre</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QFrame" name="frame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame {
+	background-color:rgb(100, 100, 100);
+}
+
+QLineEdit {
+	color: rgb(0,0,0);
+}
+
+QCheckBox {
+	color: rgb(0,0,0);
+}
+
+QRadioButton{
+	color: rgb(0,0,0);
+}
+
+QComboBox{
+	color: rgb(0,0,0);
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QFrame" name="frame_5">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>20</y>
+             <width>451</width>
+             <height>161</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(150, 150, 150);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="lineWidth">
+            <number>1</number>
+           </property>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>121</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>INFORMACIÓN:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblCodBDcli">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>60</y>
+              <width>100</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(247, 255, 158);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblCodigocli">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>30</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Código:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblDNIcli">
+            <property name="geometry">
+             <rect>
+              <x>139</x>
+              <y>30</y>
+              <width>50</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>DNI:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtDNIcli">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>60</y>
+              <width>110</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtNombrecli">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>117</y>
+              <width>241</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblNombrecli">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>91</y>
+              <width>71</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Razón Social:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblValidarDNIcli">
+            <property name="geometry">
+             <rect>
+              <x>257</x>
+              <y>51</y>
+              <width>60</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>60</horstretch>
+              <verstretch>30</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MV Boli</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_6">
+           <property name="geometry">
+            <rect>
+             <x>510</x>
+             <y>20</y>
+             <width>371</width>
+             <height>181</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(150, 150, 150);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_5">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>130</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>130</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>DATOS DE CONTACTO:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblDircli">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>31</y>
+              <width>60</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Dirección:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtDircli">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>50</y>
+              <width>350</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>350</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblProvcli">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>121</y>
+              <width>60</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Provincia:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblLoccli">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>120</y>
+              <width>60</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Localidad:</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="cmbProvcli">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>140</y>
+              <width>140</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>120</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox{
+	background-color: None;
+}</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="cmbMunicli">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>139</y>
+              <width>140</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>120</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox{
+	background-color: None;
+}</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblMovilcli">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>76</y>
+              <width>50</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Móvil:</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txtMovilcli">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>95</y>
+              <width>120</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_7">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>351</width>
+             <height>151</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+	border-radius: 20px;
+	background-color: rgb(150, 150, 150);
+	color: rgb(0,0,0);
+
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_6">
+            <property name="geometry">
+             <rect>
+              <x>19</x>
+              <y>11</y>
+              <width>121</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>ACCIONES CLIENTES:</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnAltacli">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>100</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Alta</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnModifcli">
+            <property name="geometry">
+             <rect>
+              <x>91</x>
+              <y>100</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Modificar</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btnBajacli">
+            <property name="geometry">
+             <rect>
+              <x>172</x>
+              <y>100</y>
+              <width>75</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Baja</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblHistorico_2">
+            <property name="geometry">
+             <rect>
+              <x>22</x>
+              <y>41</y>
+              <width>50</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Histórico:</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="chkTodoscli">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>70</y>
+              <width>70</width>
+              <height>17</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+	background-color: rgb(150, 150, 150);
+}</string>
+            </property>
+            <property name="text">
+             <string>Todos</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tabClientes">
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>86</red>
+                <green>86</green>
+                <blue>86</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="AlternateBase">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>149</red>
+                <green>149</green>
+                <blue>149</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>86</red>
+                <green>86</green>
+                <blue>86</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="AlternateBase">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>149</red>
+                <green>149</green>
+                <blue>149</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="AlternateBase">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>149</red>
+                <green>149</green>
+                <blue>149</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QTableWidget::item:selected {
+    background-color: rgb(255,255,255);
+	color: rgb(0,0,0);
+}
+
+QTableWidget {
+    background-color: rgb(100,100,100);
+}</string>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="tabKeyNavigation">
+           <bool>true</bool>
+          </property>
+          <property name="showDropIndicator" stdset="0">
+           <bool>true</bool>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Código</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>DNI</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Razón Social</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Dirección</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Teléfono</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Provincia</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Municipio</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Fecha Baja</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -1615,11 +2590,26 @@ QTableWidget {
     <property name="title">
      <string>Herramientas</string>
     </property>
+    <widget class="QMenu" name="menuImportar_Datos_Excel">
+     <property name="title">
+      <string>Importar Datos Excel</string>
+     </property>
+     <addaction name="actionImportar_Drivers"/>
+     <addaction name="actionImportar_Clientes"/>
+    </widget>
+    <widget class="QMenu" name="menuExportar_Datos_Excel">
+     <property name="title">
+      <string>Exportar Datos Excel</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionExportar_Drivers"/>
+     <addaction name="actionExportar_Clientes"/>
+    </widget>
     <addaction name="actionCrear_Copia_de_Seguridad"/>
     <addaction name="actionRestaurar_Copia_Seguridad"/>
     <addaction name="separator"/>
-    <addaction name="actionExportar_Datos_Excel"/>
-    <addaction name="actionImportar_Datos_Excel"/>
+    <addaction name="menuExportar_Datos_Excel"/>
+    <addaction name="menuImportar_Datos_Excel"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuHerramientas"/>
@@ -1877,19 +2867,28 @@ background-color:rgb(100,100,100);
     <string>Alt+R</string>
    </property>
   </action>
-  <action name="actionExportar_Datos_Excel">
+  <action name="actionImportar_Drivers">
    <property name="text">
-    <string>Exportar Datos Excel</string>
+    <string>Importar Drivers</string>
    </property>
   </action>
-  <action name="actionImportar_Datos_Excel">
+  <action name="actionImportar_Clientes">
    <property name="text">
-    <string>Importar Datos Excel</string>
+    <string>Importar Clientes</string>
+   </property>
+  </action>
+  <action name="actionExportar_Drivers">
+   <property name="text">
+    <string>Exportar Drivers</string>
+   </property>
+  </action>
+  <action name="actionExportar_Clientes">
+   <property name="text">
+    <string>Exportar Clientes</string>
    </property>
   </action>
  </widget>
  <tabstops>
-  <tabstop>panelPrincipal</tabstop>
   <tabstop>txtDNI</tabstop>
   <tabstop>btnBuscar</tabstop>
   <tabstop>txtNombre</tabstop>
@@ -1912,6 +2911,18 @@ background-color:rgb(100,100,100);
   <tabstop>btnModifDriver</tabstop>
   <tabstop>btnBajaDriver</tabstop>
   <tabstop>tabDrivers</tabstop>
+  <tabstop>txtDNIcli</tabstop>
+  <tabstop>txtNombrecli</tabstop>
+  <tabstop>txtDircli</tabstop>
+  <tabstop>txtMovilcli</tabstop>
+  <tabstop>cmbProvcli</tabstop>
+  <tabstop>cmbMunicli</tabstop>
+  <tabstop>chkTodoscli</tabstop>
+  <tabstop>panelPrincipal</tabstop>
+  <tabstop>btnAltacli</tabstop>
+  <tabstop>btnModifcli</tabstop>
+  <tabstop>btnBajacli</tabstop>
+  <tabstop>tabClientes</tabstop>
  </tabstops>
  <resources>
   <include location="iconos.qrc"/>
