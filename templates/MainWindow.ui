@@ -2329,9 +2329,9 @@ QComboBox{
              <colorrole role="Base">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>86</red>
-                <green>86</green>
-                <blue>86</blue>
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
                </color>
               </brush>
              </colorrole>
@@ -2394,9 +2394,9 @@ QComboBox{
              <colorrole role="Base">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>86</red>
-                <green>86</green>
-                <blue>86</blue>
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
                </color>
               </brush>
              </colorrole>
@@ -2611,8 +2611,16 @@ QTableWidget {
     <addaction name="menuExportar_Datos_Excel"/>
     <addaction name="menuImportar_Datos_Excel"/>
    </widget>
+   <widget class="QMenu" name="menuInformes">
+    <property name="title">
+     <string>Informes</string>
+    </property>
+    <addaction name="actionListado_Clientes"/>
+    <addaction name="actionListado_Conductores"/>
+   </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuHerramientas"/>
+   <addaction name="menuInformes"/>
    <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
@@ -2885,6 +2893,16 @@ background-color:rgb(100,100,100);
   <action name="actionExportar_Clientes">
    <property name="text">
     <string>Exportar Clientes</string>
+   </property>
+  </action>
+  <action name="actionListado_Clientes">
+   <property name="text">
+    <string>Listado Clientes</string>
+   </property>
+  </action>
+  <action name="actionListado_Conductores">
+   <property name="text">
+    <string>Listado Conductores</string>
    </property>
   </action>
  </widget>

@@ -166,7 +166,7 @@ QPushButton {
  </widget>
  <resources>
   <include location="iconos.qrc"/>
-  <include location="C:/Users/a22braisdr/.designer/backup/iconos.qrc"/>
+  <include location="iconos.qrc"/>
  </resources>
  <connections/>
 </ui>

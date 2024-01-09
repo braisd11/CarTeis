@@ -3,6 +3,7 @@ import sys
 
 import clientes
 import eventos
+import informes
 import var
 import templates.rc_icons
 import conexion
@@ -61,6 +62,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.actionExportar_Clientes.triggered.connect(eventos.Eventos.exportardatosxlscli)
         var.ui.actionImportar_Drivers.triggered.connect(eventos.Eventos.importardatosxlsdriv)
         var.ui.actionImportar_Clientes.triggered.connect(eventos.Eventos.importardatosxlscli)
+        var.ui.actionListado_Clientes.triggered.connect(informes.Informes.reportclientes)
+        var.ui.actionListado_Conductores.triggered.connect(informes.Informes.reportconductores)
 
         '''
         
