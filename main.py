@@ -64,6 +64,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.actionImportar_Clientes.triggered.connect(eventos.Eventos.importardatosxlscli)
         var.ui.actionListado_Clientes.triggered.connect(informes.Informes.reportclientes)
         var.ui.actionListado_Conductores.triggered.connect(informes.Informes.reportconductores)
+        var.ui.actionprint.triggered.connect(informes.Informes.elegirInforme)
 
         '''
         

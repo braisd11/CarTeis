@@ -173,3 +173,26 @@ class Informes:
         except Exception as error:
             print('Error en pie informe de cualquier tipo: ', error)
 
+    def elegirInforme(self):
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("Imprimir Informes")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
+            mbox.setText("Que informe quieres imprimir?")
+            mbox.setStandardButtons(
+                QtWidgets.QMessageBox.StandardButton.Cancel | QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.button(QtWidgets.QMessageBox.StandardButton.Cancel).setText('Cancelar')
+            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Conductores')
+            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('Clientes')
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Cancel)
+            mbox.setEscapeButton(QtWidgets.QMessageBox.StandardButton.Cancel)
+
+            option = mbox.exec()
+
+            if option == QtWidgets.QMessageBox.StandardButton.Yes:
+                Informes.reportconductores()
+            elif option == QtWidgets.QMessageBox.StandardButton.No:
+                Informes.reportclientes()
+
+        except Exception as error:
+            print('Error al elegir Informe a imprimir: ', error)
