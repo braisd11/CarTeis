@@ -2827,6 +2827,8 @@ background-color:rgb(100,100,100);
    <addaction name="separator"/>
    <addaction name="actionCrear_Copia_de_Seguridad"/>
    <addaction name="actionRestaurar_Copia_Seguridad"/>
+   <addaction name="separator"/>
+   <addaction name="actionprint"/>
   </widget>
   <action name="actionlimpiarPanel">
    <property name="icon">
@@ -2903,6 +2905,16 @@ background-color:rgb(100,100,100);
   <action name="actionListado_Conductores">
    <property name="text">
     <string>Listado Conductores</string>
+   </property>
+  </action>
+  <action name="actionprint">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/iconos/img/printer.png</normaloff>
+     <normalon>:/iconos/img/3925426-print-printer-printing-icon_111556.ico</normalon>:/iconos/img/printer.png</iconset>
+   </property>
+   <property name="text">
+    <string>print</string>
    </property>
   </action>
  </widget>
