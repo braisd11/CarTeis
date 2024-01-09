@@ -35,35 +35,7 @@ class Informes:
             query.prepare("select codcli, dnicli, razoncli, municli,"
                           " telefonocli, bajacli from clientes order by razoncli")
 
-            if query.exec():
-                i = 55
-                j = 655
-                while query.next():
-                    if j <= 80:
-                        var.report.drawString(450, 90, 'Página siguiente...')
-                        var.report.showPage()
-                        Informes.topInforme(titulo)
-                        Informes.footInforme(titulo)
-                        var.report.setFont('Helvetica-Bold', size=10)
-                        var.report.drawString(50, 675, str(items[0]))
-                        var.report.drawString(100, 675, str(items[1]))
-                        var.report.drawString(160, 675, str(items[2]))
-                        var.report.drawString(280, 675, str(items[3]))
-                        var.report.drawString(380, 675, str(items[4]))
-                        var.report.drawString(460, 675, str(items[5]))
-                        var.report.line(50, 670, 525, 670)
-                        i = 55
-                        j = 655
-
-                    var.report.setFont('Helvetica', size=9)
-                    var.report.drawCentredString(i + 15, j, str(query.value(0)))
-                    dni = '*****' + str(query.value(1)[6:8]) + '*'
-                    var.report.drawString(i + 50, j, dni)
-                    var.report.drawString(i + 115, j, str(query.value(2)))
-                    var.report.drawString(i + 235, j, str(query.value(3)))
-                    var.report.drawString(i + 320, j, str(query.value(4)))
-                    var.report.drawString(i + 420, j, str(query.value(5)))
-                    j = j - 25
+            Informes.executeQuery(items, titulo, query)
 
             var.report.save()
             rootPath = '.\\informesClientes'
@@ -83,7 +55,24 @@ class Informes:
             titulo = 'LISTADO CONDUCTORES'
             Informes.topInforme(titulo)
             Informes.footInforme(titulo)
-            var.report.drawString(250, 250, 'Mi primer informe')
+
+            items = ['CÓDIGO', 'APELLIDOS', 'NOMBRE', 'MÓVIL', 'LICENCIAS', 'FECHA BAJA']
+
+            var.report.setFont('Helvetica-Bold', size=10)
+            var.report.drawString(50, 675, str(items[0]))
+            var.report.drawString(110, 675, str(items[1]))
+            var.report.drawString(205, 675, str(items[2]))
+            var.report.drawString(290, 675, str(items[3]))
+            var.report.drawString(380, 675, str(items[4]))
+            var.report.drawString(460, 675, str(items[5]))
+            var.report.line(50, 670, 525, 670)
+
+            query = QtSql.QSqlQuery()
+            query.prepare("select codigo, apeldri, nombredri, movildri,"
+                          " carnet, bajadri from drivers order by apeldri")
+
+            Informes.executeQuery(items, titulo, query)
+
             var.report.save()
             rootPath = '.\\informesConductores'
             for file in os.listdir(rootPath):
@@ -131,3 +120,38 @@ class Informes:
 
         except Exception as error:
             print('Error en pie informe de cualquier tipo: ', error)
+
+    def executeQuery(items, titulo, query):
+        try:
+
+            if query.exec():
+                i = 55
+                j = 655
+                while query.next():
+                    if j <= 80:
+                        var.report.drawString(450, 90, 'Página siguiente...')
+                        var.report.showPage()
+                        Informes.topInforme(titulo)
+                        Informes.footInforme(titulo)
+                        var.report.setFont('Helvetica-Bold', size=10)
+                        var.report.drawString(50, 675, str(items[0]))
+                        var.report.drawString(110, 675, str(items[1]))
+                        var.report.drawString(205, 675, str(items[2]))
+                        var.report.drawString(290, 675, str(items[3]))
+                        var.report.drawString(380, 675, str(items[4]))
+                        var.report.drawString(460, 675, str(items[5]))
+                        var.report.line(50, 670, 525, 670)
+                        i = 55
+                        j = 655
+
+                    var.report.setFont('Helvetica', size=9)
+                    var.report.drawCentredString(i + 15, j, str(query.value(0)))
+                    var.report.drawString(i + 50, j, str(query.value(1)))
+                    var.report.drawString(i + 155, j, str(query.value(2)))
+                    var.report.drawString(i + 235, j, str(query.value(3)))
+                    var.report.drawString(i + 340, j, str(query.value(4)))
+                    var.report.drawString(i + 420, j, str(query.value(5)))
+                    j = j - 25
+
+        except Exception as error:
+            print('Error al ejecutar la query de report', error)
