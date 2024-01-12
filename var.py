@@ -1,6 +1,6 @@
 global ui
 global calendar
-global dlgCalendarbaja
+global calendarbaja
 global exitWindow
 global aboutWindow
 global dlgModificarBajaWindow

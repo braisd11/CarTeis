@@ -5,7 +5,6 @@ import eventos
 import facturas
 import var
 from AboutWindow import *
-from CalendarBajaWindow import *
 from CalendarWindow import *
 from ExitWindow import *
 from ModificarBajaWindow import *
@@ -59,13 +58,13 @@ class CalendarBaja(QtWidgets.QDialog):
 
     def __init__(self):
         super(CalendarBaja, self).__init__()
-        var.dlgCalendarbaja = Ui_dlgCalendarBaja()
-        var.dlgCalendarbaja.setupUi(self)
+        var.calendarbaja = Ui_dlgCalendar()
+        var.calendarbaja.setupUi(self)
         dia = datetime.now().day
         mes = datetime.now().month
         ano = datetime.now().year
-        var.dlgCalendarbaja.calendarBaja.setSelectedDate((QtCore.QDate(ano, mes, dia)))
-        var.dlgCalendarbaja.calendarBaja.clicked.connect(drivers.Drivers.cargarFechaBaja)
+        var.calendarbaja.Calendar.setSelectedDate((QtCore.QDate(ano, mes, dia)))
+        var.calendarbaja.Calendar.clicked.connect(drivers.Drivers.cargarFechaBaja)
 
 
 class Exit(QtWidgets.QDialog):

@@ -31,13 +31,13 @@ class Facturas:
         try:
             var.ui.cmbConductor.clear()
             query = QtSql.QSqlQuery()
-            query.prepare('select apeldri from drivers')
+            query.prepare('select codigo, apeldri from drivers')
 
             if query.exec():
                 var.ui.cmbConductor.addItem("")
 
                 while query.next():
-                    var.ui.cmbConductor.addItem(query.value(0))
+                    var.ui.cmbConductor.addItem(str(query.value(0)) + "- " + query.value(1))
 
         except Exception as error:
 

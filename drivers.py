@@ -52,7 +52,7 @@ class Drivers:
             data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
             codigo = var.ui.lblCodBD.text()
             Drivers.modificarfechabaja(codigo, data)
-            var.dlgCalendarbaja.hide()
+            var.calendarbaja.hide()
             var.dlgModificarBajaWindow.hide()
 
         except Exception as error:

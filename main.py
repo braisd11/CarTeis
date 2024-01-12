@@ -22,12 +22,14 @@ class Main(QtWidgets.QMainWindow):
         super(Main, self).__init__()
         var.ui = Ui_MainWindow()
         var.ui.setupUi(self)  # Método encargado de generar la interfaz
+
         var.calendar = Calendar()
         var.calendarfac = CalendarFac()
+        var.calendarbaja = CalendarBaja()
+
         var.exitWindow = Exit()
         var.aboutWindow = About()
         var.dlgModificarBajaWindow = Baja()
-        var.dlgCalendarbaja = CalendarBaja()
         var.dlgabrir = FileDialogAbrir()
         conexion.Conexion.conexion()
         conexion.Conexion.cargaprov()
@@ -48,7 +50,6 @@ class Main(QtWidgets.QMainWindow):
         var.ui.cmbProvcli.currentIndexChanged.connect(conexion.Conexion.selMunicli)
         var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
         var.ui.btnBuscarcli.clicked.connect(clientes.Clientes.buscarcli)
-        #var.ui.btnbusclifac.clicked.connect()
         var.ui.btnModifDriver.clicked.connect(drivers.Drivers.modifDri)
         var.ui.btnModifcli.clicked.connect(clientes.Clientes.modifcli)
         var.ui.btnBajaDriver.clicked.connect(drivers.Drivers.borrarDriv)

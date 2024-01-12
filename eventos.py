@@ -52,7 +52,7 @@ class Eventos():
     def confirmarModificar():
         try:
 
-            var.dlgCalendarbaja.show()
+            var.calendarbaja.show()
 
         except Exception as error:
             print("error en confirmarModificar", error)

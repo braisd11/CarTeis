@@ -188,4 +188,4 @@ class Ui_dlgCalendar(object):
 
     def retranslateUi(self, dlgCalendar):
         _translate = QtCore.QCoreApplication.translate
-        dlgCalendar.setWindowTitle(_translate("dlgCalendar", "Fecha de Alta"))
+        dlgCalendar.setWindowTitle(_translate("dlgCalendar", "Calendar"))
