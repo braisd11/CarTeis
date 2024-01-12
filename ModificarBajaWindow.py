@@ -21,20 +21,20 @@ class Ui_dlgModificarBajaWindow(object):
         dlgModificarBajaWindow.setMinimumSize(QtCore.QSize(400, 300))
         dlgModificarBajaWindow.setMaximumSize(QtCore.QSize(400, 300))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/car_icon_155695.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         dlgModificarBajaWindow.setWindowIcon(icon)
         dlgModificarBajaWindow.setStyleSheet("QDialog{\n"
-"background-color: rgb(86,86,86);\n"
+"background-color:#84b6f4;\n"
 "}\n"
 "\n"
 "QLabel {\n"
-"    color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton {\n"
 "    border-style: solid;\n"
 "    border-color:#F9F0EF;\n"
-"    background-color: #D3D1D1;\n"
+"    background-color: #c4dafa;\n"
 "    color: rgb(0, 0, 0);\n"
 "    border-radius: 5px;\n"
 "\n"
@@ -58,7 +58,7 @@ class Ui_dlgModificarBajaWindow(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"))
+        self.label.setPixmap(QtGui.QPixmap(":/iconos/img/car_icon_155695.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.lblModificarFecha = QtWidgets.QLabel(parent=dlgModificarBajaWindow)

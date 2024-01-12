@@ -33,15 +33,15 @@
   </property>
   <property name="windowIcon">
    <iconset resource="iconos.qrc">
-    <normaloff>:/iconos/img/driver.ico</normaloff>:/iconos/img/driver.ico</iconset>
+    <normaloff>:/iconos/img/car_icon_155695.ico</normaloff>:/iconos/img/car_icon_155695.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-	background-color: rgb(86, 86, 86);
+	background-color:#84b6f4;
 }
 
 QLabel {
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 }</string>
   </property>
   <widget class="QLabel" name="lblAutor">
@@ -128,7 +128,7 @@ QLabel {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="iconos.qrc">:/iconos/img/driver.ico</pixmap>
+    <pixmap resource="iconos.qrc">:/iconos/img/car_icon_155695.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -155,6 +155,8 @@ QLabel {
   </widget>
  </widget>
  <resources>
+  <include location="iconos.qrc"/>
+  <include location="iconos.qrc"/>
   <include location="iconos.qrc"/>
  </resources>
  <connections/>

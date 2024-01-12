@@ -251,12 +251,34 @@ class Conexion():
                         registro.append(str(query.value(i)))
             return registro
 
-
         except Exception as error:
             print('error en fichero conexion dato de 1 cliente', error)
 
+    def buscacli(dni):
+        try:
+            registro = None
+            query = QtSql.QSqlQuery()
+            query.prepare('select codcli from clientes where dnicli = :dni')
+            query.bindValue(':dni', str(dni))
 
+            if query.exec():
+                while query.next():
+                    codigo = query.value(0)
 
+                try:
+
+                    registro = Conexion.onecli(codigo)
+
+                except Exception as error:
+                    mbox = QtWidgets.QMessageBox()
+                    mbox.setWindowTitle('Aviso')
+                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    mbox.setText("No existe nadie con ese DNI")
+                    mbox.exec()
+            return registro
+
+        except Exception as error:
+            print('error en buscarcli', error)
 
     def codDri(dni):
         try:

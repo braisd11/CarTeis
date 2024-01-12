@@ -37,17 +37,17 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-background-color: rgb(86,86,86);
+background-color: #84b6f4;
 }
 
 QLabel {
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 }
 
 QPushButton {
     border-style: solid;
 	border-color:#F9F0EF;
-	background-color: #D3D1D1;
+	background-color: #c4dafa;
 	color: rgb(0, 0, 0);
 	border-radius: 5px;
 
@@ -158,7 +158,7 @@ QPushButton {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="iconos.qrc">:/iconos/img/driver.ico</pixmap>
+    <pixmap resource="iconos.qrc">:/iconos/img/car_icon_155695.ico</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -167,7 +167,9 @@ QPushButton {
  </widget>
  <resources>
   <include location="iconos.qrc"/>
-  <include location="C:/Users/a22braisdr/.designer/backup/iconos.qrc"/>
+  <include location="iconos.qrc"/>
+  <include location="iconos.qrc"/>
+  <include location="iconos.qrc"/>
  </resources>
  <connections/>
 </ui>

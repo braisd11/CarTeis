@@ -23,25 +23,25 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/car_icon_155695.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("QHeaderView::section:horizontal\n"
 "{\n"
 "    border-top: 1px solid #ffffff;\n"
 "    color:\'white\';\n"
 "    font: 11pt \"Arial\";\n"
-"    background-color:rgb(86, 86, 86);\n"
+"    background-color:#84b6f4;\n"
 "}\n"
 "\n"
 "QWidget{\n"
-"    background-color: rgb(86, 86, 86);\n"
-"    color: rgb(255, 255, 255);\n"
+"    background-color:#4d82bc;\n"
+"    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "\n"
 "QDialog{\n"
-"    background-color: rgb(86, 86, 86);\n"
-"    color: rgb(255, 255, 255);\n"
+"    background-color: #4d82bc;\n"
+"    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QLabel {\n"
@@ -51,14 +51,14 @@ class Ui_MainWindow(object):
 "QPushButton {\n"
 "    border-style: solid;\n"
 "    border-color:#F9F0EF;\n"
-"    background-color: #D3D1D1;\n"
+"    background-color: #84b6f4;\n"
 "    color: rgb(0, 0, 0);\n"
 "    border-radius: 5px;\n"
 "}\n"
 "\n"
 "QLineEdit {\n"
 "border-radius: 5px;\n"
-"background-color: #E6E6E6;\n"
+"background-color: #fcffff;\n"
 "color: rgb(0,0,0);\n"
 "}\n"
 "")
@@ -74,6 +74,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.panelPrincipal.setFont(font)
         self.panelPrincipal.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
+        self.panelPrincipal.setStyleSheet("")
         self.panelPrincipal.setTabShape(QtWidgets.QTabWidget.TabShape.Triangular)
         self.panelPrincipal.setObjectName("panelPrincipal")
         self.panelDrivers = QtWidgets.QWidget()
@@ -96,7 +97,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.frameInfo.sizePolicy().hasHeightForWidth())
         self.frameInfo.setSizePolicy(sizePolicy)
         self.frameInfo.setStyleSheet("QFrame {\n"
-"    background-color:rgb(100, 100, 100);\n"
+"    background-color:#84b6f4;\n"
 "}\n"
 "\n"
 "QLineEdit {\n"
@@ -121,7 +122,7 @@ class Ui_MainWindow(object):
         self.frame_2.setGeometry(QtCore.QRect(20, 10, 451, 161))
         self.frame_2.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -239,7 +240,7 @@ class Ui_MainWindow(object):
         self.frame_3.setGeometry(QtCore.QRect(520, 10, 371, 181))
         self.frame_3.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color:#c4dafa;\n"
 "\n"
 "}")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
@@ -280,8 +281,9 @@ class Ui_MainWindow(object):
         self.cmbProv.setMinimumSize(QtCore.QSize(140, 20))
         self.cmbProv.setMaximumSize(QtCore.QSize(140, 20))
         self.cmbProv.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.cmbProv.setStyleSheet("QComboBox{\n"
-"    background-color: None;\n"
+        self.cmbProv.setStyleSheet("QFrame{\n"
+"    border-radius: 0px;\n"
+"\n"
 "}")
         self.cmbProv.setObjectName("cmbProv")
         self.cmbMuni = QtWidgets.QComboBox(parent=self.frame_3)
@@ -294,8 +296,9 @@ class Ui_MainWindow(object):
         self.cmbMuni.setMinimumSize(QtCore.QSize(140, 20))
         self.cmbMuni.setMaximumSize(QtCore.QSize(120, 20))
         self.cmbMuni.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.cmbMuni.setStyleSheet("QComboBox{\n"
-"    background-color: None;\n"
+        self.cmbMuni.setStyleSheet("QFrame{\n"
+"    border-radius: 0px;\n"
+"\n"
 "}")
         self.cmbMuni.setObjectName("cmbMuni")
         self.lblMovilDriver = QtWidgets.QLabel(parent=self.frame_3)
@@ -316,7 +319,7 @@ class Ui_MainWindow(object):
         self.frame_4.setGeometry(QtCore.QRect(20, 180, 351, 221))
         self.frame_4.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "    color: rgb(0,0,0);\n"
 "\n"
 "}")
@@ -372,7 +375,7 @@ class Ui_MainWindow(object):
         self.rbtTodos.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtTodos.setStyleSheet("\n"
 "QRadioButton{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.rbtTodos.setChecked(False)
         self.rbtTodos.setObjectName("rbtTodos")
@@ -385,7 +388,7 @@ class Ui_MainWindow(object):
         self.rbtAlta.setMaximumSize(QtCore.QSize(50, 20))
         self.rbtAlta.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtAlta.setStyleSheet("QRadioButton{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.rbtAlta.setChecked(True)
         self.rbtAlta.setObjectName("rbtAlta")
@@ -396,7 +399,7 @@ class Ui_MainWindow(object):
         self.rbtBaja.setMaximumSize(QtCore.QSize(50, 20))
         self.rbtBaja.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.rbtBaja.setStyleSheet("QRadioButton{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.rbtBaja.setObjectName("rbtBaja")
         self.btnGroupEstado.addButton(self.rbtBaja)
@@ -450,28 +453,28 @@ class Ui_MainWindow(object):
         self.chkA.setGeometry(QtCore.QRect(163, 50, 30, 17))
         self.chkA.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkA.setStyleSheet("QCheckBox{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.chkA.setObjectName("chkA")
         self.chkB = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkB.setGeometry(QtCore.QRect(199, 50, 29, 17))
         self.chkB.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkB.setStyleSheet("QCheckBox{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.chkB.setObjectName("chkB")
         self.chkD = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkD.setGeometry(QtCore.QRect(270, 50, 30, 17))
         self.chkD.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkD.setStyleSheet("QCheckBox{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.chkD.setObjectName("chkD")
         self.chkC = QtWidgets.QCheckBox(parent=self.frame_4)
         self.chkC.setGeometry(QtCore.QRect(234, 50, 30, 17))
         self.chkC.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.chkC.setStyleSheet("QCheckBox{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.chkC.setObjectName("chkC")
         self.verticalLayout_2.addWidget(self.frameInfo)
@@ -482,22 +485,22 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.tabDrivers.sizePolicy().hasHeightForWidth())
         self.tabDrivers.setSizePolicy(sizePolicy)
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -506,25 +509,25 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.HighlightedText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.AlternateBase, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -533,25 +536,25 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.HighlightedText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.AlternateBase, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 120, 215))
@@ -560,7 +563,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.HighlightedText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.AlternateBase, brush)
         self.tabDrivers.setPalette(palette)
@@ -570,7 +573,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTableWidget {\n"
-"    background-color: rgb(100,100,100);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.tabDrivers.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tabDrivers.setAlternatingRowColors(True)
@@ -593,6 +596,103 @@ class Ui_MainWindow(object):
         self.tabDrivers.verticalHeader().setVisible(False)
         self.verticalLayout_2.addWidget(self.tabDrivers)
         self.panelPrincipal.addTab(self.panelDrivers, "")
+        self.panelFacturas = QtWidgets.QWidget()
+        self.panelFacturas.setObjectName("panelFacturas")
+        self.frame_8 = QtWidgets.QFrame(parent=self.panelFacturas)
+        self.frame_8.setGeometry(QtCore.QRect(30, 20, 931, 151))
+        self.frame_8.setStyleSheet("QFrame{\n"
+"    border-radius: 20px;\n"
+"    background-color: #c4dafa;\n"
+"}")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.txtcifcli = QtWidgets.QLineEdit(parent=self.frame_8)
+        self.txtcifcli.setGeometry(QtCore.QRect(294, 24, 80, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(80)
+        sizePolicy.setVerticalStretch(20)
+        sizePolicy.setHeightForWidth(self.txtcifcli.sizePolicy().hasHeightForWidth())
+        self.txtcifcli.setSizePolicy(sizePolicy)
+        self.txtcifcli.setMaximumSize(QtCore.QSize(80, 20))
+        self.txtcifcli.setObjectName("txtcifcli")
+        self.btnbusclifac = QtWidgets.QPushButton(parent=self.frame_8)
+        self.btnbusclifac.setGeometry(QtCore.QRect(380, 20, 28, 28))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnbusclifac.sizePolicy().hasHeightForWidth())
+        self.btnbusclifac.setSizePolicy(sizePolicy)
+        self.btnbusclifac.setMinimumSize(QtCore.QSize(28, 28))
+        self.btnbusclifac.setMaximumSize(QtCore.QSize(28, 28))
+        self.btnbusclifac.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnbusclifac.setText("")
+        self.btnbusclifac.setIcon(icon1)
+        self.btnbusclifac.setObjectName("btnbusclifac")
+        self.label_8 = QtWidgets.QLabel(parent=self.frame_8)
+        self.label_8.setGeometry(QtCore.QRect(30, 20, 61, 20))
+        self.label_8.setObjectName("label_8")
+        self.lblCodFac = QtWidgets.QLabel(parent=self.frame_8)
+        self.lblCodFac.setGeometry(QtCore.QRect(97, 20, 100, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lblCodFac.sizePolicy().hasHeightForWidth())
+        self.lblCodFac.setSizePolicy(sizePolicy)
+        self.lblCodFac.setMinimumSize(QtCore.QSize(100, 20))
+        self.lblCodFac.setStyleSheet("background-color: rgb(247, 255, 158);")
+        self.lblCodFac.setText("")
+        self.lblCodFac.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lblCodFac.setObjectName("lblCodFac")
+        self.lblFechaAlta_3 = QtWidgets.QLabel(parent=self.frame_8)
+        self.lblFechaAlta_3.setGeometry(QtCore.QRect(17, 81, 71, 20))
+        self.lblFechaAlta_3.setMinimumSize(QtCore.QSize(60, 0))
+        self.lblFechaAlta_3.setObjectName("lblFechaAlta_3")
+        self.txtDataFac = QtWidgets.QLineEdit(parent=self.frame_8)
+        self.txtDataFac.setGeometry(QtCore.QRect(94, 81, 80, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(80)
+        sizePolicy.setVerticalStretch(20)
+        sizePolicy.setHeightForWidth(self.txtDataFac.sizePolicy().hasHeightForWidth())
+        self.txtDataFac.setSizePolicy(sizePolicy)
+        self.txtDataFac.setMinimumSize(QtCore.QSize(80, 20))
+        self.txtDataFac.setMaximumSize(QtCore.QSize(80, 20))
+        self.txtDataFac.setObjectName("txtDataFac")
+        self.btnCalendarFac = QtWidgets.QPushButton(parent=self.frame_8)
+        self.btnCalendarFac.setGeometry(QtCore.QRect(180, 81, 40, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnCalendarFac.sizePolicy().hasHeightForWidth())
+        self.btnCalendarFac.setSizePolicy(sizePolicy)
+        self.btnCalendarFac.setMinimumSize(QtCore.QSize(40, 0))
+        self.btnCalendarFac.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.btnCalendarFac.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnCalendarFac.setText("")
+        self.btnCalendarFac.setIcon(icon2)
+        self.btnCalendarFac.setObjectName("btnCalendarFac")
+        self.label_17 = QtWidgets.QLabel(parent=self.frame_8)
+        self.label_17.setGeometry(QtCore.QRect(251, 81, 61, 16))
+        self.label_17.setObjectName("label_17")
+        self.cmbConductor = QtWidgets.QComboBox(parent=self.frame_8)
+        self.cmbConductor.setGeometry(QtCore.QRect(330, 80, 140, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(120)
+        sizePolicy.setVerticalStretch(20)
+        sizePolicy.setHeightForWidth(self.cmbConductor.sizePolicy().hasHeightForWidth())
+        self.cmbConductor.setSizePolicy(sizePolicy)
+        self.cmbConductor.setMinimumSize(QtCore.QSize(140, 20))
+        self.cmbConductor.setMaximumSize(QtCore.QSize(140, 20))
+        self.cmbConductor.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.cmbConductor.setStyleSheet("QFrame{\n"
+"    border-radius: 0px;\n"
+"\n"
+"}")
+        self.cmbConductor.setObjectName("cmbConductor")
+        self.label_7 = QtWidgets.QLabel(parent=self.frame_8)
+        self.label_7.setGeometry(QtCore.QRect(237, 28, 51, 16))
+        self.label_7.setObjectName("label_7")
+        self.panelPrincipal.addTab(self.panelFacturas, "")
         self.panelClientes = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -610,7 +710,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setStyleSheet("QFrame {\n"
-"    background-color:rgb(100, 100, 100);\n"
+"    background-color:#84b6f4;\n"
 "}\n"
 "\n"
 "QLineEdit {\n"
@@ -640,7 +740,7 @@ class Ui_MainWindow(object):
         self.frame_5.setSizePolicy(sizePolicy)
         self.frame_5.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -725,6 +825,19 @@ class Ui_MainWindow(object):
         self.lblValidarDNIcli.setText("")
         self.lblValidarDNIcli.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lblValidarDNIcli.setObjectName("lblValidarDNIcli")
+        self.btnBuscarcli = QtWidgets.QPushButton(parent=self.frame_5)
+        self.btnBuscarcli.setGeometry(QtCore.QRect(310, 50, 28, 28))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnBuscarcli.sizePolicy().hasHeightForWidth())
+        self.btnBuscarcli.setSizePolicy(sizePolicy)
+        self.btnBuscarcli.setMinimumSize(QtCore.QSize(28, 28))
+        self.btnBuscarcli.setMaximumSize(QtCore.QSize(28, 28))
+        self.btnBuscarcli.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnBuscarcli.setText("")
+        self.btnBuscarcli.setIcon(icon1)
+        self.btnBuscarcli.setObjectName("btnBuscarcli")
         self.frame_6 = QtWidgets.QFrame(parent=self.frame)
         self.frame_6.setGeometry(QtCore.QRect(510, 20, 371, 181))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
@@ -734,7 +847,7 @@ class Ui_MainWindow(object):
         self.frame_6.setSizePolicy(sizePolicy)
         self.frame_6.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -810,7 +923,7 @@ class Ui_MainWindow(object):
         self.frame_7.setGeometry(QtCore.QRect(30, 210, 351, 151))
         self.frame_7.setStyleSheet("QFrame{\n"
 "    border-radius: 20px;\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color:#c4dafa;\n"
 "    color: rgb(0,0,0);\n"
 "\n"
 "}")
@@ -862,84 +975,84 @@ class Ui_MainWindow(object):
         self.chkTodoscli = QtWidgets.QCheckBox(parent=self.frame_7)
         self.chkTodoscli.setGeometry(QtCore.QRect(40, 70, 70, 17))
         self.chkTodoscli.setStyleSheet("QCheckBox{\n"
-"    background-color: rgb(150, 150, 150);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.chkTodoscli.setChecked(True)
         self.chkTodoscli.setObjectName("chkTodoscli")
         self.verticalLayout.addWidget(self.frame)
         self.tabClientes = QtWidgets.QTableWidget(parent=self.panelClientes)
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.AlternateBase, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.AlternateBase, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(100, 100, 100))
+        brush = QtGui.QBrush(QtGui.QColor(196, 218, 250))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(149, 149, 149))
+        brush = QtGui.QBrush(QtGui.QColor(252, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.AlternateBase, brush)
         self.tabClientes.setPalette(palette)
         self.tabClientes.setStyleSheet("QTableWidget::item:selected {\n"
-"    background-color: rgb(255,255,255);\n"
+"    background-color:#84b6f4;\n"
 "    color: rgb(0,0,0);\n"
 "}\n"
 "\n"
 "QTableWidget {\n"
-"    background-color: rgb(100,100,100);\n"
+"    background-color: #c4dafa;\n"
 "}")
         self.tabClientes.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tabClientes.setTabKeyNavigation(True)
@@ -992,7 +1105,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -1001,16 +1114,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -1019,16 +1132,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -1037,10 +1150,10 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(86, 86, 86))
+        brush = QtGui.QBrush(QtGui.QColor(77, 130, 188))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
         self.statusbar.setPalette(palette)
@@ -1061,24 +1174,24 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(QtCore.Qt.ToolBarArea.TopToolBarArea, self.toolBar)
         self.actionlimpiarPanel = QtGui.QAction(parent=MainWindow)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/iconos/img/reload.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/iconos/img/reload1_78509.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.actionlimpiarPanel.setIcon(icon3)
         self.actionlimpiarPanel.setObjectName("actionlimpiarPanel")
         self.actionAcerca_de = QtGui.QAction(parent=MainWindow)
         self.actionAcerca_de.setObjectName("actionAcerca_de")
         self.actionSalir = QtGui.QAction(parent=MainWindow)
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/iconos/img/exit.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/iconos/img/arrow_entrance_exit_internet_log_out_security_icon_127059.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.actionSalir.setIcon(icon4)
         self.actionSalir.setObjectName("actionSalir")
         self.actionCrear_Copia_de_Seguridad = QtGui.QAction(parent=MainWindow)
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/iconos/img/icon_download.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon5.addPixmap(QtGui.QPixmap(":/iconos/img/Double-J-Design-Super-Mono-3d-Load2-download.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.actionCrear_Copia_de_Seguridad.setIcon(icon5)
         self.actionCrear_Copia_de_Seguridad.setObjectName("actionCrear_Copia_de_Seguridad")
         self.actionRestaurar_Copia_Seguridad = QtGui.QAction(parent=MainWindow)
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/iconos/img/icon_upload.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon6.addPixmap(QtGui.QPixmap(":/iconos/img/Double-J-Design-Super-Mono-3d-Load2-upload.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.actionRestaurar_Copia_Seguridad.setIcon(icon6)
         self.actionRestaurar_Copia_Seguridad.setObjectName("actionRestaurar_Copia_Seguridad")
         self.actionImportar_Drivers = QtGui.QAction(parent=MainWindow)
@@ -1127,7 +1240,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionprint)
 
         self.retranslateUi(MainWindow)
-        self.panelPrincipal.setCurrentIndex(0)
+        self.panelPrincipal.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.txtDNI, self.btnBuscar)
         MainWindow.setTabOrder(self.btnBuscar, self.txtNombre)
@@ -1205,6 +1318,11 @@ class Ui_MainWindow(object):
         item = self.tabDrivers.horizontalHeaderItem(5)
         item.setText(_translate("MainWindow", "Fecha Baja"))
         self.panelPrincipal.setTabText(self.panelPrincipal.indexOf(self.panelDrivers), _translate("MainWindow", "Conductores"))
+        self.label_8.setText(_translate("MainWindow", "Nª Factura:"))
+        self.lblFechaAlta_3.setText(_translate("MainWindow", "Alta Factura:"))
+        self.label_17.setText(_translate("MainWindow", "Conductor:"))
+        self.label_7.setText(_translate("MainWindow", "Cliente:"))
+        self.panelPrincipal.setTabText(self.panelPrincipal.indexOf(self.panelFacturas), _translate("MainWindow", "Facturación"))
         self.label_2.setText(_translate("MainWindow", "INFORMACIÓN:"))
         self.lblCodigocli.setText(_translate("MainWindow", "Código:"))
         self.lblDNIcli.setText(_translate("MainWindow", "DNI:"))

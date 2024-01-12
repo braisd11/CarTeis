@@ -2,6 +2,7 @@ from datetime import datetime
 
 import drivers
 import eventos
+import facturas
 import var
 from AboutWindow import *
 from CalendarBajaWindow import *
@@ -40,6 +41,18 @@ class Calendar(QtWidgets.QDialog):
         ano = datetime.now().year
         var.calendar.Calendar.setSelectedDate((QtCore.QDate(ano, mes, dia)))
         var.calendar.Calendar.clicked.connect(drivers.Drivers.cargarFecha)
+
+class CalendarFac(QtWidgets.QDialog):
+
+    def __init__(self):
+        super(CalendarFac, self).__init__()
+        var.calendarfac = Ui_dlgCalendar()
+        var.calendarfac.setupUi(self)
+        dia = datetime.now().day
+        mes = datetime.now().month
+        ano = datetime.now().year
+        var.calendarfac.Calendar.setSelectedDate((QtCore.QDate(ano, mes, dia)))
+        var.calendarfac.Calendar.clicked.connect(facturas.Facturas.cargarFecha)
 
 
 class CalendarBaja(QtWidgets.QDialog):

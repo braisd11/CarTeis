@@ -154,6 +154,32 @@ class Clientes():
             print("Error con alta cliente", error)
 
     @staticmethod
+    def buscarcli():
+        try:
+            dni = var.ui.txtDNIcli.text()
+            registro = conexion.Conexion.buscacli(dni)
+            if registro is not None:
+                Clientes.buscarentabla(registro)
+                var.ui.txtcifcli.setText(dni)
+            else:
+                var.ui.txtDNIcli.clear()
+
+        except Exception as error:
+            print('error al buscar cliente', error)
+
+    def buscarentabla(registro):
+        try:
+            codigo = registro[0]
+            print(codigo)
+            for i in range(var.ui.tabClientes.rowCount()):
+                if var.ui.tabClientes.item(i, 0).text() == codigo:
+                    var.ui.tabClientes.selectRow(i)
+                    var.ui.tabClientes.scrollToItem(var.ui.tabClientes.item(i, 0))
+
+        except Exception as error:
+            print("Error al buscar cliente en la tabla", error)
+
+    @staticmethod
     def borrarcli():
         try:
             dni = var.ui.txtDNIcli.text()

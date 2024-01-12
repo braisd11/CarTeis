@@ -45,7 +45,7 @@ class Drivers:
             var.calendar.hide()
 
         except Exception as error:
-            print("error en cargar fecha", error)
+            print("error en cargar fecha en drivers", error)
 
     def cargarFechaBaja(qDate):
         try:

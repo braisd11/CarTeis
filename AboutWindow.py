@@ -21,14 +21,14 @@ class Ui_dlgAbout(object):
         dlgAbout.setMinimumSize(QtCore.QSize(391, 267))
         dlgAbout.setMaximumSize(QtCore.QSize(391, 267))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/iconos/img/car_icon_155695.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         dlgAbout.setWindowIcon(icon)
         dlgAbout.setStyleSheet("QDialog{\n"
-"    background-color: rgb(86, 86, 86);\n"
+"    background-color:#84b6f4;\n"
 "}\n"
 "\n"
 "QLabel {\n"
-"    color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 0, 0);\n"
 "}")
         self.lblAutor = QtWidgets.QLabel(parent=dlgAbout)
         self.lblAutor.setGeometry(QtCore.QRect(30, 240, 111, 16))
@@ -55,7 +55,7 @@ class Ui_dlgAbout(object):
         self.lblIcon = QtWidgets.QLabel(parent=dlgAbout)
         self.lblIcon.setGeometry(QtCore.QRect(20, 10, 121, 121))
         self.lblIcon.setText("")
-        self.lblIcon.setPixmap(QtGui.QPixmap(":/iconos/img/driver.ico"))
+        self.lblIcon.setPixmap(QtGui.QPixmap(":/iconos/img/car_icon_155695.ico"))
         self.lblIcon.setScaledContents(True)
         self.lblIcon.setObjectName("lblIcon")
         self.lblDescrip = QtWidgets.QLabel(parent=dlgAbout)

@@ -8,4 +8,5 @@ global dlgabrir
 global driver
 global bbdd
 global report
+global calendarfac
 version = "0.1.3"

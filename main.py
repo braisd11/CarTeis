@@ -3,6 +3,7 @@ import sys
 
 import clientes
 import eventos
+import facturas
 import informes
 import var
 import templates.rc_icons
@@ -22,6 +23,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui = Ui_MainWindow()
         var.ui.setupUi(self)  # Método encargado de generar la interfaz
         var.calendar = Calendar()
+        var.calendarfac = CalendarFac()
         var.exitWindow = Exit()
         var.aboutWindow = About()
         var.dlgModificarBajaWindow = Baja()
@@ -30,6 +32,7 @@ class Main(QtWidgets.QMainWindow):
         conexion.Conexion.conexion()
         conexion.Conexion.cargaprov()
         conexion.Conexion.cargaprovcli()
+        facturas.Facturas.cargadriverfac()
 
         '''
         
@@ -40,9 +43,12 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnCalendar.clicked.connect(eventos.Eventos.abrirCalendar)
         var.ui.btnAltaDriver.clicked.connect(drivers.Drivers.altaDriver)
         var.ui.btnAltacli.clicked.connect(clientes.Clientes.altacli)
+        var.ui.btnCalendarFac.clicked.connect(facturas.Facturas.abrirCalendar)
         var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
         var.ui.cmbProvcli.currentIndexChanged.connect(conexion.Conexion.selMunicli)
         var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
+        var.ui.btnBuscarcli.clicked.connect(clientes.Clientes.buscarcli)
+        #var.ui.btnbusclifac.clicked.connect()
         var.ui.btnModifDriver.clicked.connect(drivers.Drivers.modifDri)
         var.ui.btnModifcli.clicked.connect(clientes.Clientes.modifcli)
         var.ui.btnBajaDriver.clicked.connect(drivers.Drivers.borrarDriv)
@@ -88,6 +94,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.actionSalir.triggered.connect(eventos.Eventos.showSalir)
         var.ui.actionlimpiarPanel.triggered.connect(drivers.Drivers.limpiarPanel)
         var.ui.actionlimpiarPanel.triggered.connect(clientes.Clientes.limpiarPanel)
+        var.ui.actionlimpiarPanel.triggered.connect(facturas.Facturas.limpiarPanel)
 
         '''
             Zona de ejecución de accionas al iniciar programa
