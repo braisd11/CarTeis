@@ -170,7 +170,7 @@ class Clientes():
     def buscarentabla(registro):
         try:
             codigo = registro[0]
-            print(codigo)
+
             for i in range(var.ui.tabClientes.rowCount()):
                 if var.ui.tabClientes.item(i, 0).text() == codigo:
                     var.ui.tabClientes.selectRow(i)
