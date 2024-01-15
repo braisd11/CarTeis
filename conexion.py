@@ -3,6 +3,7 @@ from PyQt6 import QtWidgets, QtSql, QtCore
 import clientes
 import drivers
 import eventos
+import facturas
 import var
 import datetime
 
@@ -253,6 +254,22 @@ class Conexion():
 
         except Exception as error:
             print('error en fichero conexion dato de 1 cliente', error)
+
+    def onefac(id):
+        try:
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select * from facturas where numfac = :id')
+
+            query.bindValue(':id', int(id))
+            if query.exec():
+                while query.next():
+                    for i in range(4):
+                        registro.append(str(query.value(i)))
+            return registro
+
+        except Exception as error:
+            print('error en fichero conexion dato de 1 factura', error)
 
     def buscacli(dni):
         try:
@@ -536,6 +553,26 @@ class Conexion():
             clientes.Clientes.cargartablacli(registro)
 
         except Exception as error:
+            print('error al seleccionar factura', error)
+
+    @staticmethod
+    def selectFac():
+        try:
+            registro = []
+
+            consulta = "select * from facturas"
+
+            query = QtSql.QSqlQuery()
+            query.prepare(consulta)
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    registro.append(row)
+
+            facturas.Facturas.cargartablafac(registro)
+
+        except Exception as error:
             print('error al seleccionar cliente', error)
 
     @staticmethod
@@ -681,4 +718,47 @@ class Conexion():
         except Exception as error:
             print('error en guardarimportcli', error)
 
+    @staticmethod
+    def altaFacturacion(registro):
+        try:
+            print(registro)
+            query = QtSql.QSqlQuery()
+            query.prepare("insert into facturas (dniCli, fecha, driver) "
+                          "values (:dniCli, :fechaFact, :codDri)")
+            query.bindValue(":dniCli", str(registro[0]))
+            query.bindValue(":fechaFact", str(registro[1]))
+            query.bindValue(":codDri", str(registro[2]))
+            if query.exec():
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Factura creada correctamente.")
+                mbox.exec()
+                # Conexion.selectFactura()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("La factura no se pudo crear.")
+                mbox.exec()
 
+        except Exception as error:
+            print("Error en alta facturacion", error)
+
+
+    @staticmethod
+    def getApel(codigo):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("select apeldri from drivers where codigo = :codigo")
+            query.bindValue(":codigo", int(codigo))
+
+            if query.exec():
+                while query.next():
+                    apellido = query.value(0)
+                    return apellido
+
+            else:
+                print(query.lastError())
+        except Exception as error:
+            print('Error al coger el apellido', error)

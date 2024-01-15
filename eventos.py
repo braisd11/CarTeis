@@ -478,3 +478,35 @@ class Eventos():
             msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
             msg.exec()
 
+    @staticmethod
+    def resizeTabfacturas():
+        try:
+            header = var.ui.tabFacturas.horizontalHeader()
+            for i in range(var.ui.tabFacturas.columnCount()):
+                if i == 0 or i == 4 or i == 3:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+                elif i == 1 or i == 2:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        except Exception as error:
+            print("error con resizeTabfacturas", error)
+
+    @staticmethod
+    def comprobarAltaFac():
+        try:
+            if (var.ui.txtDataFac.text().strip() == "" or var.ui.txtcifcli.text().strip() == ""
+                    or var.ui.cmbConductor.currentText() == ""):
+                msg = QtWidgets.QMessageBox()
+                msg.setWindowTitle('Aviso')
+                msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                msg.setText('Faltan datos por cubrir')
+                msg.exec()
+
+                return False
+
+            else:
+
+                return True
+
+        except Exception as error:
+            print('Error al comprobar alta fac', error)
+

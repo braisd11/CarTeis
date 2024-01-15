@@ -75,6 +75,8 @@ class Clientes():
         except Exception as error:
             print('error al cargar cliente', error)
 
+
+
     def cargartablacli(registros):
         try:
             index = 0
@@ -257,4 +259,24 @@ class Clientes():
         else:
             estado = 0
             conexion.Conexion.selectClientes(estado)
+
+    @staticmethod
+    def comprobarbajacli(dni):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("select bajacli from clientes where dnicli = :dni")
+
+            query.bindValue(':dni', dni)
+
+            if query.exec():
+                while query.next():
+                    fecha = query.value(0)
+                    if fecha == "":
+                        baja = False
+                        return baja
+                    else:
+                        return True
+
+        except Exception as error:
+            print('error al comprobar la baja del cliente', error)
 

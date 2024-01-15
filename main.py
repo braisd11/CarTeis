@@ -33,6 +33,7 @@ class Main(QtWidgets.QMainWindow):
         var.dlgabrir = FileDialogAbrir()
         conexion.Conexion.conexion()
         conexion.Conexion.cargaprov()
+        conexion.Conexion.selectFac()
         conexion.Conexion.cargaprovcli()
         facturas.Facturas.cargadriverfac()
 
@@ -54,6 +55,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnModifcli.clicked.connect(clientes.Clientes.modifcli)
         var.ui.btnBajaDriver.clicked.connect(drivers.Drivers.borrarDriv)
         var.ui.btnBajacli.clicked.connect(clientes.Clientes.borrarcli)
+        var.ui.btnFacturar.clicked.connect(facturas.Facturas.guardarFac)
 
         '''
             
@@ -112,8 +114,10 @@ class Main(QtWidgets.QMainWindow):
         '''
         eventos.Eventos.resizeTabdrivers()
         eventos.Eventos.resizeTabclientes()
+        eventos.Eventos.resizeTabfacturas()
         var.ui.tabDrivers.clicked.connect(drivers.Drivers.cargardrivers)
         var.ui.tabClientes.clicked.connect(clientes.Clientes.cargarclientes)
+        var.ui.tabFacturas.clicked.connect(facturas.Facturas.cargarfacturas)
 
     def closeEvent(self, event):
         # event.ignore()

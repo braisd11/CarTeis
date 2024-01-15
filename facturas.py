@@ -1,7 +1,11 @@
 from PyQt6 import QtWidgets, QtCore, QtSql
 
+import clientes
 import conexion
+import drivers
+import eventos
 import var
+
 
 class Facturas:
 
@@ -25,7 +29,6 @@ class Facturas:
 
             print("error en abrir calendar", error)
 
-
     @staticmethod
     def cargadriverfac():
         try:
@@ -43,7 +46,6 @@ class Facturas:
 
             print("Error al mostar cmbConductor")
 
-
     @staticmethod
     def limpiarPanel():
         try:
@@ -55,3 +57,62 @@ class Facturas:
 
         except Exception as error:
             print("error al limpiar panel", error)
+
+    @staticmethod
+    def guardarFac():
+        try:
+            conductor = var.ui.cmbConductor.currentText()
+            codigoDri = conductor.split("-")[0]
+            registro = [var.ui.txtcifcli.text(), var.ui.txtDataFac.text(), codigoDri]
+            if eventos.Eventos.comprobarAltaFac() and clientes.Clientes.comprobarbajacli(
+                    var.ui.txtcifcli.text()) == False and drivers.Drivers.comprobarfechabaja(codigoDri) == False:
+                conexion.Conexion.altaFacturacion(registro)
+                conexion.Conexion.selectFac()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle('Aviso')
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Error al dar de alta la factura. El cliente o el conductor están dados de baja")
+                mbox.exec()
+
+        except Exception as error:
+            print('Error al guardar una factura', error)
+
+    @staticmethod
+    def cargarfacturas():
+        try:
+            Facturas.limpiarPanel()
+
+            row = var.ui.tabFacturas.selectedItems()
+
+            fila = [dato.text() for dato in row]
+            registro = conexion.Conexion.onefac(fila[0])
+            apellido = conexion.Conexion.getApel(registro[3])
+            txtCmb = str(registro[3]) + "- " + apellido
+
+            datos = [var.ui.lblCodFac, var.ui.txtcifcli, var.ui.txtDataFac, var.ui.cmbConductor]
+
+            for i, dato in enumerate(datos):
+
+                if i == 3:
+                    dato.setCurrentText(str(txtCmb))
+                else:
+                    dato.setText(str(registro[i]))
+
+        except Exception as error:
+            print('error al cargar cliente', error)
+
+    @staticmethod
+    def cargartablafac(registros):
+        try:
+            index = 0
+            for registro in registros:
+                var.ui.tabFacturas.setRowCount(index + 1)
+                var.ui.tabFacturas.setItem(index, 0, QtWidgets.QTableWidgetItem(str(registro[0])))
+                var.ui.tabFacturas.setItem(index, 1, QtWidgets.QTableWidgetItem(str(registro[1])))
+                var.ui.tabFacturas.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabFacturas.item(index, 1).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                index += 1
+
+        except Exception as error:
+            print('error cargar dato en tabla facturas', error)
