@@ -4,6 +4,8 @@ import xlrd, xlwt
 
 import clientes
 import conexion
+import drivers
+import facturas
 import var, sys
 from datetime import datetime
 from PyQt6 import QtWidgets, QtCore, QtGui, QtSql
@@ -539,4 +541,14 @@ class Eventos():
 
         except Exception as error:
             print('error al comprobar si exitse el dni', error)
+
+    @staticmethod
+    def limpiartodo():
+        try:
+            drivers.Drivers.limpiarPanel()
+            clientes.Clientes.limpiarPanel()
+            facturas.Facturas.limpiarPanel()
+
+        except Exception as error:
+            print('error al limpiar todo', error)
 

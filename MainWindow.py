@@ -700,7 +700,7 @@ class Ui_MainWindow(object):
         self.btnFacturar.setFont(font)
         self.btnFacturar.setObjectName("btnFacturar")
         self.tabFacturas = QtWidgets.QTableWidget(parent=self.panelFacturas)
-        self.tabFacturas.setGeometry(QtCore.QRect(10, 190, 211, 621))
+        self.tabFacturas.setGeometry(QtCore.QRect(10, 190, 301, 621))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

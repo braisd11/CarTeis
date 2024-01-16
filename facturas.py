@@ -65,6 +65,8 @@ class Facturas:
                 msg.setText('El DNI no existe')
                 msg.exec()
 
+            eventos.Eventos.limpiartodo()
+
         except Exception as error:
             print('Error al guardar una factura', error)
 

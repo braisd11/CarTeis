@@ -1870,7 +1870,7 @@ QTableWidget {
          <rect>
           <x>10</x>
           <y>190</y>
-          <width>211</width>
+          <width>301</width>
           <height>621</height>
          </rect>
         </property>
