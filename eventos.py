@@ -1,6 +1,8 @@
 import os
 import shutil
 import xlrd, xlwt
+
+import clientes
 import conexion
 import var, sys
 from datetime import datetime
@@ -491,9 +493,9 @@ class Eventos():
             print("error con resizeTabfacturas", error)
 
     @staticmethod
-    def comprobarAltaFac():
+    def comprobarAltaFac(dni):
         try:
-            if (var.ui.txtDataFac.text().strip() == "" or var.ui.txtcifcli.text().strip() == ""
+            if (var.ui.txtDataFac.text().strip() == "" or dni.strip() == ""
                     or var.ui.cmbConductor.currentText() == ""):
                 msg = QtWidgets.QMessageBox()
                 msg.setWindowTitle('Aviso')
@@ -501,12 +503,40 @@ class Eventos():
                 msg.setText('Faltan datos por cubrir')
                 msg.exec()
 
-                return False
+                return False        # Devuelve False si falta algún dato por cubrir
 
             else:
+                if clientes.Clientes.comprobarbajacli(dni):
+                    msg = QtWidgets.QMessageBox()
+                    msg.setWindowTitle('Aviso')
+                    msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    msg.setText('El cliente no puede estar dado de baja')
+                    msg.exec()
 
-                return True
+                    return False    # Devuelve False si el cliente está dado de baja
+
+                else:
+
+                    return True     # Devuelve True si todos los campos están cubiertos
 
         except Exception as error:
             print('Error al comprobar alta fac', error)
+
+    @staticmethod
+    def existeDni(dni):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('select codcli from clientes where dnicli = :dni')
+
+            query.bindValue(':dni', str(dni))
+
+            if query.exec():
+                if query.next():
+                    return True     # Devuelve True si existe
+            else:
+
+                return False        # Devuelve False si no existe
+
+        except Exception as error:
+            print('error al comprobar si exitse el dni', error)
 

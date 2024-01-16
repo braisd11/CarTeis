@@ -721,13 +721,14 @@ class Conexion():
     @staticmethod
     def altaFacturacion(registro):
         try:
-            print(registro)
+
             query = QtSql.QSqlQuery()
             query.prepare("insert into facturas (dniCli, fecha, driver) "
                           "values (:dniCli, :fechaFact, :codDri)")
             query.bindValue(":dniCli", str(registro[0]))
             query.bindValue(":fechaFact", str(registro[1]))
             query.bindValue(":codDri", str(registro[2]))
+
             if query.exec():
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Aviso")
@@ -762,3 +763,20 @@ class Conexion():
                 print(query.lastError())
         except Exception as error:
             print('Error al coger el apellido', error)
+
+    @staticmethod
+    def cargadriverfac():
+        try:
+            var.ui.cmbConductor.clear()
+            query = QtSql.QSqlQuery()
+            query.prepare('select codigo, apeldri from drivers where bajadri is null')
+
+            if query.exec():
+                var.ui.cmbConductor.addItem("")
+
+                while query.next():
+                    var.ui.cmbConductor.addItem(str(query.value(0)) + "- " + query.value(1))
+
+        except Exception as error:
+
+            print("Error al mostrar cmbConductor")

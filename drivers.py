@@ -126,6 +126,7 @@ class Drivers:
                     newdriver.append('/'.join(licencias))
 
                     conexion.Conexion.guardardri(newdriver)
+
                 else:
                     mbox = QtWidgets.QMessageBox()
                     mbox.setWindowTitle('Aviso')
@@ -136,6 +137,8 @@ class Drivers:
                     var.ui.lblValidarDNI.setStyleSheet('color:red;')
                     var.ui.txtDNI.clear()
                     var.ui.txtDNI.setFocus()
+
+            conexion.Conexion.cargadriverfac()
 
         except Exception as error:
             print("Error con alta driver", error)
@@ -307,6 +310,8 @@ class Drivers:
             dni = var.ui.txtDNI.text()
             conexion.Conexion.borraDriv(dni)
             Drivers.selEstado()
+
+            conexion.Conexion.cargadriverfac()
 
         except Exception as error:
             mbox = QtWidgets.QMessageBox()

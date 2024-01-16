@@ -35,7 +35,7 @@ class Main(QtWidgets.QMainWindow):
         conexion.Conexion.cargaprov()
         conexion.Conexion.selectFac()
         conexion.Conexion.cargaprovcli()
-        facturas.Facturas.cargadriverfac()
+        conexion.Conexion.cargadriverfac()
 
         '''
         

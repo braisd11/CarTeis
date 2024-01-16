@@ -272,10 +272,10 @@ class Clientes():
                 while query.next():
                     fecha = query.value(0)
                     if fecha == "":
-                        baja = False
-                        return baja
+                        return False            # Devuelve False si no está dado de baja
+
                     else:
-                        return True
+                        return True             # Devuelve True si está dado de baja
 
         except Exception as error:
             print('error al comprobar la baja del cliente', error)
