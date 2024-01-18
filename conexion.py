@@ -26,15 +26,21 @@ class Conexion():
 
     def cargaprov(self=None):
         try:
+            var.ui.cmbProvOrigen.clear()
+            var.ui.cmbProvDestino.clear()
             var.ui.cmbProv.clear()
             query = QtSql.QSqlQuery()
             query.prepare('select provincia from provincias')
 
             if query.exec():
                 var.ui.cmbProv.addItem("")
+                var.ui.cmbProvOrigen.addItem("")
+                var.ui.cmbProvDestino.addItem("")
 
                 while query.next():
                     var.ui.cmbProv.addItem(query.value(0))
+                    var.ui.cmbProvDestino.addItem(query.value(0))
+                    var.ui.cmbProvOrigen.addItem(query.value(0))
 
 
         except Exception as error:

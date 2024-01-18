@@ -48,6 +48,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnAltacli.clicked.connect(clientes.Clientes.altacli)
         var.ui.btnCalendarFac.clicked.connect(facturas.Facturas.abrirCalendar)
         var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
+        var.ui.cmbProvOrigen.currentIndexChanged.connect(conexion.Conexion.selMuni)
+        var.ui.cmbProvDestino.currentIndexChanged.connect(conexion.Conexion.selMuni)
         var.ui.cmbProvcli.currentIndexChanged.connect(conexion.Conexion.selMunicli)
         var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
         var.ui.btnBuscarcli.clicked.connect(clientes.Clientes.buscarcli)

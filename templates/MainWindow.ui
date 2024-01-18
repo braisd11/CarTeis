@@ -2781,6 +2781,9 @@ QRadioButton{
          <property name="checked">
           <bool>false</bool>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">btnGroupTarifa</string>
+         </attribute>
         </widget>
         <widget class="QRadioButton" name="rbtProvincial">
          <property name="geometry">
@@ -2817,6 +2820,9 @@ QRadioButton{
          <property name="checked">
           <bool>true</bool>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">btnGroupTarifa</string>
+         </attribute>
         </widget>
         <widget class="QRadioButton" name="rbtLocal">
          <property name="geometry">
@@ -2850,6 +2856,9 @@ QRadioButton{
          <property name="text">
           <string>Local</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">btnGroupTarifa</string>
+         </attribute>
         </widget>
         <widget class="QPushButton" name="btnGuardar">
          <property name="geometry">
@@ -4307,5 +4316,6 @@ background-color:rgb(100,100,100);
  <connections/>
  <buttongroups>
   <buttongroup name="btnGroupEstado"/>
+  <buttongroup name="btnGroupTarifa"/>
  </buttongroups>
 </ui>
