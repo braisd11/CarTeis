@@ -48,8 +48,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnAltacli.clicked.connect(clientes.Clientes.altacli)
         var.ui.btnCalendarFac.clicked.connect(facturas.Facturas.abrirCalendar)
         var.ui.cmbProv.currentIndexChanged.connect(conexion.Conexion.selMuni)
-        var.ui.cmbProvOrigen.currentIndexChanged.connect(conexion.Conexion.selMuni)
-        var.ui.cmbProvDestino.currentIndexChanged.connect(conexion.Conexion.selMuni)
+        var.ui.cmbProvOrigen.currentIndexChanged.connect(conexion.Conexion.selMuniOri)
+        var.ui.cmbProvDestino.currentIndexChanged.connect(conexion.Conexion.selMuniDest)
         var.ui.cmbProvcli.currentIndexChanged.connect(conexion.Conexion.selMunicli)
         var.ui.btnBuscar.clicked.connect(drivers.Drivers.buscadriver)
         var.ui.btnBuscarcli.clicked.connect(clientes.Clientes.buscarcli)
@@ -117,6 +117,7 @@ class Main(QtWidgets.QMainWindow):
         eventos.Eventos.resizeTabdrivers()
         eventos.Eventos.resizeTabclientes()
         eventos.Eventos.resizeTabfacturas()
+        eventos.Eventos.resizeTabviaje()
         var.ui.tabDrivers.clicked.connect(drivers.Drivers.cargardrivers)
         var.ui.tabClientes.clicked.connect(clientes.Clientes.cargarclientes)
         var.ui.tabFacturas.clicked.connect(facturas.Facturas.cargarfacturas)
@@ -125,14 +126,20 @@ class Main(QtWidgets.QMainWindow):
         # event.ignore()
         # eventos.Eventos.showSalir(self)
 
-        btnSi = QtWidgets.QMessageBox.StandardButton.Yes
+        mbox = QtWidgets.QMessageBox()
+        mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
+                           "QLabel {color: rgb(0, 0, 0);} ")
+        mbox.setWindowTitle("Salir")
+        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+        mbox.setText("¿Desea Salir?")
 
-        btnNo = QtWidgets.QMessageBox.StandardButton.No
+        mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+        mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Si')
+        mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('No')
 
-        mbox = QtWidgets.QMessageBox.information(self, 'Salir', '¿Estás seguro de que quieres salir?',
-                                                 btnSi | btnNo)
+        resultado = mbox.exec()
 
-        if mbox == QtWidgets.QMessageBox.StandardButton.Yes:
+        if resultado == QtWidgets.QMessageBox.StandardButton.Yes:
             app.quit()
         else:
             event.ignore()

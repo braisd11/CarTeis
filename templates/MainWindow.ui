@@ -109,7 +109,7 @@ color: rgb(0,0,0);
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="panelDrivers">
        <property name="sizePolicy">
@@ -1138,7 +1138,7 @@ QRadioButton{
               <x>100</x>
               <y>50</y>
               <width>40</width>
-              <height>16</height>
+              <height>21</height>
              </rect>
             </property>
             <property name="minimumSize">
@@ -1596,8 +1596,8 @@ QTableWidget {
         <widget class="QLineEdit" name="txtcifcli">
          <property name="geometry">
           <rect>
-           <x>294</x>
-           <y>14</y>
+           <x>334</x>
+           <y>24</y>
            <width>80</width>
            <height>20</height>
           </rect>
@@ -1618,8 +1618,8 @@ QTableWidget {
         <widget class="QPushButton" name="btnbusclifac">
          <property name="geometry">
           <rect>
-           <x>380</x>
-           <y>10</y>
+           <x>420</x>
+           <y>20</y>
            <width>28</width>
            <height>28</height>
           </rect>
@@ -1835,8 +1835,8 @@ QTableWidget {
         <widget class="QLabel" name="label_7">
          <property name="geometry">
           <rect>
-           <x>237</x>
-           <y>18</y>
+           <x>277</x>
+           <y>28</y>
            <width>51</width>
            <height>16</height>
           </rect>
@@ -1861,7 +1861,7 @@ QTableWidget {
           </font>
          </property>
          <property name="text">
-          <string>FACTURAR</string>
+          <string>Facturar</string>
          </property>
         </widget>
        </widget>
@@ -2876,7 +2876,7 @@ QRadioButton{
           </font>
          </property>
          <property name="text">
-          <string>GUARDAR</string>
+          <string>Guardar</string>
          </property>
         </widget>
        </widget>
@@ -3380,9 +3380,7 @@ QComboBox{
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">QComboBox{
-	background-color: None;
-}</string>
+             <string notr="true"/>
             </property>
            </widget>
            <widget class="QComboBox" name="cmbMunicli">
@@ -3416,9 +3414,7 @@ QComboBox{
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">QComboBox{
-	background-color: None;
-}</string>
+             <string notr="true"/>
             </property>
            </widget>
            <widget class="QLabel" name="lblMovilcli">
@@ -4315,7 +4311,7 @@ background-color:rgb(100,100,100);
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="btnGroupEstado"/>
   <buttongroup name="btnGroupTarifa"/>
+  <buttongroup name="btnGroupEstado"/>
  </buttongroups>
 </ui>

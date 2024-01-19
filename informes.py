@@ -176,23 +176,35 @@ class Informes:
     def elegirInforme(self):
         try:
             mbox = QtWidgets.QMessageBox()
-            mbox.setWindowTitle("Imprimir Informes")
-            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
-            mbox.setText("Que informe quieres imprimir?")
-            mbox.setStandardButtons(
-                QtWidgets.QMessageBox.StandardButton.Cancel | QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
-            mbox.button(QtWidgets.QMessageBox.StandardButton.Cancel).setText('Cancelar')
-            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Conductores')
-            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('Clientes')
-            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Cancel)
-            mbox.setEscapeButton(QtWidgets.QMessageBox.StandardButton.Cancel)
+            mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
+                               "QLabel {color: rgb(0, 0, 0);} ")
+            mbox.setWindowTitle("Realizar Informe")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("Seleccione informe/es")
 
-            option = mbox.exec()
+            conductorcheck = QtWidgets.QCheckBox("Informe de conductores")
+            clientecheck = QtWidgets.QCheckBox("Informe de clientes")
 
-            if option == QtWidgets.QMessageBox.StandardButton.Yes:
-                Informes.reportconductores()
-            elif option == QtWidgets.QMessageBox.StandardButton.No:
-                Informes.reportclientes()
+            layout = QtWidgets.QVBoxLayout()
+            layout.addWidget(conductorcheck)
+            layout.addWidget(clientecheck)
+
+            container = QtWidgets.QWidget()
+            container.setLayout(layout)
+
+            mbox.layout().addWidget(container, 1, 1, 1, mbox.layout().columnCount())
+
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Aceptar')
+            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('Cancelar')
+
+            resultado = mbox.exec()
+
+            if resultado == QtWidgets.QMessageBox.StandardButton.Yes:
+                if conductorcheck.isChecked():
+                    Informes.reportconductores()
+                if clientecheck.isChecked():
+                    Informes.reportclientes()
 
         except Exception as error:
-            print('Error al elegir Informe a imprimir: ', error)
+            print("Error en checkbox_informe", error)
