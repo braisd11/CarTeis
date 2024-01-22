@@ -51,19 +51,19 @@ class Facturas:
             codigoDri = conductor.split("-")[0]
             registro = [var.ui.txtcifcli.text(), var.ui.txtDataFac.text(), codigoDri]
 
-            if eventos.Eventos.existeDni(dni):
+            if eventos.Eventos.comprobarAltaFac(dni):
 
-                if eventos.Eventos.comprobarAltaFac(dni):
+                if eventos.Eventos.existeDni(dni):
 
                     conexion.Conexion.altaFacturacion(registro)
                     conexion.Conexion.selectFac()
 
-            else:
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                msg.setText('El DNI no existe')
-                msg.exec()
+                else:
+                    msg = QtWidgets.QMessageBox()
+                    msg.setWindowTitle('Aviso')
+                    msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    msg.setText('El DNI no existe')
+                    msg.exec()
 
             eventos.Eventos.limpiartodo()
 
@@ -91,6 +91,8 @@ class Facturas:
                 else:
                     dato.setText(str(registro[i]))
 
+            conexion.Conexion.seleccionarviajes()
+
         except Exception as error:
             print('error al cargar cliente', error)
 
@@ -108,3 +110,71 @@ class Facturas:
 
         except Exception as error:
             print('error cargar dato en tabla facturas', error)
+
+    @staticmethod
+    def guardarviaje():
+        try:
+            tarifa = Facturas.comprobarTarifa()
+            registro = [var.ui.lblCodFac.text(), var.ui.cmbLocOrigen.currentText(), var.ui.cmbLocDestino.currentText(), tarifa, var.ui.txtkm.text()]
+
+            conexion.Conexion.guardarviajeBD(registro)
+
+            pass
+        except Exception as error:
+            print('error al guardar viaje en guardarviaje()', error)
+
+
+    @staticmethod
+    def cargartarifa():
+        try:
+            if var.ui.cmbLocOrigen.currentText() != "" and var.ui.cmbLocDestino.currentText() != "":
+                if var.ui.cmbLocDestino.currentText() == var.ui.cmbLocOrigen.currentText():
+
+                    var.ui.rbtLocal.setChecked(True)
+
+                elif var.ui.cmbProvDestino.currentText() == var.ui.cmbProvOrigen.currentText():
+
+                    var.ui.rbtProvincial.setChecked(True)
+
+                else:
+                    var.ui.rbtNacional.setChecked(True)
+
+                tarifa = Facturas.comprobarTarifa()
+
+        except Exception as error:
+            print('error al cargar la tarifa', error)
+
+    @staticmethod
+    def cargarviajes():
+        try:
+            registro = conexion.Conexion.seleccionarviajes()
+
+            row = var.ui.tabViajes.selectedItems()
+
+            fila = [dato.text() for dato in row]
+
+            for i, dato in enumerate(registro):
+                if registro[1]:
+                    pass
+                if i == 3:
+                    dato.setText(registro[6])
+                if i == 5:
+                    total = float(registro[4]) * float(registro[5])
+                    dato.setText(total)
+
+        except Exception as error:
+            print('error al cargar TabViajes', error)
+
+    @staticmethod
+    def comprobarTarifa():
+        try:
+            if var.ui.rbtNacional.isChecked():
+                tarifa = 0.8
+            elif var.ui.rbtLocal.isChecked():
+                tarifa = 0.2
+            else:
+                tarifa = 0.4
+            return tarifa
+
+        except Exception as error:
+            print('error al cargar el valor de la tarifa', error)

@@ -58,6 +58,9 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnBajaDriver.clicked.connect(drivers.Drivers.borrarDriv)
         var.ui.btnBajacli.clicked.connect(clientes.Clientes.borrarcli)
         var.ui.btnFacturar.clicked.connect(facturas.Facturas.guardarFac)
+        var.ui.cmbLocOrigen.currentIndexChanged.connect(facturas.Facturas.cargartarifa)
+        var.ui.cmbLocDestino.currentIndexChanged.connect(facturas.Facturas.cargartarifa)
+        var.ui.btnGuardarViaje.clicked.connect(facturas.Facturas.guardarviaje)
 
         '''
             

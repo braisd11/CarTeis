@@ -109,7 +109,7 @@ color: rgb(0,0,0);
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="panelDrivers">
        <property name="sizePolicy">
@@ -1873,7 +1873,7 @@ QTableWidget {
          </property>
         </column>
        </widget>
-       <widget class="QTableWidget" name="tabViaje">
+       <widget class="QTableWidget" name="tabViajes">
         <property name="geometry">
          <rect>
           <x>320</x>
@@ -2788,6 +2788,9 @@ QComboBox{
           </property>
          </widget>
          <widget class="QRadioButton" name="rbtNacional">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>141</x>
@@ -2820,14 +2823,20 @@ QRadioButton{
           <property name="text">
            <string>Nacional</string>
           </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
           <property name="checked">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">btnGroupTarifa</string>
           </attribute>
          </widget>
          <widget class="QRadioButton" name="rbtProvincial">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>218</x>
@@ -2859,14 +2868,20 @@ QRadioButton{
           <property name="text">
            <string>Provincial</string>
           </property>
-          <property name="checked">
+          <property name="checkable">
            <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">btnGroupTarifa</string>
           </attribute>
          </widget>
          <widget class="QRadioButton" name="rbtLocal">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>292</x>
@@ -2898,11 +2913,17 @@ QRadioButton{
           <property name="text">
            <string>Local</string>
           </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
           <attribute name="buttonGroup">
            <string notr="true">btnGroupTarifa</string>
           </attribute>
          </widget>
-         <widget class="QPushButton" name="btnGuardar">
+         <widget class="QPushButton" name="btnGuardarViaje">
           <property name="geometry">
            <rect>
             <x>170</x>

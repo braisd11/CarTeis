@@ -842,3 +842,52 @@ class Conexion():
         except Exception as error:
 
             print("Error al mostrar cmbConductor")
+
+    @staticmethod
+    def guardarviajeBD(registro):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('insert into viajes (factura, origen, destino, tarifa, km) values (:idfactura, :origen, :destino, :tarifa, :km)')
+            query.bindValue(':idfactura', int(registro[0]))
+            query.bindValue(':origen', str(registro[1]))
+            query.bindValue(':destino', str(registro[2]))
+            query.bindValue(':tarifa', str(registro[3]))
+            query.bindValue(':km', str(registro[4]))
+
+            if query.exec():
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Viaje guardado con éxito")
+                mbox.exec()
+                facturas.Facturas.cargarviajes()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("El viaje no se pudo guardar correctamente")
+                mbox.exec()
+
+        except Exception as error:
+            print('error al guardar viaje en la base de datos')
+
+    @staticmethod
+    def seleccionarviajes():
+        try:
+            registro= []
+
+            query = QtSql.QSqlQuery()
+            query.prepare('select * from viajes where factura = :factura')
+
+            query.bindValue(':factura', int(var.ui.lblCodFac.text()))
+
+            if query.exec():
+                while query.next():
+                    for i in range(5):
+                        registro.append(str(query.value(i)))
+                return registro
+
+        except Exception as error:
+            print('error al consultar el viaje', error)
+
+

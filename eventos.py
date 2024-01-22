@@ -497,14 +497,14 @@ class Eventos():
     @staticmethod
     def resizeTabviaje():
         try:
-            header = var.ui.tabViaje.horizontalHeader()
-            for i in range(var.ui.tabViaje.columnCount()):
+            header = var.ui.tabViajes.horizontalHeader()
+            for i in range(var.ui.tabViajes.columnCount()):
                 if i == 0 or i == 4 or i == 3:
                     header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
                 elif i == 1 or i == 2:
                     header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.Stretch)
         except Exception as error:
-            print("error con resizeTabviaje", error)
+            print("error con resizeTabviajes", error)
 
     @staticmethod
     def comprobarAltaFac(dni):
