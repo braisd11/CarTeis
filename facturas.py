@@ -1,9 +1,11 @@
-from PyQt6 import QtWidgets, QtCore, QtSql
+from PyQt6 import QtWidgets, QtCore, QtSql, QtGui
+
 
 import clientes
 import conexion
 import drivers
 import eventos
+import facturas
 import var
 
 
@@ -37,6 +39,8 @@ class Facturas:
             listaWidgets = [var.ui.lblCodFac, var.ui.txtcifcli, var.ui.txtDataFac]
             for i in listaWidgets:
                 i.clear()
+
+            var.ui.tabViajes.setRowCount(0)
 
             var.ui.cmbConductor.setCurrentText('')
 
@@ -91,7 +95,7 @@ class Facturas:
                 else:
                     dato.setText(str(registro[i]))
 
-            conexion.Conexion.seleccionarviajes()
+            facturas.Facturas.cargarviajes()
 
         except Exception as error:
             print('error al cargar cliente', error)
@@ -147,23 +151,40 @@ class Facturas:
     @staticmethod
     def cargarviajes():
         try:
-            registro = conexion.Conexion.seleccionarviajes()
+            registros = conexion.Conexion.seleccionarviajes()
 
-            row = var.ui.tabViajes.selectedItems()
+            index = 0
+            subtotal = 0
+            for registro in registros:
+                var.ui.tabViajes.setRowCount(index + 1)
+                var.ui.tabViajes.setItem(index, 0, QtWidgets.QTableWidgetItem(str(registro[0])))
+                var.ui.tabViajes.setItem(index, 1, QtWidgets.QTableWidgetItem(str(registro[2])))
+                var.ui.tabViajes.setItem(index, 2, QtWidgets.QTableWidgetItem(str(registro[3])))
+                var.ui.tabViajes.setItem(index, 3, QtWidgets.QTableWidgetItem(str(registro[5])))
+                var.ui.tabViajes.setItem(index, 4, QtWidgets.QTableWidgetItem(str(registro[4])))
+                total = float(registro[4]) * float(registro[5])
+                subtotal += total
+                totalRound = round(total, 2)
+                var.ui.tabViajes.setItem(index, 5, QtWidgets.QTableWidgetItem(str(totalRound)))
+                var.ui.tabViajes.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabViajes.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+                var.ui.tabViajes.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 
-            fila = [dato.text() for dato in row]
+                botondel = QtWidgets.QPushButton()
+                botondel.setFixedSize(40, 28)
+                botondel.setIcon(QtGui.QIcon('img/basura.ico'))
+                var.ui.tabViajes.horizontalHeader().setSectionResizeMode(6, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+                var.ui.tabViajes.setColumnWidth(6, 50)
+                var.ui.tabViajes.setCellWidget(index, 6, botondel)
 
-            for i, dato in enumerate(registro):
-                if registro[1]:
-                    pass
-                if i == 3:
-                    dato.setText(registro[6])
-                if i == 5:
-                    total = float(registro[4]) * float(registro[5])
-                    dato.setText(total)
+                index += 1
+
+            var.ui.txtSubTotal.setText(str(subtotal))
+            var.ui.txtIva.setText('21%')
+            var.ui.txtTotal.setText(str(round((subtotal*1.21), 2)))
 
         except Exception as error:
-            print('error al cargar TabViajes', error)
+            print('error cargar dato en tabla viajes', error)
 
     @staticmethod
     def comprobarTarifa():
@@ -178,3 +199,50 @@ class Facturas:
 
         except Exception as error:
             print('error al cargar el valor de la tarifa', error)
+
+    @staticmethod
+    def cargarViajesDatos():
+        try:
+
+            row = var.ui.tabViajes.selectedItems()
+
+            fila = [dato.text() for dato in row]
+            registro = conexion.Conexion.oneviaje(fila[0])
+
+            datos = [var.ui.cmbProvOrigen, var.ui.cmbLocOrigen, var.ui.cmbProvDestino, var.ui.cmbLocDestino,
+                     var.ui.txtkm]
+
+            muniOrg = registro[2]
+            muniDest = registro[3]
+
+            provOrg = facturas.Facturas.getProvByMuni(muniOrg)
+            provDest = facturas.Facturas.getProvByMuni(muniDest)
+
+            datos[0].setCurrentText(provOrg)
+            datos[1].setCurrentText(muniOrg)
+            datos[2].setCurrentText(provDest)
+            datos[3].setCurrentText(muniDest)
+            datos[4].setText(registro[5])
+
+        except Exception as error:
+            print("error ao cargar viaxe seleccionado ", error)
+
+    def getProvByMuni(muni: str):
+        try:
+
+            query = QtSql.QSqlQuery()
+            query.prepare(
+                'select provincia from provincias where idprov = (select idprov from municipios where municipio = :mun)')
+            query.bindValue(':mun', str(muni))
+
+            if query.exec():
+                query.next()
+                return query.value(0)
+
+            else:
+                print(query.lastError())
+
+        except Exception as error:
+            print('error en getProvByMuni ', error)
+
+

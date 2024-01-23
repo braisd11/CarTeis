@@ -9,4 +9,5 @@ global driver
 global bbdd
 global report
 global calendarfac
+global botondel
 version = "0.1.3"

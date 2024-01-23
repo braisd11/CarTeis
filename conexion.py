@@ -883,11 +883,28 @@ class Conexion():
 
             if query.exec():
                 while query.next():
-                    for i in range(5):
-                        registro.append(str(query.value(i)))
-                return registro
+                    row = [query.value(i) for i in range(query.record().count())]
+                    registro.append(row)
+
+            return registro
 
         except Exception as error:
             print('error al consultar el viaje', error)
 
+    def oneviaje(id):
+        try:
 
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select * from viajes where idviaje = :id')
+            query.bindValue(':id', int(id))
+
+            if query.exec():
+                while query.next():
+                    for i in range(6):
+                        registro.append(str(query.value(i)))
+
+            return registro
+
+        except Exception as error:
+            print('error en oneviaje ', error)

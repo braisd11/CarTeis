@@ -2196,6 +2196,11 @@ QTableWidget {
           <string>TOTAL</string>
          </property>
         </column>
+        <column>
+         <property name="text">
+          <string/>
+         </property>
+        </column>
        </widget>
        <widget class="QFrame" name="frameInfo_2">
         <property name="geometry">
@@ -2943,6 +2948,138 @@ QRadioButton{
           </property>
          </widget>
         </widget>
+       </widget>
+       <widget class="QLabel" name="lblSubTotal">
+        <property name="geometry">
+         <rect>
+          <x>796</x>
+          <y>701</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SubTotal:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblIva">
+        <property name="geometry">
+         <rect>
+          <x>801</x>
+          <y>727</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IVA:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblTotal">
+        <property name="geometry">
+         <rect>
+          <x>801</x>
+          <y>753</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="txtSubTotal">
+        <property name="geometry">
+         <rect>
+          <x>853</x>
+          <y>701</y>
+          <width>100</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 255, 158);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="txtIva">
+        <property name="geometry">
+         <rect>
+          <x>853</x>
+          <y>727</y>
+          <width>100</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 255, 158);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="txtTotal">
+        <property name="geometry">
+         <rect>
+          <x>853</x>
+          <y>753</y>
+          <width>100</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 255, 158);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="panelClientes">
@@ -4375,7 +4512,7 @@ background-color:rgb(100,100,100);
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="btnGroupTarifa"/>
   <buttongroup name="btnGroupEstado"/>
+  <buttongroup name="btnGroupTarifa"/>
  </buttongroups>
 </ui>

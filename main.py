@@ -124,6 +124,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.tabDrivers.clicked.connect(drivers.Drivers.cargardrivers)
         var.ui.tabClientes.clicked.connect(clientes.Clientes.cargarclientes)
         var.ui.tabFacturas.clicked.connect(facturas.Facturas.cargarfacturas)
+        var.ui.tabViajes.clicked.connect(facturas.Facturas.cargarViajesDatos)
 
     def closeEvent(self, event):
         # event.ignore()
