@@ -165,7 +165,7 @@ class Facturas:
                 total = float(registro[4]) * float(registro[5])
                 subtotal += total
                 totalRound = round(total, 2)
-                var.ui.tabViajes.setItem(index, 5, QtWidgets.QTableWidgetItem(str(totalRound)))
+                var.ui.tabViajes.setItem(index, 5, QtWidgets.QTableWidgetItem('%.2f' % (float(totalRound))))
                 var.ui.tabViajes.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabViajes.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabViajes.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -176,6 +176,7 @@ class Facturas:
                 var.ui.tabViajes.horizontalHeader().setSectionResizeMode(6, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
                 var.ui.tabViajes.setColumnWidth(6, 50)
                 var.ui.tabViajes.setCellWidget(index, 6, botondel)
+                botondel.clicked.connect(conexion.Conexion.borrarviaje)
 
                 index += 1
 

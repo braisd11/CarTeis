@@ -4170,6 +4170,7 @@ QTableWidget {
     </property>
     <addaction name="actionListado_Clientes"/>
     <addaction name="actionListado_Conductores"/>
+    <addaction name="actionListado_Viajes"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuHerramientas"/>
@@ -4468,6 +4469,11 @@ background-color:rgb(100,100,100);
    </property>
    <property name="text">
     <string>print</string>
+   </property>
+  </action>
+  <action name="actionListado_Viajes">
+   <property name="text">
+    <string>Listado Viajes</string>
    </property>
   </action>
  </widget>

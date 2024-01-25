@@ -173,6 +173,84 @@ class Informes:
         except Exception as error:
             print('Error en pie informe de cualquier tipo: ', error)
 
+
+
+    @staticmethod
+    def reportviajes():
+        try:
+            fecha = datetime.today()
+            fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
+            nombre = fecha + '_listadoviajes.pdf'
+            var.report = canvas.Canvas('informesViajes/' + nombre)
+            titulo = 'LISTADO Viajes'
+            Informes.topInforme(titulo)
+            Informes.footInforme(titulo)
+
+            items = ['IDVIAJE', 'FACTURA', 'ORIGEN', 'DESTINO', 'TARIFA', 'KM', 'TOTAL']
+
+            var.report.setFont('Helvetica-Bold', size=10)
+            var.report.drawString(50, 675, str(items[0]))
+            var.report.drawString(110, 675, str(items[1]))
+            var.report.drawString(195, 675, str(items[2]))
+            var.report.drawString(290, 675, str(items[3]))
+            var.report.drawString(375, 675, str(items[4]))
+            var.report.drawString(440, 675, str(items[5]))
+            var.report.drawString(480, 675, str(items[6]))
+            var.report.line(50, 670, 525, 670)
+
+            query = QtSql.QSqlQuery()
+            query.prepare("select idviaje, factura, origen, destino,"
+                          " tarifa, km from viajes where factura = :factura")
+
+            query.bindValue(':factura', int(var.ui.lblCodFac.text()))
+
+            subtotal = 0
+            if query.exec():
+                i = 55
+                j = 655
+                while query.next():
+                    if j <= 80:
+                        var.report.showPage()
+                        Informes.topInforme(titulo)
+                        Informes.footInforme(titulo)
+                        var.report.setFont('Helvetica-Bold', size=10)
+                        var.report.drawString(50, 675, str(items[0]))
+                        var.report.drawString(125, 675, str(items[1]))
+                        var.report.drawString(195, 675, str(items[2]))
+                        var.report.drawString(290, 675, str(items[3]))
+                        var.report.drawString(375, 675, str(items[4]))
+                        var.report.drawString(440, 675, str(items[5]))
+                        var.report.drawString(480, 675, str(items[6]))
+                        var.report.line(50, 670, 525, 670)
+                        i = 55
+                        j = 655
+
+                    var.report.setFont('Helvetica', size=9)
+                    var.report.drawCentredString(i + 15, j, str(query.value(0)))
+                    var.report.drawString(i + 70, j, str(query.value(1)))
+                    var.report.drawString(i + 145, j, str(query.value(2)))
+                    var.report.drawString(i + 235, j, str(query.value(3)))
+                    var.report.drawString(i + 335, j, str(query.value(4)))
+                    var.report.drawString(i + 390, j, str(query.value(5)))
+                    total = float(query.value(4)) * float(query.value(5))
+                    subtotal += total
+                    totalRound = round(total, 2)
+                    var.report.drawString(i + 440, j, str(totalRound))
+                    var.report.line(50, j+15, 525, j+15)
+                    j = j - 25
+
+                var.report.drawString(i + 390, j, 'SubTotal: ' + '%.2f' % (float(var.ui.txtSubTotal.text())) + '€')
+                var.report.drawString(i + 390, j-20, 'IVA: 21%')
+                var.report.drawString(i + 390, j-40, 'Total: ' + '%.2f' % (float(var.ui.txtTotal.text())) + '€')
+
+            var.report.save()
+            rootPath = '.\\informesViajes'
+            for file in os.listdir(rootPath):
+                if file.endswith(nombre):
+                    os.startfile('%s\\%s' % (rootPath, file))
+        except Exception as error:
+            print('Error LISTADO VIAJES :', error)
+
     def elegirInforme(self):
         try:
             mbox = QtWidgets.QMessageBox()
@@ -184,10 +262,12 @@ class Informes:
 
             conductorcheck = QtWidgets.QCheckBox("Informe de conductores")
             clientecheck = QtWidgets.QCheckBox("Informe de clientes")
+            viajecheck = QtWidgets.QCheckBox("Informe de Viajes")
 
             layout = QtWidgets.QVBoxLayout()
             layout.addWidget(conductorcheck)
             layout.addWidget(clientecheck)
+            layout.addWidget(viajecheck)
 
             container = QtWidgets.QWidget()
             container.setLayout(layout)
@@ -205,6 +285,8 @@ class Informes:
                     Informes.reportconductores()
                 if clientecheck.isChecked():
                     Informes.reportclientes()
+                if viajecheck.isChecked():
+                    Informes.reportviajes()
 
         except Exception as error:
             print("Error en checkbox_informe", error)

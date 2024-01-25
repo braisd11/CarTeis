@@ -874,7 +874,7 @@ class Conexion():
     @staticmethod
     def seleccionarviajes():
         try:
-            registro= []
+            registro = []
 
             query = QtSql.QSqlQuery()
             query.prepare('select * from viajes where factura = :factura')
@@ -908,3 +908,36 @@ class Conexion():
 
         except Exception as error:
             print('error en oneviaje ', error)
+
+    @staticmethod
+    def borrarviaje():
+        try:
+
+            mbox = QtWidgets.QMessageBox()
+            mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
+                               "QLabel {color: rgb(0, 0, 0);} ")
+            mbox.setWindowTitle("Borrar")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("¿Desea Borrar el viaje?")
+
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+
+            resultado = mbox.exec()
+
+            if resultado == QtWidgets.QMessageBox.StandardButton.Yes:
+                row = var.ui.tabViajes.selectedItems()
+
+                query = QtSql.QSqlQuery()
+                query.prepare('delete from viajes where idviaje = :id')
+
+                query.bindValue(':id', int(row[0].text()))
+
+                if query.exec():
+                    query.next()
+
+                facturas.Facturas.cargarviajes()
+            elif resultado == QtWidgets.QMessageBox.StandardButton.No:
+                mbox.close()
+
+        except Exception as error:
+            print('error al borrar viaje', error)
