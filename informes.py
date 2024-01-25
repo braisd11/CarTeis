@@ -235,7 +235,7 @@ class Informes:
                     total = float(query.value(4)) * float(query.value(5))
                     subtotal += total
                     totalRound = round(total, 2)
-                    var.report.drawString(i + 440, j, str(totalRound))
+                    var.report.drawString(i + 430, j, '%.2f' % (float(totalRound)) + '€')
                     var.report.line(50, j+15, 525, j+15)
                     j = j - 25
 
