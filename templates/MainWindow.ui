@@ -2947,6 +2947,25 @@ QRadioButton{
            <string>Guardar</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="btnModifViaje">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>130</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Modificar</string>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QLabel" name="lblSubTotal">

@@ -135,7 +135,7 @@ class Informes:
 
     def topInforme(titulo):
         try:
-            ruta_logo = '.\\img\\logo.ico'
+            ruta_logo = 'img/logo.png'
             logo = Image.open(ruta_logo)
 
             # Asegúrate de que el objeto 'logo' sea de tipo 'PngImageFile'
@@ -160,6 +160,23 @@ class Informes:
         except Exception as error:
             print('Error en cabecera informe:', error)
 
+    @staticmethod
+    def topInformeViajes():
+        try:
+            var.report.setFont('Helvetica-Bold', size=12)
+            var.report.drawString(300, 785, 'NÚMERO FACTURA: ' + var.ui.lblCodFac.text())
+
+            var.report.setFont('Helvetica', size=9)
+            var.report.drawString(300, 770, 'CIF: ' + var.ui.txtcifcli.text())
+            var.report.drawString(300, 755, 'Razón Social: ')
+            var.report.drawString(300, 740, 'Dirección: ')
+            var.report.drawString(300, 725, 'Provincia: ')
+            var.report.drawString(300, 710, 'Teléfono: ')
+
+        except Exception as error:
+            print('Error en cabecera informe:', error)
+
+
     def footInforme(titulo):
         try:
             var.report.line(50, 50, 525, 50)
@@ -178,76 +195,86 @@ class Informes:
     @staticmethod
     def reportviajes():
         try:
-            fecha = datetime.today()
-            fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
-            nombre = fecha + '_listadoviajes.pdf'
-            var.report = canvas.Canvas('informesViajes/' + nombre)
-            titulo = 'LISTADO Viajes'
-            Informes.topInforme(titulo)
-            Informes.footInforme(titulo)
+            if var.ui.lblCodFac.text() != "":
+                fecha = datetime.today()
+                fecha = fecha.strftime('%Y_%m_%d_%H_%M_%S')
+                nombre = fecha + '_listadoviajes.pdf'
+                var.report = canvas.Canvas('informesViajes/' + nombre)
+                titulo = 'LISTADO Viajes'
+                Informes.topInforme(titulo)
+                Informes.topInformeViajes()
+                Informes.footInforme(titulo)
 
-            items = ['IDVIAJE', 'FACTURA', 'ORIGEN', 'DESTINO', 'TARIFA', 'KM', 'TOTAL']
+                items = ['IDVIAJE', 'FACTURA', 'ORIGEN', 'DESTINO', 'TARIFA', 'KM', 'TOTAL']
 
-            var.report.setFont('Helvetica-Bold', size=10)
-            var.report.drawString(50, 675, str(items[0]))
-            var.report.drawString(110, 675, str(items[1]))
-            var.report.drawString(195, 675, str(items[2]))
-            var.report.drawString(290, 675, str(items[3]))
-            var.report.drawString(375, 675, str(items[4]))
-            var.report.drawString(440, 675, str(items[5]))
-            var.report.drawString(480, 675, str(items[6]))
-            var.report.line(50, 670, 525, 670)
+                var.report.setFont('Helvetica-Bold', size=10)
+                var.report.drawString(50, 675, str(items[0]))
+                var.report.drawString(110, 675, str(items[1]))
+                var.report.drawString(195, 675, str(items[2]))
+                var.report.drawString(290, 675, str(items[3]))
+                var.report.drawString(375, 675, str(items[4]))
+                var.report.drawString(440, 675, str(items[5]))
+                var.report.drawString(480, 675, str(items[6]))
+                var.report.line(50, 670, 525, 670)
 
-            query = QtSql.QSqlQuery()
-            query.prepare("select idviaje, factura, origen, destino,"
-                          " tarifa, km from viajes where factura = :factura")
+                query = QtSql.QSqlQuery()
+                query.prepare("select idviaje, factura, origen, destino,"
+                              " tarifa, km from viajes where factura = :factura")
 
-            query.bindValue(':factura', int(var.ui.lblCodFac.text()))
+                query.bindValue(':factura', int(var.ui.lblCodFac.text()))
 
-            subtotal = 0
-            if query.exec():
-                i = 55
-                j = 655
-                while query.next():
-                    if j <= 80:
-                        var.report.showPage()
-                        Informes.topInforme(titulo)
-                        Informes.footInforme(titulo)
-                        var.report.setFont('Helvetica-Bold', size=10)
-                        var.report.drawString(50, 675, str(items[0]))
-                        var.report.drawString(125, 675, str(items[1]))
-                        var.report.drawString(195, 675, str(items[2]))
-                        var.report.drawString(290, 675, str(items[3]))
-                        var.report.drawString(375, 675, str(items[4]))
-                        var.report.drawString(440, 675, str(items[5]))
-                        var.report.drawString(480, 675, str(items[6]))
-                        var.report.line(50, 670, 525, 670)
-                        i = 55
-                        j = 655
+                subtotal = 0
+                if query.exec():
+                    i = 55
+                    j = 655
+                    while query.next():
+                        if j <= 80:
+                            var.report.showPage()
+                            Informes.topInforme(titulo)
+                            Informes.footInforme(titulo)
+                            var.report.setFont('Helvetica-Bold', size=10)
+                            var.report.drawString(50, 675, str(items[0]))
+                            var.report.drawString(125, 675, str(items[1]))
+                            var.report.drawString(195, 675, str(items[2]))
+                            var.report.drawString(290, 675, str(items[3]))
+                            var.report.drawString(375, 675, str(items[4]))
+                            var.report.drawString(440, 675, str(items[5]))
+                            var.report.drawString(480, 675, str(items[6]))
+                            var.report.line(50, 670, 525, 670)
+                            i = 55
+                            j = 655
 
-                    var.report.setFont('Helvetica', size=9)
-                    var.report.drawCentredString(i + 15, j, str(query.value(0)))
-                    var.report.drawString(i + 70, j, str(query.value(1)))
-                    var.report.drawString(i + 145, j, str(query.value(2)))
-                    var.report.drawString(i + 235, j, str(query.value(3)))
-                    var.report.drawString(i + 335, j, str(query.value(4)))
-                    var.report.drawString(i + 390, j, str(query.value(5)))
-                    total = float(query.value(4)) * float(query.value(5))
-                    subtotal += total
-                    totalRound = round(total, 2)
-                    var.report.drawString(i + 430, j, '%.2f' % (float(totalRound)) + '€')
-                    var.report.line(50, j+15, 525, j+15)
-                    j = j - 25
+                        var.report.setFont('Helvetica', size=9)
+                        var.report.drawCentredString(i + 15, j, str(query.value(0)))
+                        var.report.drawString(i + 70, j, str(query.value(1)))
+                        var.report.drawString(i + 145, j, str(query.value(2)))
+                        var.report.drawString(i + 235, j, str(query.value(3)))
+                        var.report.drawString(i + 335, j, str(query.value(4)))
+                        var.report.drawString(i + 390, j, str(query.value(5)))
+                        total = float(query.value(4)) * float(query.value(5))
+                        subtotal += total
+                        totalRound = round(total, 2)
+                        var.report.drawString(i + 430, j, '%.2f' % (float(totalRound)) + '€')
+                        var.report.line(50, j+15, 525, j+15)
+                        j = j - 25
 
-                var.report.drawString(i + 390, j, 'SubTotal: ' + '%.2f' % (float(var.ui.txtSubTotal.text())) + '€')
-                var.report.drawString(i + 390, j-20, 'IVA: 21%')
-                var.report.drawString(i + 390, j-40, 'Total: ' + '%.2f' % (float(var.ui.txtTotal.text())) + '€')
+                    var.report.line(50, 140, 525, 140)
+                    var.report.drawRightString(i + 450, 130, 'Subtotal: ' + '%.2f' % (float(var.ui.txtSubTotal.text())) + ' €')
+                    var.report.drawRightString(i + 450, 115, 'IVA: ' + var.ui.txtIva.text()[0:2] + ' %')
+                    var.report.drawRightString(i + 450, 100, 'Total: ' + '%.2f' % (float(var.ui.txtTotal.text())) + ' €')
 
-            var.report.save()
-            rootPath = '.\\informesViajes'
-            for file in os.listdir(rootPath):
-                if file.endswith(nombre):
-                    os.startfile('%s\\%s' % (rootPath, file))
+                var.report.save()
+                rootPath = '.\\informesViajes'
+                for file in os.listdir(rootPath):
+                    if file.endswith(nombre):
+                        os.startfile('%s\\%s' % (rootPath, file))
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("No hay ninguna factura seleccionada")
+                mbox.exec()
+
         except Exception as error:
             print('Error LISTADO VIAJES :', error)
 

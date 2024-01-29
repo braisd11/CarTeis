@@ -61,6 +61,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.cmbLocOrigen.currentIndexChanged.connect(facturas.Facturas.cargartarifa)
         var.ui.cmbLocDestino.currentIndexChanged.connect(facturas.Facturas.cargartarifa)
         var.ui.btnGuardarViaje.clicked.connect(facturas.Facturas.guardarviaje)
+        var.ui.btnModifViaje.clicked.connect(conexion.Conexion.modifViaje)
 
         '''
             

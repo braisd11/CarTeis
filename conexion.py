@@ -941,3 +941,65 @@ class Conexion():
 
         except Exception as error:
             print('error al borrar viaje', error)
+
+    @staticmethod
+    def modifViaje():
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle('Confirmar Modificado')
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
+            mbox.setText('¿Desea modificar el viaje con los datos actuales?')
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Si')
+            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('No')
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Yes)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
+                row = var.ui.tabViajes.selectedItems()
+                fila = [dato.text() for dato in row]
+                idViaje = fila[0]
+                datosModificados = facturas.Facturas.datosViaje()
+                print(fila)
+                print(datosModificados)
+                if (str(fila[1]) == str(datosModificados[1]) and str(fila[2]) == str(datosModificados[2]) and
+                        str(fila[3]) == str(datosModificados[3]) and str(fila[4]) == str(datosModificados[4])):
+                    mbox = QtWidgets.QMessageBox()
+                    mbox.setWindowTitle("Aviso")
+                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                    mbox.setText("No hay datos que modificar.")
+                    mbox.exec()
+                else:
+                    query = QtSql.QSqlQuery()
+                    query.prepare("update viajes set "
+                                  "origen = :origen, destino = :destino, km = :km, tarifa = :tarifa "
+                                  "where idViaje = :idViaje")
+                    query.bindValue(":origen", str(datosModificados[1]))
+                    query.bindValue(":destino", str(datosModificados[2]))
+                    query.bindValue(":km", str(datosModificados[3]))
+                    query.bindValue(":tarifa", str(datosModificados[4]))
+                    query.bindValue(':idViaje', int(idViaje))
+
+                    if query.exec():
+                        mbox = QtWidgets.QMessageBox()
+                        mbox.setWindowTitle("Aviso")
+                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                        mbox.setText("Viaje modificado correctamente.")
+                        mbox.exec()
+                        facturas.Facturas.cargarviajes()
+                    else:
+                        mbox = QtWidgets.QMessageBox()
+                        mbox.setWindowTitle("Aviso")
+                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                        mbox.setText("El viaje no se pudo modificar.")
+                        mbox.exec()
+                        print(query.lastError().text())
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("El viaje no se modificó.")
+                mbox.exec()
+
+        except Exception as error:
+            print('Error al borrar viaje ', error)

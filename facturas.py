@@ -36,13 +36,17 @@ class Facturas:
     @staticmethod
     def limpiarPanel():
         try:
-            listaWidgets = [var.ui.lblCodFac, var.ui.txtcifcli, var.ui.txtDataFac]
+            listaWidgets = [var.ui.lblCodFac, var.ui.txtcifcli, var.ui.txtDataFac, var.ui.txtkm]
             for i in listaWidgets:
                 i.clear()
 
             var.ui.tabViajes.setRowCount(0)
 
             var.ui.cmbConductor.setCurrentText('')
+            var.ui.cmbProvOrigen.setCurrentText('')
+            var.ui.cmbProvDestino.setCurrentText('')
+
+
 
         except Exception as error:
             print("error al limpiar panel", error)
@@ -118,12 +122,19 @@ class Facturas:
     @staticmethod
     def guardarviaje():
         try:
-            tarifa = Facturas.comprobarTarifa()
-            registro = [var.ui.lblCodFac.text(), var.ui.cmbLocOrigen.currentText(), var.ui.cmbLocDestino.currentText(), tarifa, var.ui.txtkm.text()]
+            if var.ui.cmbLocOrigen.currentText().strip() == "" or var.ui.cmbLocDestino.currentText().strip() == "" or var.ui.txtkm.text().strip() == "" or var.ui.lblCodFac.text().strip() == "":
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Aviso")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("Faltan datos por rellenar")
+                mbox.exec()
 
-            conexion.Conexion.guardarviajeBD(registro)
+            else:
+                tarifa = Facturas.comprobarTarifa()
+                registro = [var.ui.lblCodFac.text(), var.ui.cmbLocOrigen.currentText(), var.ui.cmbLocDestino.currentText(), tarifa, var.ui.txtkm.text()]
 
-            pass
+                conexion.Conexion.guardarviajeBD(registro)
+
         except Exception as error:
             print('error al guardar viaje en guardarviaje()', error)
 
@@ -165,7 +176,7 @@ class Facturas:
                 total = float(registro[4]) * float(registro[5])
                 subtotal += total
                 totalRound = round(total, 2)
-                var.ui.tabViajes.setItem(index, 5, QtWidgets.QTableWidgetItem('%.2f' % (float(totalRound))))
+                var.ui.tabViajes.setItem(index, 5, QtWidgets.QTableWidgetItem('%.2f' % totalRound))
                 var.ui.tabViajes.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabViajes.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
                 var.ui.tabViajes.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -180,9 +191,9 @@ class Facturas:
 
                 index += 1
 
-            var.ui.txtSubTotal.setText(str(subtotal))
+            var.ui.txtSubTotal.setText('%.2f' % (float(subtotal)) + ' €')
             var.ui.txtIva.setText('21%')
-            var.ui.txtTotal.setText(str(round((subtotal*1.21), 2)))
+            var.ui.txtTotal.setText('%.2f' % (float(subtotal * 1.21)) + ' €')
 
         except Exception as error:
             print('error cargar dato en tabla viajes', error)
@@ -245,5 +256,16 @@ class Facturas:
 
         except Exception as error:
             print('error en getProvByMuni ', error)
+
+    @staticmethod
+    def datosViaje():
+        try:
+            tarifa = Facturas.comprobarTarifa()
+            registro = [var.ui.lblCodFac.text(), var.ui.cmbLocOrigen.currentText(), var.ui.cmbLocDestino.currentText()
+                        , var.ui.txtkm.text(), tarifa]
+
+            return registro
+        except Exception as error:
+            print('error en datosViaje()', error)
 
 
