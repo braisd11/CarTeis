@@ -14,11 +14,13 @@ import locale
 
 locale.setlocale(locale.LC_MONETARY, 'es_ES.UTF-8')
 
+
 class Eventos():
 
-
-
     def showSalir(self):
+        """
+        Muestra la ventana de salir
+        """
         try:
 
             var.exitWindow.show()
@@ -26,8 +28,10 @@ class Eventos():
         except Exception as error:
             print("error en modulo eventos", error)
 
-
     def confirmarSalir(self):
+        """
+        Cierra el programa al pulsar el botón de aceptar salir
+        """
         try:
 
             sys.exit()
@@ -36,6 +40,9 @@ class Eventos():
             print("error en modulo eventos", error)
 
     def cancelarSalir(self):
+        """
+        Cierra la ventana de salir
+        """
         try:
 
             var.exitWindow.hide()
@@ -45,6 +52,9 @@ class Eventos():
 
     @staticmethod
     def showModificarBaja():
+        """
+        Enseñna el dialog para escoger una fecha para modificar la baja
+        """
         try:
 
             var.dlgModificarBajaWindow.show()
@@ -54,6 +64,9 @@ class Eventos():
 
     @staticmethod
     def confirmarModificar():
+        """
+        Confirmas la nueva fecha de baja
+        """
         try:
 
             var.calendarbaja.show()
@@ -63,6 +76,9 @@ class Eventos():
 
     @staticmethod
     def cancelarModificar():
+        """
+        Cancelas la nueva fecha de baja
+        """
         try:
 
             mbox = QtWidgets.QMessageBox()
@@ -78,7 +94,9 @@ class Eventos():
 
     @staticmethod
     def acercade():
-
+        """
+        Muestra el dialog de Acerca de
+        """
         try:
 
             var.aboutWindow.show()
@@ -89,7 +107,9 @@ class Eventos():
 
     @staticmethod
     def abrirCalendar():
-
+        """
+        Abre el calendario
+        """
         try:
 
             var.calendar.show()
@@ -100,7 +120,9 @@ class Eventos():
 
     @staticmethod
     def abrirCalendarBaja():
-
+        """
+        Abre el calendario de baja
+        """
         try:
 
             var.calendarbaja.show()
@@ -110,6 +132,9 @@ class Eventos():
             print("error en abrir calendar", error)
 
     def cargastatusbar(self):
+        """
+        carga la status bar
+        """
         try:
             '''
 
@@ -129,6 +154,9 @@ class Eventos():
 
     @staticmethod
     def cargaprov():
+        """
+        Carga el combobox de provincias
+        """
         try:
             prov = ['A Coruña', 'Lugo', 'Ferrol', 'Vigo', 'Santiago de Compostela', 'Ourense', 'Pontevedra']
             var.ui.cmbProv.clear()
@@ -142,6 +170,9 @@ class Eventos():
 
     @staticmethod
     def resizeTabdrivers():
+        """
+        Arregla el tamaño de la tabla de Drivers
+        """
         try:
             header = var.ui.tabDrivers.horizontalHeader()
             for i in range(var.ui.tabDrivers.columnCount()):
@@ -154,6 +185,9 @@ class Eventos():
 
     @staticmethod
     def resizeTabclientes():
+        """
+        Arregla el tamaño de la tabla de clientes
+        """
         try:
             header = var.ui.tabClientes.horizontalHeader()
             for i in range(var.ui.tabClientes.columnCount()):
@@ -166,6 +200,9 @@ class Eventos():
 
     @staticmethod
     def letraCapital():
+        """
+        Ajusta el formato de los txt
+        """
         try:
             var.ui.txtApel.setText(var.ui.txtApel.text().title())
             var.ui.txtNombre.setText(var.ui.txtNombre.text().title())
@@ -178,6 +215,9 @@ class Eventos():
 
     @staticmethod
     def compruebaFormatoSalario():
+        """
+        Arregla el formato del salario
+        """
         try:
 
             salario = var.ui.txtSalario.text()
@@ -202,6 +242,39 @@ class Eventos():
             msg.exec()
             var.ui.txtSalario.setText("")
             var.ui.txtSalario.setFocus()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @staticmethod
     def compruebaMovil():
@@ -445,6 +518,9 @@ class Eventos():
 
     @staticmethod
     def importardatosxlscli():
+        """
+
+        """
         try:
             filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
 
@@ -484,6 +560,9 @@ class Eventos():
 
     @staticmethod
     def resizeTabfacturas():
+        """
+        Arregla el tamaño de las facturas
+        """
         try:
             header = var.ui.tabFacturas.horizontalHeader()
             for i in range(var.ui.tabFacturas.columnCount()):
@@ -496,6 +575,9 @@ class Eventos():
 
     @staticmethod
     def resizeTabviaje():
+        """
+        Arregla el tamaño del panel de viajes
+        """
         try:
             header = var.ui.tabViajes.horizontalHeader()
             for i in range(var.ui.tabViajes.columnCount()):
@@ -508,6 +590,15 @@ class Eventos():
 
     @staticmethod
     def comprobarAltaFac(dni):
+        """
+
+        :param dni: recibe un dni
+        :type dni: String
+        :return: Si falta algún dato o no por cubrir y si está dado de baja algún cliente o no
+        :rtype: Boolean
+
+        Realiza las comprobaciones para saber si se puede dar de alta una factura
+        """
         try:
             if (var.ui.txtDataFac.text().strip() == "" or dni.strip() == ""
                     or var.ui.cmbConductor.currentText() == ""):
@@ -538,6 +629,12 @@ class Eventos():
 
     @staticmethod
     def existeDni(dni):
+        """
+        :param dni: Recibe un dni
+        :type dni: String
+        :return: Si existe el cliente o no
+        :rtype: Boolean
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare('select codcli from clientes where dnicli = :dni')
@@ -556,6 +653,9 @@ class Eventos():
 
     @staticmethod
     def limpiartodo():
+        """
+        Limpia todos los paneles
+        """
         try:
             drivers.Drivers.limpiarPanel()
             clientes.Clientes.limpiarPanel()

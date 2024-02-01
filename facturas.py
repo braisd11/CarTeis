@@ -12,6 +12,9 @@ import var
 class Facturas:
 
     def cargarFecha(qDate):
+        """
+        Método para el calendario
+        """
         try:
             data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
             var.ui.txtDataFac.setText(str(data))
@@ -22,7 +25,9 @@ class Facturas:
 
     @staticmethod
     def abrirCalendar():
-
+        """
+        Abre el calendario
+        """
         try:
 
             var.calendarfac.show()
@@ -35,6 +40,9 @@ class Facturas:
 
     @staticmethod
     def limpiarPanel():
+        """
+        Limpia el panel de facturas
+        """
         try:
             listaWidgets = [var.ui.lblCodFac, var.ui.txtcifcli, var.ui.txtDataFac, var.ui.txtkm]
             for i in listaWidgets:
@@ -53,6 +61,9 @@ class Facturas:
 
     @staticmethod
     def guardarFac():
+        """
+        Guarda una factura
+        """
         try:
             conductor = var.ui.cmbConductor.currentText()
             dni = var.ui.txtcifcli.text()
@@ -80,6 +91,9 @@ class Facturas:
 
     @staticmethod
     def cargarfacturas():
+        """
+        Carga los datos en el panel de una factura
+        """
         try:
             Facturas.limpiarPanel()
 
@@ -106,6 +120,11 @@ class Facturas:
 
     @staticmethod
     def cargartablafac(registros):
+        """
+
+        :param registros: datos de facturas
+        :type registros: list
+        """
         try:
             index = 0
             for registro in registros:
@@ -121,6 +140,9 @@ class Facturas:
 
     @staticmethod
     def guardarviaje():
+        """
+        Llama al método guardarViajeBD() de la clase Conexion y guarda un registro en la base de datos
+        """
         try:
             if var.ui.cmbLocOrigen.currentText().strip() == "" or var.ui.cmbLocDestino.currentText().strip() == "" or var.ui.txtkm.text().strip() == "" or var.ui.lblCodFac.text().strip() == "":
                 mbox = QtWidgets.QMessageBox()
@@ -141,6 +163,9 @@ class Facturas:
 
     @staticmethod
     def cargartarifa():
+        """
+        Selecciona un radio button según los combo box de las provincias y localidades
+        """
         try:
             if var.ui.cmbLocOrigen.currentText() != "" and var.ui.cmbLocDestino.currentText() != "":
                 if var.ui.cmbLocDestino.currentText() == var.ui.cmbLocOrigen.currentText():
@@ -161,6 +186,9 @@ class Facturas:
 
     @staticmethod
     def cargarviajes():
+        """
+        Carga los viajes en la tabla viajes
+        """
         try:
             registros = conexion.Conexion.seleccionarviajes()
 
@@ -200,6 +228,11 @@ class Facturas:
 
     @staticmethod
     def comprobarTarifa():
+        """
+
+        :return: tarifa del viaje
+        :rtype: float
+        """
         try:
             if var.ui.rbtNacional.isChecked():
                 tarifa = 0.8
@@ -214,6 +247,9 @@ class Facturas:
 
     @staticmethod
     def cargarViajesDatos():
+        """
+        Carga en el panel los datos del viaje
+        """
         try:
 
             row = var.ui.tabViajes.selectedItems()
@@ -240,6 +276,11 @@ class Facturas:
             print("error ao cargar viaxe seleccionado ", error)
 
     def getProvByMuni(muni: str):
+        """
+
+        :return: provincia
+        :rtype: String
+        """
         try:
 
             query = QtSql.QSqlQuery()
@@ -259,6 +300,11 @@ class Facturas:
 
     @staticmethod
     def datosViaje():
+        """
+
+        :return: registro de datos de un viaje
+        :rtype: list
+        """
         try:
             tarifa = Facturas.comprobarTarifa()
             registro = [var.ui.lblCodFac.text(), var.ui.cmbLocOrigen.currentText(), var.ui.cmbLocDestino.currentText()
