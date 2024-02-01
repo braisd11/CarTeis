@@ -302,6 +302,12 @@ class Conexion():
             print('error en fichero conexion dato de 1 driver', error)
 
     def onecli(id):
+        """
+        :return: List con los datos de un cliente
+        :rtype: List
+
+        Recibe un id y recoge los datos de un cliente con ese id
+        """
         try:
             registro = []
             query = QtSql.QSqlQuery()
@@ -334,6 +340,12 @@ class Conexion():
             print('error en fichero conexion dato de 1 factura', error)
 
     def buscacli(dni):
+        """
+        :return: Los datos de un cliente
+        :rtype: List
+
+        Busca un cliente en la base de datos
+        """
         try:
             registro = None
             query = QtSql.QSqlQuery()
@@ -531,8 +543,10 @@ class Conexion():
         except Exception as error:
             print("error en borradriv en conexion", error)
 
-
     def borracli(dni):
+        """
+        Da de baja a u cliente
+        """
         try:
             query1 = QtSql.QSqlQuery()
             query1.prepare('select bajacli from clientes where '

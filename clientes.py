@@ -8,6 +8,16 @@ class Clientes():
 
     @staticmethod
     def validarDNIcli(dni):
+        """
+
+        :param dni: dni de un cliente/driver
+        :type dni: String
+        :return: si el dni es válido o no
+        :rtype: boolean
+
+        Método que comprueba si un dni cumple con las condiciones o no
+
+        """
         try:
             dni = dni.upper()
             var.ui.txtDNIcli.setText(dni)
@@ -41,6 +51,9 @@ class Clientes():
 
     @staticmethod
     def limpiarPanel():
+        """
+        Limpia el panel de Clientes
+        """
         try:
             listaWidgets = [var.ui.lblCodBDcli, var.ui.txtDNIcli, var.ui.txtNombrecli, var.ui.txtDircli,
                             var.ui.txtMovilcli]
@@ -55,6 +68,9 @@ class Clientes():
 
     @staticmethod
     def cargarclientes():
+        """
+        Llama a onecli de la clase Conexion y carga los datos de un cliente en el panel
+        """
         try:
             Clientes.limpiarPanel()
 
@@ -75,9 +91,10 @@ class Clientes():
         except Exception as error:
             print('error al cargar cliente', error)
 
-
-
     def cargartablacli(registros):
+        """
+        Carga la tabla de los clientes
+        """
         try:
             index = 0
             for registro in registros:
@@ -101,6 +118,9 @@ class Clientes():
 
     @staticmethod
     def altacli():
+        """
+        Recoge los datos del cliente, comprueba la fecha de baja, valida el dni y lo guarda
+        """
         try:
             dni = var.ui.txtDNIcli.text()
             codigo = var.ui.lblCodBDcli.text()
@@ -157,6 +177,9 @@ class Clientes():
 
     @staticmethod
     def buscarcli():
+        """
+        Busca un cliente
+        """
         try:
             dni = var.ui.txtDNIcli.text()
             registro = conexion.Conexion.buscacli(dni)
@@ -170,6 +193,9 @@ class Clientes():
             print('error al buscar cliente', error)
 
     def buscarentabla(registro):
+        """
+        Selecciona un cliente en la tabla
+        """
         try:
             codigo = registro[0]
 
@@ -183,6 +209,9 @@ class Clientes():
 
     @staticmethod
     def borrarcli():
+        """
+        Llama a borracli() de la clase Conexion
+        """
         try:
             dni = var.ui.txtDNIcli.text()
             conexion.Conexion.borracli(dni)
@@ -198,6 +227,9 @@ class Clientes():
 
     @staticmethod
     def modifcli():
+        """
+        Modifica los datos de un cliente
+        """
         try:
             dni = var.ui.txtDNIcli.text()
 
@@ -233,6 +265,11 @@ class Clientes():
             print("error en modif cliente en Clientes", error)
 
     def comprobarfechabajacli(codigo):
+        """
+        Comprueba si el cliente ya está dado de baja
+        :return: Si está dado de baja o no
+        :rtype: Boolean
+        """
         try:
             baja = True
             query = QtSql.QSqlQuery()
@@ -248,10 +285,11 @@ class Clientes():
         except Exception as error:
             print('error al comprobar fecha baja cliente', error)
 
-
     @staticmethod
     def selEstadocli():
-
+        """
+        Selecciona en la tabla a los clientes segun el combobox
+        """
         if var.ui.chkTodoscli.isChecked():
             estado = 1
             conexion.Conexion.selectClientes(estado)
@@ -262,6 +300,14 @@ class Clientes():
 
     @staticmethod
     def comprobarbajacli(dni):
+        """
+        :param dni: dni de un cliente
+        :type dni: String
+        :return: Si está dado de baja o no
+        :rtype: Boolean
+
+        Comprueba si un cliente está dado de baja o no
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("select bajacli from clientes where dnicli = :dni")
