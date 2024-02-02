@@ -7,6 +7,9 @@ import var
 class Drivers:
     @staticmethod
     def validarDNI(dni):
+        """
+        Valida un número de DNI español.
+        """
         try:
             dni = dni.upper()
             var.ui.txtDNI.setText(dni)
@@ -15,9 +18,9 @@ class Drivers:
             reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
             numeros = "1234567890"
 
-            if len(dni) == 9:  # compruebo que son 9
-                dig_control = dni[8]  # tomo la letra del dni
-                dni = dni[:8]  # tomo los numeros del dni
+            if len(dni) == 9:
+                dig_control = dni[8]
+                dni = dni[:8]
                 if dni[0] in dig_ext:
                     dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
                 if len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni) % 23] == dig_control:
@@ -39,6 +42,9 @@ class Drivers:
             print("error en validar dni ", error)
 
     def cargarFecha(qDate):
+        """
+        Carga la fecha seleccionada en el calendario en la interfaz.
+        """
         try:
             data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
             var.ui.txtDataDriver.setText(str(data))
@@ -48,6 +54,9 @@ class Drivers:
             print("error en cargar fecha en drivers", error)
 
     def cargarFechaBaja(qDate):
+        """
+        Carga la fecha seleccionada en el calendario de baja en la interfaz.
+        """
         try:
             data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
             codigo = var.ui.lblCodBD.text()
@@ -60,10 +69,12 @@ class Drivers:
 
     @staticmethod
     def limpiarPanel():
+        """
+        Limpia los campos en la interfaz.
+        """
         try:
             listaWidgets = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtApel, var.ui.txtNombre,
-                            var.ui.txtDirDriver,
-                            var.ui.txtMovilDriver, var.ui.txtSalario, var.ui.lblValidarDNI]
+                            var.ui.txtDirDriver, var.ui.txtMovilDriver, var.ui.txtSalario, var.ui.lblValidarDNI]
             for i in listaWidgets:
                 i.clear()
 
@@ -78,12 +89,14 @@ class Drivers:
 
     @staticmethod
     def altaDriver():
+        """
+        Registra un nuevo conductor en la base de datos.
+        """
         try:
             dni = var.ui.txtDNI.text()
             codigo = var.ui.lblCodBD.text()
 
             if codigo != "":
-
                 if Drivers.comprobarfechabaja(codigo):
                     if Drivers.validarDNI(dni):
                         conexion.Conexion.borrarfechabaja(codigo)
@@ -126,7 +139,6 @@ class Drivers:
                     newdriver.append('/'.join(licencias))
 
                     conexion.Conexion.guardardri(newdriver)
-
                 else:
                     mbox = QtWidgets.QMessageBox()
                     mbox.setWindowTitle('Aviso')
@@ -145,7 +157,9 @@ class Drivers:
 
     @staticmethod
     def selEstado():
-
+        """
+        Selecciona y carga los conductores según su estado (Todos, Alta, Baja) en la interfaz.
+        """
         if var.ui.rbtTodos.isChecked():
             estado = 0
             conexion.Conexion.selectDrivers(estado)
@@ -159,6 +173,9 @@ class Drivers:
             conexion.Conexion.selectDrivers(estado)
 
     def cargartabladri(registros):
+        """
+        Carga los registros de conductores en la tabla de la interfaz.
+        """
         try:
             index = 0
             for registro in registros:
@@ -180,6 +197,9 @@ class Drivers:
 
     @staticmethod
     def cargardrivers():
+        """
+        Carga los datos del conductor seleccionado en la interfaz.
+        """
         try:
             Drivers.limpiarPanel()
 
@@ -212,6 +232,9 @@ class Drivers:
 
     @staticmethod
     def buscadriver():
+        """
+        Busca un conductor por DNI y lo carga en la tabla y la interfaz.
+        """
         try:
             dni = var.ui.txtDNI.text()
             registro = conexion.Conexion.codDri(dni)
@@ -225,6 +248,9 @@ class Drivers:
             print('error al buscar driver', error)
 
     def cargardatos(registro):
+        """
+        Carga los datos de un conductor en la interfaz.
+        """
         try:
             datos = [var.ui.lblCodBD, var.ui.txtDNI, var.ui.txtDataDriver, var.ui.txtNombre,
                      var.ui.txtApel, var.ui.txtDirDriver, var.ui.cmbProv, var.ui.cmbMuni,
@@ -249,6 +275,9 @@ class Drivers:
 
     @staticmethod
     def modifDri():
+        """
+        Modifica los datos de un conductor en la base de datos.
+        """
         try:
             dni = var.ui.txtDNI.text()
 
@@ -294,6 +323,9 @@ class Drivers:
             print("error en modif driver en Drivers", error)
 
     def buscarentabla(registro):
+        """
+        Busca y selecciona un conductor en la tabla de la interfaz.
+        """
         try:
             codigo = registro[0]
             for i in range(var.ui.tabDrivers.rowCount()):
@@ -306,11 +338,13 @@ class Drivers:
 
     @staticmethod
     def borrarDriv():
+        """
+        Borra un conductor de la base de datos.
+        """
         try:
             dni = var.ui.txtDNI.text()
             conexion.Conexion.borraDriv(dni)
             Drivers.selEstado()
-
             conexion.Conexion.cargadriverfac()
 
         except Exception as error:
@@ -321,6 +355,9 @@ class Drivers:
             mbox.exec()
 
     def comprobarfechabaja(codigo):
+        """
+        Comprueba si un conductor tiene una fecha de baja registrada.
+        """
         try:
             baja = True
             query = QtSql.QSqlQuery()
@@ -337,8 +374,10 @@ class Drivers:
             print('error al comprobar fecha baja', error)
 
     def modificarfechabaja(codigo, fecha):
+        """
+        Modifica la fecha de baja de un conductor en la base de datos.
+        """
         try:
-
             query = QtSql.QSqlQuery()
             query.prepare("update drivers set bajadri = :fecha where codigo = :codigo")
 

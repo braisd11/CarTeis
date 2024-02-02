@@ -53,7 +53,7 @@ class Eventos():
     @staticmethod
     def showModificarBaja():
         """
-        Enseñna el dialog para escoger una fecha para modificar la baja
+        Enseña el dialog para escoger una fecha para modificar la baja
         """
         try:
 
@@ -133,7 +133,7 @@ class Eventos():
 
     def cargastatusbar(self):
         """
-        carga la status bar
+        Carga la status bar
         """
         try:
             '''
@@ -171,7 +171,7 @@ class Eventos():
     @staticmethod
     def resizeTabdrivers():
         """
-        Arregla el tamaño de la tabla de Drivers
+        Ajusta el tamaño de la tabla de Drivers
         """
         try:
             header = var.ui.tabDrivers.horizontalHeader()
@@ -186,7 +186,7 @@ class Eventos():
     @staticmethod
     def resizeTabclientes():
         """
-        Arregla el tamaño de la tabla de clientes
+        Ajusta el tamaño de la tabla de clientes
         """
         try:
             header = var.ui.tabClientes.horizontalHeader()
@@ -216,7 +216,7 @@ class Eventos():
     @staticmethod
     def compruebaFormatoSalario():
         """
-        Arregla el formato del salario
+        Ajusta el formato del salario
         """
         try:
 
@@ -278,10 +278,12 @@ class Eventos():
 
     @staticmethod
     def compruebaMovil():
+        """
+        Comprueba que el teléfono sean 9 dígitos
+        """
         try:
             movil = var.ui.txtMovilDriver.text()
             var.ui.txtMovilDriver.setText(movil)
-
 
             if not (len(movil) == 9 and movil.isdigit()):
 
@@ -302,6 +304,9 @@ class Eventos():
 
     @staticmethod
     def compruebaMovilcli():
+        """
+        Comprueba que el teléfono del cliente sean 9 dígitos
+        """
         try:
             movil = var.ui.txtMovilcli.text()
             var.ui.txtMovilcli.setText(movil)
@@ -324,6 +329,9 @@ class Eventos():
 
     @staticmethod
     def crearbackup():
+        """
+        Crea un backup de la base de datos
+        """
         try:
             fecha = datetime.today()
 
@@ -355,6 +363,9 @@ class Eventos():
 
     @staticmethod
     def restaurarbackup():
+        """
+        Restaura un backup de la base de datos
+        """
         try:
 
             filename = var.dlgabrir.getOpenFileName(None, 'Restaurar Copia de Seguridad',
@@ -386,6 +397,9 @@ class Eventos():
 
     @staticmethod
     def exportardatosxlsdriv():
+        """
+        Exporta los drivers en formato xls
+        """
         try:
             fecha = datetime.today()
 
@@ -435,6 +449,9 @@ class Eventos():
 
     @staticmethod
     def importardatosxlsdriv():
+        """
+        Importa los Drivers en formato xls
+        """
         try:
             filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
 
@@ -474,6 +491,9 @@ class Eventos():
 
     @staticmethod
     def exportardatosxlscli():
+        """
+        Exporta los clientes en formato xls
+        """
         try:
             fecha = datetime.today()
 
@@ -519,7 +539,7 @@ class Eventos():
     @staticmethod
     def importardatosxlscli():
         """
-
+        Importa los Clietnes en formato xls
         """
         try:
             filename, _ = var.dlgabrir.getOpenFileName(None, "Importar Datos ", "", "*.xls;;All Files(*)")
@@ -561,7 +581,7 @@ class Eventos():
     @staticmethod
     def resizeTabfacturas():
         """
-        Arregla el tamaño de las facturas
+        Ajusta el tamaño de las facturas
         """
         try:
             header = var.ui.tabFacturas.horizontalHeader()
@@ -576,7 +596,7 @@ class Eventos():
     @staticmethod
     def resizeTabviaje():
         """
-        Arregla el tamaño del panel de viajes
+        Ajusta el tamaño del panel de viajes
         """
         try:
             header = var.ui.tabViajes.horizontalHeader()
@@ -634,6 +654,7 @@ class Eventos():
         :type dni: String
         :return: Si existe el cliente o no
         :rtype: Boolean
+        Comprueba si un cliente existe en la base de datos o no
         """
         try:
             query = QtSql.QSqlQuery()
