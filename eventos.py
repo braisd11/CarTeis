@@ -650,11 +650,11 @@ class Eventos():
     @staticmethod
     def existeDni(dni):
         """
+        Comprueba si un cliente existe en la base de datos o no
         :param dni: Recibe un dni
         :type dni: String
         :return: Si existe el cliente o no
         :rtype: Boolean
-        Comprueba si un cliente existe en la base de datos o no
         """
         try:
             query = QtSql.QSqlQuery()

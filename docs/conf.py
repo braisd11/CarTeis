@@ -8,10 +8,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('E:\Repos\DiazRodriguez'))
-
-
-
+sys.path.insert(0, os.path.abspath('E:\\Repos\\DiazRodriguez'))
 project = 'a22braisdr2324'
 copyright = '2024, Brais Díaz Rodríguez'
 author = 'Brais Díaz Rodríguez'
@@ -27,7 +24,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.githubpages']
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'es'
 source_patterns = '.rst'

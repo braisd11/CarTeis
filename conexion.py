@@ -12,10 +12,9 @@ class Conexion():
     @staticmethod
     def conexion():
         """
-
+        Conecta la base de datos
         :return: True si se conectó a la base ded atos y False si no
         :rtype: Boolean
-        Conecta la base de datos
         """
         var.bbdd = 'bbdd.sqlite'
         db = QtSql.QSqlDatabase.addDatabase('QSQLITE')

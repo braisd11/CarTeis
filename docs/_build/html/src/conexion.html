@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>conexion module &#8212; documentación de a22braisdr2324 - v.0.0.1</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
+    
+    <script src="../_static/documentation_options.js?v=8ee129b9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=efdbd0b9"></script>
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de a22braisdr2324 - v.0.0.1</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">conexion module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-conexion">
+<span id="conexion-module"></span><h1>conexion module<a class="headerlink" href="#module-conexion" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="conexion.Conexion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conexion.</span></span><span class="sig-name descname"><span class="pre">Conexion</span></span><a class="reference internal" href="../_modules/conexion.html#Conexion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.altaFacturacion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">altaFacturacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">registro</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.altaFacturacion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.altaFacturacion" title="Link to this definition">¶</a></dt>
+<dd><p>Registra una nueva factura en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.borraDriv">
+<span class="sig-name descname"><span class="pre">borraDriv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.borraDriv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.borraDriv" title="Link to this definition">¶</a></dt>
+<dd><p>Da de baja a un conductor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.borracli">
+<span class="sig-name descname"><span class="pre">borracli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.borracli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.borracli" title="Link to this definition">¶</a></dt>
+<dd><p>Da de baja a un cliente.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.borrarfechabaja">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">borrarfechabaja</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.borrarfechabaja"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.borrarfechabaja" title="Link to this definition">¶</a></dt>
+<dd><p>Borra la fecha de baja de un conductor en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.borrarfechabajacli">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">borrarfechabajacli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.borrarfechabajacli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.borrarfechabajacli" title="Link to this definition">¶</a></dt>
+<dd><p>Borra la fecha de baja de un cliente en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.borrarviaje">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">borrarviaje</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.borrarviaje"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.borrarviaje" title="Link to this definition">¶</a></dt>
+<dd><p>Borra un viaje de la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.buscacli">
+<span class="sig-name descname"><span class="pre">buscacli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.buscacli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.buscacli" title="Link to this definition">¶</a></dt>
+<dd><p>Busca un cliente en la base de datos y retorna sus datos en una lista.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.cargadriverfac">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cargadriverfac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.cargadriverfac"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.cargadriverfac" title="Link to this definition">¶</a></dt>
+<dd><p>Carga la lista de conductores disponibles en la interfaz de facturación.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.cargaprov">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cargaprov</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.cargaprov"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.cargaprov" title="Link to this definition">¶</a></dt>
+<dd><p>Carga el combo box de las provincias</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.cargaprovcli">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cargaprovcli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.cargaprovcli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.cargaprovcli" title="Link to this definition">¶</a></dt>
+<dd><p>Carga las provincias en el combo box de provincias para clientes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.codDri">
+<span class="sig-name descname"><span class="pre">codDri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.codDri"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.codDri" title="Link to this definition">¶</a></dt>
+<dd><p>Busca el código de un conductor por su DNI y retorna sus datos en una lista.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.comprobarModifCli">
+<span class="sig-name descname"><span class="pre">comprobarModifCli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.comprobarModifCli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.comprobarModifCli" title="Link to this definition">¶</a></dt>
+<dd><p>Comprueba la modificación de los datos de un cliente y realiza la acción correspondiente.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.comprobarModifDriver">
+<span class="sig-name descname"><span class="pre">comprobarModifDriver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.comprobarModifDriver"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.comprobarModifDriver" title="Link to this definition">¶</a></dt>
+<dd><p>Comprueba la modificación de los datos de un conductor y realiza la acción correspondiente.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.conexion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conexion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.conexion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.conexion" title="Link to this definition">¶</a></dt>
+<dd><p>Conecta la base de datos
+:return: True si se conectó a la base ded atos y False si no
+:rtype: Boolean</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.getApel">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getApel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.getApel"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.getApel" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene el apellido de un conductor según su código.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.guardarcli">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guardarcli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newcliente</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.guardarcli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.guardarcli" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda un nuevo registro de cliente en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.guardardri">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guardardri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newdriver</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.guardardri"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.guardardri" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda un nuevo registro de conductor en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.guardarimport">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guardarimport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.guardarimport"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.guardarimport" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda la información de un nuevo conductor importado en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.guardarimportcli">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guardarimportcli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.guardarimportcli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.guardarimportcli" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda la información de un nuevo cliente importado en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.guardarviajeBD">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guardarviajeBD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">registro</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.guardarviajeBD"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.guardarviajeBD" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda la información de un nuevo viaje en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.modifCliente">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modifCliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifcliente</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.modifCliente"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.modifCliente" title="Link to this definition">¶</a></dt>
+<dd><p>Modifica los datos de un cliente en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.modifDriver">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modifDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifdriver</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.modifDriver"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.modifDriver" title="Link to this definition">¶</a></dt>
+<dd><p>Modifica los datos de un conductor en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.modifViaje">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modifViaje</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.modifViaje"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.modifViaje" title="Link to this definition">¶</a></dt>
+<dd><p>Modifica un viaje en la base de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.mostrarclientes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mostrarclientes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.mostrarclientes"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.mostrarclientes" title="Link to this definition">¶</a></dt>
+<dd><p>Muestra los clientes en la tabla.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.mostrardrivers">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mostrardrivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.mostrardrivers"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.mostrardrivers" title="Link to this definition">¶</a></dt>
+<dd><p>Muestra los conductores en la tabla.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.onecli">
+<span class="sig-name descname"><span class="pre">onecli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.onecli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.onecli" title="Link to this definition">¶</a></dt>
+<dd><p>Retorna una lista con los datos de un cliente específico.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.onedriver">
+<span class="sig-name descname"><span class="pre">onedriver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.onedriver"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.onedriver" title="Link to this definition">¶</a></dt>
+<dd><p>Retorna una lista con los datos de un conductor específico.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.onefac">
+<span class="sig-name descname"><span class="pre">onefac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.onefac"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.onefac" title="Link to this definition">¶</a></dt>
+<dd><p>Retorna una lista con los datos de una factura específica.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.oneviaje">
+<span class="sig-name descname"><span class="pre">oneviaje</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.oneviaje"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.oneviaje" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene la información de un viaje específico según su identificador.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selMuni">
+<span class="sig-name descname"><span class="pre">selMuni</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selMuni"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selMuni" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona y carga los municipios en el combo box de municipios
+basado en la provincia seleccionada para empleados.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selMuniDest">
+<span class="sig-name descname"><span class="pre">selMuniDest</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selMuniDest"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selMuniDest" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona y carga los municipios en el combo box de municipios
+basado en la provincia seleccionada para el destino.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selMuniOri">
+<span class="sig-name descname"><span class="pre">selMuniOri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selMuniOri"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selMuniOri" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona y carga los municipios en el combo box de municipios
+basado en la provincia seleccionada para el origen.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selMunicli">
+<span class="sig-name descname"><span class="pre">selMunicli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selMunicli"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selMunicli" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona y carga los municipios en el combo box de municipios
+basado en la provincia seleccionada para clientes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.seleccionarviajes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">seleccionarviajes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.seleccionarviajes"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.seleccionarviajes" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona los viajes asociados a una factura específica.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selectClientes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selectClientes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estado</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selectClientes"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selectClientes" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona los clientes según el estado y carga la tabla de clientes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selectDrivers">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selectDrivers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estado</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selectDrivers"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selectDrivers" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona los conductores según el estado y carga la tabla de conductores.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selectFac">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selectFac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selectFac"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selectFac" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona todas las facturas y carga la tabla de facturas.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selectclientestodos">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selectclientestodos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selectclientestodos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selectclientestodos" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona todos los clientes y retorna una lista con sus datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexion.Conexion.selectdriverstodos">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selectdriverstodos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/conexion.html#Conexion.selectdriverstodos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexion.Conexion.selectdriverstodos" title="Link to this definition">¶</a></dt>
+<dd><p>Selecciona todos los conductores y retorna una lista con sus datos.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Tabla de contenido</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">conexion module</a><ul>
+<li><a class="reference internal" href="#conexion.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a><ul>
+<li><a class="reference internal" href="#conexion.Conexion.altaFacturacion"><code class="docutils literal notranslate"><span class="pre">Conexion.altaFacturacion()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.borraDriv"><code class="docutils literal notranslate"><span class="pre">Conexion.borraDriv()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.borracli"><code class="docutils literal notranslate"><span class="pre">Conexion.borracli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.borrarfechabaja"><code class="docutils literal notranslate"><span class="pre">Conexion.borrarfechabaja()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.borrarfechabajacli"><code class="docutils literal notranslate"><span class="pre">Conexion.borrarfechabajacli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.borrarviaje"><code class="docutils literal notranslate"><span class="pre">Conexion.borrarviaje()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.buscacli"><code class="docutils literal notranslate"><span class="pre">Conexion.buscacli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.cargadriverfac"><code class="docutils literal notranslate"><span class="pre">Conexion.cargadriverfac()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.cargaprov"><code class="docutils literal notranslate"><span class="pre">Conexion.cargaprov()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.cargaprovcli"><code class="docutils literal notranslate"><span class="pre">Conexion.cargaprovcli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.codDri"><code class="docutils literal notranslate"><span class="pre">Conexion.codDri()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.comprobarModifCli"><code class="docutils literal notranslate"><span class="pre">Conexion.comprobarModifCli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.comprobarModifDriver"><code class="docutils literal notranslate"><span class="pre">Conexion.comprobarModifDriver()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.conexion"><code class="docutils literal notranslate"><span class="pre">Conexion.conexion()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.getApel"><code class="docutils literal notranslate"><span class="pre">Conexion.getApel()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.guardarcli"><code class="docutils literal notranslate"><span class="pre">Conexion.guardarcli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.guardardri"><code class="docutils literal notranslate"><span class="pre">Conexion.guardardri()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.guardarimport"><code class="docutils literal notranslate"><span class="pre">Conexion.guardarimport()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.guardarimportcli"><code class="docutils literal notranslate"><span class="pre">Conexion.guardarimportcli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.guardarviajeBD"><code class="docutils literal notranslate"><span class="pre">Conexion.guardarviajeBD()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.modifCliente"><code class="docutils literal notranslate"><span class="pre">Conexion.modifCliente()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.modifDriver"><code class="docutils literal notranslate"><span class="pre">Conexion.modifDriver()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.modifViaje"><code class="docutils literal notranslate"><span class="pre">Conexion.modifViaje()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.mostrarclientes"><code class="docutils literal notranslate"><span class="pre">Conexion.mostrarclientes()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.mostrardrivers"><code class="docutils literal notranslate"><span class="pre">Conexion.mostrardrivers()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.onecli"><code class="docutils literal notranslate"><span class="pre">Conexion.onecli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.onedriver"><code class="docutils literal notranslate"><span class="pre">Conexion.onedriver()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.onefac"><code class="docutils literal notranslate"><span class="pre">Conexion.onefac()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.oneviaje"><code class="docutils literal notranslate"><span class="pre">Conexion.oneviaje()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selMuni"><code class="docutils literal notranslate"><span class="pre">Conexion.selMuni()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selMuniDest"><code class="docutils literal notranslate"><span class="pre">Conexion.selMuniDest()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selMuniOri"><code class="docutils literal notranslate"><span class="pre">Conexion.selMuniOri()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selMunicli"><code class="docutils literal notranslate"><span class="pre">Conexion.selMunicli()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.seleccionarviajes"><code class="docutils literal notranslate"><span class="pre">Conexion.seleccionarviajes()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selectClientes"><code class="docutils literal notranslate"><span class="pre">Conexion.selectClientes()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selectDrivers"><code class="docutils literal notranslate"><span class="pre">Conexion.selectDrivers()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selectFac"><code class="docutils literal notranslate"><span class="pre">Conexion.selectFac()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selectclientestodos"><code class="docutils literal notranslate"><span class="pre">Conexion.selectclientestodos()</span></code></a></li>
+<li><a class="reference internal" href="#conexion.Conexion.selectdriverstodos"><code class="docutils literal notranslate"><span class="pre">Conexion.selectdriverstodos()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/src/conexion.rst.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de a22braisdr2324 - v.0.0.1</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">conexion module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Brais Díaz Rodríguez.
+      Creado usando <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>
