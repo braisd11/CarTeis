@@ -1099,3 +1099,23 @@ class Conexion():
 
         except Exception as error:
             print('Error al borrar viaje ', error)
+
+
+    @staticmethod
+    def buscarFac():
+        try:
+            registro = []
+            query = QtSql.QSqlQuery()
+            query.prepare('select numfac, dnicli from facturas where dnicli = :dni')
+
+            query.bindValue(':dni', str(var.ui.txtcifcli.text()))
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    registro.append(row)
+
+            facturas.Facturas.cargartablafac(registro)
+
+        except Exception as error:
+            print('Error al buscar la factura de un cliente', error)

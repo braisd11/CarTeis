@@ -54,7 +54,7 @@ class Facturas:
             var.ui.cmbProvOrigen.setCurrentText('')
             var.ui.cmbProvDestino.setCurrentText('')
 
-
+            conexion.Conexion.selectFac()
 
         except Exception as error:
             print("error al limpiar panel", error)
@@ -95,7 +95,7 @@ class Facturas:
         Carga los datos en el panel de una factura
         """
         try:
-            Facturas.limpiarPanel()
+            #Facturas.limpiarPanel()
 
             row = var.ui.tabFacturas.selectedItems()
 
