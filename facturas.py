@@ -54,6 +54,10 @@ class Facturas:
             var.ui.cmbProvOrigen.setCurrentText('')
             var.ui.cmbProvDestino.setCurrentText('')
 
+            var.ui.txtSubTotal.setText('')
+            var.ui.txtIva.setText('21%')
+            var.ui.txtTotal.setText('')
+
             conexion.Conexion.selectFac()
 
         except Exception as error:
@@ -194,6 +198,7 @@ class Facturas:
 
             index = 0
             subtotal = 0
+            var.ui.tabViajes.clearContents()
             for registro in registros:
                 var.ui.tabViajes.setRowCount(index + 1)
                 var.ui.tabViajes.setItem(index, 0, QtWidgets.QTableWidgetItem(str(registro[0])))

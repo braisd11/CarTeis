@@ -210,10 +210,10 @@ class Informes:
             # Configuración de la fuente y posición de la información del cliente en el informe
             var.report.setFont('Helvetica', size=9)
             var.report.drawString(300, 770, 'CIF: ' + var.ui.txtcifcli.text())
-            var.report.drawString(300, 755, 'Razón Social: ')
-            var.report.drawString(300, 740, 'Dirección: ')
-            var.report.drawString(300, 725, 'Provincia: ')
-            var.report.drawString(300, 710, 'Teléfono: ')
+            var.report.drawString(300, 755, 'Razón Social: Kontroller')
+            var.report.drawString(300, 740, 'Dirección: Pza. Fuensanta 40 6ºa')
+            var.report.drawString(300, 725, 'Provincia: Alicante')
+            var.report.drawString(300, 710, 'Teléfono:  688957121')
 
         except Exception as error:
             print('Error en cabecera informe:', error)
@@ -254,7 +254,7 @@ class Informes:
                 # Crea un objeto de tipo canvas para el informe
                 var.report = canvas.Canvas('informesViajes/' + nombre)
                 # Define el título del informe
-                titulo = 'LISTADO Viajes'
+                titulo = 'LISTADO VIAJES'
                 # Genera la cabecera y pie de página del informe
                 Informes.topInforme(titulo)
                 Informes.topInformeViajes()

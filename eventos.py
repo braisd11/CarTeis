@@ -386,6 +386,9 @@ class Eventos():
                 msg.exec()
 
                 conexion.Conexion.mostrardrivers()
+                conexion.Conexion.mostrarclientes()
+                conexion.Conexion.selectFac()
+                conexion.Conexion.cargadriverfac()
 
         except Exception as error:
 
