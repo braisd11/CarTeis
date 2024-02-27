@@ -16,7 +16,7 @@ class Conexion():
         :return: True si se conectó a la base ded atos y False si no
         :rtype: Boolean
         """
-        var.bbdd = 'bbdd.sqlite'
+        var.bbdd = 'bbdd(la que tiene datos).sqlite'
         db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
         db.setDatabaseName(var.bbdd)
 
@@ -1056,8 +1056,7 @@ class Conexion():
                 fila = [dato.text() for dato in row]
                 idViaje = fila[0]
                 datosModificados = facturas.Facturas.datosViaje()
-                print(fila)
-                print(datosModificados)
+
                 if (str(fila[1]) == str(datosModificados[1]) and str(fila[2]) == str(datosModificados[2]) and
                         str(fila[3]) == str(datosModificados[3]) and str(fila[4]) == str(datosModificados[4])):
                     mbox = QtWidgets.QMessageBox()

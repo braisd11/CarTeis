@@ -224,9 +224,9 @@ class Facturas:
 
                 index += 1
 
-            var.ui.txtSubTotal.setText('%.2f' % (float(subtotal)) + ' €')
-            var.ui.txtIva.setText('21%')
-            var.ui.txtTotal.setText('%.2f' % (float(subtotal * 1.21)) + ' €')
+            var.ui.txtSubTotal.setText('%.2f' % (float(subtotal)) + ' € ')
+            var.ui.txtIva.setText('21% ')
+            var.ui.txtTotal.setText('%.2f' % (float(subtotal * 1.21)) + ' € ')
 
         except Exception as error:
             print('error cargar dato en tabla viajes', error)
