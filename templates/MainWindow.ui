@@ -2536,6 +2536,25 @@ QComboBox{
            <string>Facturar</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="btn_borrarFactura">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>120</y>
+            <width>91</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Borrar Factura</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QFrame" name="frame_9">
          <property name="geometry">

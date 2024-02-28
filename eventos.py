@@ -81,11 +81,7 @@ class Eventos():
         """
         try:
 
-            mbox = QtWidgets.QMessageBox()
-            mbox.setWindowTitle('Aviso')
-            mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-            mbox.setText("Datos conductor modificados")
-            mbox.exec()
+            Eventos.sacarMbox("Datos conductor modificados")
             var.dlgModificarBajaWindow.hide()
 
 
@@ -231,49 +227,9 @@ class Eventos():
                 raise Exception()
 
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-            msg.setText('Valor de Salario Incorrecto (00000.00)')
-            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
-            msg.exec()
+            Eventos.sacarMbox('Valor de Salario Incorrecto (00000.00)')
             var.ui.txtSalario.setText("")
             var.ui.txtSalario.setFocus()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @staticmethod
@@ -290,15 +246,7 @@ class Eventos():
                 raise Exception()
 
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-            msg.setText('Valor de Móvil Incorrecto (9 dígitos)')
-            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
-            msg.exec()
+            Eventos.sacarMbox('Valor de Móvil Incorrecto (9 dígitos)')
             var.ui.txtMovilDriver.setText("")
             var.ui.txtMovilDriver.setFocus()
 
@@ -315,15 +263,8 @@ class Eventos():
                 raise Exception()
 
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-            msg.setText('Valor de Móvil Incorrecto (9 dígitos)')
-            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-            msg.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.setWindowIcon(QtGui.QIcon('./img/driver.ico'))
-            msg.exec()
+
+            Eventos.sacarMbox('Valor de Móvil Incorrecto (9 dígitos)')
             var.ui.txtMovilcli.setText("")
             var.ui.txtMovilcli.setFocus()
 
@@ -346,20 +287,11 @@ class Eventos():
                 fichzip.close()
                 shutil.move(str(copia), str(directorio))
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Copia de Seguridad creada.')
-                msg.exec()
+                Eventos.sacarMbox('Copia de Seguridad creada.')
 
         except Exception as error:
 
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error en Copia de Seguridad')
-            msg.exec()
-            print("error al crear backup", error)
+            Eventos.sacarMbox('Error en Copia de Seguridad')
 
     @staticmethod
     def restaurarbackup():
@@ -379,11 +311,7 @@ class Eventos():
                     bbdd.extractall(pwd=None)
                 bbdd.close()
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Copia de Seguridad restaurada')
-                msg.exec()
+                Eventos.sacarMbox('Copia de Seguridad restaurada')
 
                 conexion.Conexion.mostrardrivers()
                 conexion.Conexion.mostrarclientes()
@@ -391,12 +319,7 @@ class Eventos():
                 conexion.Conexion.cargadriverfac()
 
         except Exception as error:
-
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error al Restaurar Copia de Seguridad', error)
-            msg.exec()
+            Eventos.sacarMbox('Error al Restaurar Copia de Seguridad', str(error))
 
     @staticmethod
     def exportardatosxlsdriv():
@@ -437,18 +360,10 @@ class Eventos():
 
                 wb.save(directorio)
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Datos xls exportados!')
-                msg.exec()
+                Eventos.sacarMbox('Datos xls exportados!')
 
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error al Exportar datos', error)
-            msg.exec()
+            Eventos.sacarMbox('Error al Exportar datos', str(error))
 
     @staticmethod
     def importardatosxlsdriv():
@@ -472,25 +387,13 @@ class Eventos():
                             new.append(str(datos.cell_value(i, j)))
                         conexion.Conexion.guardarimport(new)
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Datos importados')
-                msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-                msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-                msg.exec()
+                Eventos.sacarMbox('Datos importados')
+
                 var.ui.txtDNI.clear()
                 var.ui.lblValidarDNI.clear()
                 conexion.Conexion.mostrardrivers()
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
-            msg.setText('Error al importarDatos' + str(error))
-            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-            msg.exec()
+            Eventos.sacarMbox('Error al importarDatos' + str(error))
 
     @staticmethod
     def exportardatosxlscli():
@@ -526,18 +429,9 @@ class Eventos():
 
                 wb.save(directorio)
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Datos xls exportados!')
-                msg.exec()
-
+                Eventos.sacarMbox('Datos xls exportados!')
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setText('Error al Exportar datos', error)
-            msg.exec()
+            Eventos.sacarMbox('Error al Exportar datos', str(error))
 
     @staticmethod
     def importardatosxlscli():
@@ -561,25 +455,12 @@ class Eventos():
                             new.append(str(datos.cell_value(i, j)))
                         conexion.Conexion.guardarimportcli(new)
 
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                msg.setText('Datos importados')
-                msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-                msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-                msg.exec()
+                Eventos.sacarMbox('Datos importados')
                 var.ui.txtDNIcli.clear()
                 var.ui.lblValidarDNIcli.clear()
                 conexion.Conexion.mostrarclientes()
         except Exception as error:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Aviso')
-            msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            msg.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
-            msg.setText('Error al importarDatos' + str(error))
-            msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
-            msg.button(QtWidgets.QMessageBox.StandardButton.Ok).setText('Aceptar')
-            msg.exec()
+            Eventos.sacarMbox('Error al importarDatos' + str(error))
 
     @staticmethod
     def resizeTabfacturas():
@@ -625,21 +506,13 @@ class Eventos():
         try:
             if (var.ui.txtDataFac.text().strip() == "" or dni.strip() == ""
                     or var.ui.cmbConductor.currentText() == ""):
-                msg = QtWidgets.QMessageBox()
-                msg.setWindowTitle('Aviso')
-                msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                msg.setText('Faltan datos por cubrir')
-                msg.exec()
+                Eventos.sacarMbox('Faltan datos por cubrir')
 
                 return False        # Devuelve False si falta algún dato por cubrir
 
             else:
                 if clientes.Clientes.comprobarbajacli(dni):
-                    msg = QtWidgets.QMessageBox()
-                    msg.setWindowTitle('Aviso')
-                    msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    msg.setText('El cliente no puede estar dado de baja')
-                    msg.exec()
+                    Eventos.sacarMbox('El cliente no puede estar dado de baja')
 
                     return False    # Devuelve False si el cliente está dado de baja
 
@@ -688,3 +561,35 @@ class Eventos():
         except Exception as error:
             print('error al limpiar todo', error)
 
+
+    def pedirConfirmacion(text: str):
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle('¿Confirmar?')
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
+            mbox.setText(text)
+            mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
+                               "QLabel {color: rgb(0, 0, 0);} ")
+            mbox.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Si')
+            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('No')
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Yes)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
+                return True
+            else:
+                return False
+        except Exception as error:
+            print('Error al pedir confirmacion', error)
+
+    def sacarMbox(text: str):
+        mbox = QtWidgets.QMessageBox()
+        mbox.setWindowTitle("Aviso")
+        mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
+                           "QLabel {color: rgb(0, 0, 0);} ")
+        mbox.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
+        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+        mbox.setText(text)
+        mbox.exec()

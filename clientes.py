@@ -1,6 +1,7 @@
 from PyQt6 import QtWidgets, QtCore, QtSql
 
 import conexion
+import eventos
 import var
 
 
@@ -132,17 +133,9 @@ class Clientes():
                         conexion.Conexion.borrarfechabajacli(codigo)
                         Clientes.selEstadocli()
                     else:
-                        mbox = QtWidgets.QMessageBox()
-                        mbox.setWindowTitle('Aviso')
-                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                        mbox.setText("DNI no válido")
-                        mbox.exec()
+                        eventos.Eventos.sacarMbox("DNI no válido")
                 else:
-                    mbox = QtWidgets.QMessageBox()
-                    mbox.setWindowTitle('Aviso')
-                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    mbox.setText("No puedes dar de alta a un empleado dado de alta")
-                    mbox.exec()
+                    eventos.Eventos.sacarMbox("No puedes dar de alta a un empleado dado de alta")
 
             else:
 
@@ -162,11 +155,7 @@ class Clientes():
 
                     conexion.Conexion.guardarcli(newcliente)
                 else:
-                    mbox = QtWidgets.QMessageBox()
-                    mbox.setWindowTitle('Aviso')
-                    mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    mbox.setText("DNI no válido")
-                    mbox.exec()
+                    eventos.Eventos.sacarMbox("DNI no válido")
                     var.ui.lblValidarDNIcli.setText('X')
                     var.ui.lblValidarDNIcli.setStyleSheet('color:red;')
                     var.ui.txtDNIcli.clear()
@@ -218,11 +207,7 @@ class Clientes():
             Clientes.selEstadocli()
 
         except Exception as error:
-            mbox = QtWidgets.QMessageBox()
-            mbox.setWindowTitle('Aviso')
-            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            mbox.setText("El cliente no existe o no se puede borrar")
-            mbox.exec()
+            eventos.Eventos.sacarMbox("El cliente no existe o no se puede borrar")
 
 
     @staticmethod
@@ -251,11 +236,7 @@ class Clientes():
                 conexion.Conexion.modifCliente(modifcliente)
 
             else:
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle('Aviso')
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("DNI no válido")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("DNI no válido")
                 var.ui.lblValidarDNIcli.setText('X')
                 var.ui.lblValidarDNIcli.setStyleSheet('color:red;')
                 var.ui.txtDNIcli.clear()

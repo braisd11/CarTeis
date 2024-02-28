@@ -82,11 +82,7 @@ class Facturas:
                     conexion.Conexion.selectFac()
 
                 else:
-                    msg = QtWidgets.QMessageBox()
-                    msg.setWindowTitle('Aviso')
-                    msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                    msg.setText('El DNI no existe')
-                    msg.exec()
+                    eventos.Eventos.sacarMbox("El dni no existe")
 
             eventos.Eventos.limpiartodo()
 
@@ -130,6 +126,7 @@ class Facturas:
         :type registros: list
         """
         try:
+            var.ui.tabFacturas.setRowCount(0)
             index = 0
             for registro in registros:
                 var.ui.tabFacturas.setRowCount(index + 1)
@@ -149,11 +146,7 @@ class Facturas:
         """
         try:
             if var.ui.cmbLocOrigen.currentText().strip() == "" or var.ui.cmbLocDestino.currentText().strip() == "" or var.ui.txtkm.text().strip() == "" or var.ui.lblCodFac.text().strip() == "":
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("Faltan datos por rellenar")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("Faltan datos por rellenar")
 
             else:
                 tarifa = Facturas.comprobarTarifa()
@@ -194,6 +187,7 @@ class Facturas:
         Carga los viajes en la tabla viajes
         """
         try:
+            var.ui.tabViajes.setRowCount(0)
             registros = conexion.Conexion.seleccionarviajes()
 
             index = 0
@@ -318,5 +312,29 @@ class Facturas:
             return registro
         except Exception as error:
             print('error en datosViaje()', error)
+
+    @staticmethod
+    def borrarFactura():
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare('delete from facturas where numfac = :idfac')
+            query.bindValue(':idfac', int(var.ui.lblCodFac.text()))
+
+            if eventos.Eventos.pedirConfirmacion("¿Quieres eliminar la factura?"):
+
+                if query.exec():
+                    query.next()
+
+                    eventos.Eventos.sacarMbox("Factura eliminada")
+                else:
+                    eventos.Eventos.sacarMbox("Error al eliminar la factura")
+                    print(query.lastError().text())
+
+            conexion.Conexion.selectFac()
+            eventos.Eventos.limpiartodo()
+            var.ui.tabViajes.setRowCount(0)
+
+        except Exception as error:
+            print('Error al borrar factura')
 
 

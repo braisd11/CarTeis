@@ -683,6 +683,7 @@ class Conexion():
         Selecciona todas las facturas y carga la tabla de facturas.
         """
         try:
+
             registro = []
 
             consulta = "select * from facturas"
@@ -749,11 +750,7 @@ class Conexion():
             query.bindValue(':codigo', str(codigo))
 
             if query.exec():
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle('Aviso')
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("Driver dado de alta")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("Driver dado de alta")
 
         except Exception as error:
             print('error al borrar fecha baja', error)
@@ -770,11 +767,7 @@ class Conexion():
             query.bindValue(':codigo', str(codigo))
 
             if query.exec():
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle('Aviso')
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("Cliente dado de alta")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("Cliente dado de alta")
 
         except Exception as error:
             print('error al borrar fecha baja cliente', error)
@@ -871,17 +864,9 @@ class Conexion():
             query.bindValue(":codDri", str(registro[2]))
 
             if query.exec():
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("Factura creada correctamente.")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("Factura creada correctamente")
             else:
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("La factura no se pudo crear.")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("La Factura no se pudo crear")
 
         except Exception as error:
             print("Error en alta facturacion", error)
@@ -941,18 +926,10 @@ class Conexion():
             query.bindValue(':km', str(registro[4]))
 
             if query.exec():
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("Viaje guardado con éxito")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("Viaje guardado con éxito")
                 facturas.Facturas.cargarviajes()
             else:
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("El viaje no se pudo guardar correctamente")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("El viaje no se pudo guardar correctamente")
 
         except Exception as error:
             print('error al guardar viaje en la base de datos')
@@ -1006,18 +983,8 @@ class Conexion():
         Borra un viaje de la base de datos.
         """
         try:
-            mbox = QtWidgets.QMessageBox()
-            mbox.setStyleSheet("QDialog{background-color: #84b6f4;} "
-                               "QLabel {color: rgb(0, 0, 0);} ")
-            mbox.setWindowTitle("Borrar")
-            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-            mbox.setText("¿Desea Borrar el viaje?")
 
-            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
-
-            resultado = mbox.exec()
-
-            if resultado == QtWidgets.QMessageBox.StandardButton.Yes:
+            if eventos.Eventos.pedirConfirmacion("¿Desea Borrar el viaje?"):
                 row = var.ui.tabViajes.selectedItems()
 
                 query = QtSql.QSqlQuery()
@@ -1029,8 +996,6 @@ class Conexion():
                     query.next()
 
                 facturas.Facturas.cargarviajes()
-            elif resultado == QtWidgets.QMessageBox.StandardButton.No:
-                mbox.close()
 
         except Exception as error:
             print('error al borrar viaje', error)
@@ -1041,17 +1006,8 @@ class Conexion():
         Modifica un viaje en la base de datos.
         """
         try:
-            mbox = QtWidgets.QMessageBox()
-            mbox.setWindowTitle('Confirmar Modificado')
-            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
-            mbox.setText('¿Desea modificar el viaje con los datos actuales?')
-            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
-            mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText('Si')
-            mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText('No')
-            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Yes)
-            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
 
-            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
+            if eventos.Eventos.pedirConfirmacion('¿Desea modificar el viaje con los datos actuales?'):
                 row = var.ui.tabViajes.selectedItems()
                 fila = [dato.text() for dato in row]
                 idViaje = fila[0]
@@ -1076,25 +1032,13 @@ class Conexion():
                     query.bindValue(':idViaje', int(idViaje))
 
                     if query.exec():
-                        mbox = QtWidgets.QMessageBox()
-                        mbox.setWindowTitle("Aviso")
-                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                        mbox.setText("Viaje modificado correctamente.")
-                        mbox.exec()
+                        eventos.Eventos.sacarMbox("Viaje modificado correctamente")
                         facturas.Facturas.cargarviajes()
                     else:
-                        mbox = QtWidgets.QMessageBox()
-                        mbox.setWindowTitle("Aviso")
-                        mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                        mbox.setText("El viaje no se pudo modificar.")
-                        mbox.exec()
+                        eventos.Eventos.sacarMbox("El viaje no se pudo modificar")
                         print(query.lastError().text())
             else:
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Aviso")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-                mbox.setText("El viaje no se modificó.")
-                mbox.exec()
+                eventos.Eventos.sacarMbox("El viaje no se modificó")
 
         except Exception as error:
             print('Error al borrar viaje ', error)
